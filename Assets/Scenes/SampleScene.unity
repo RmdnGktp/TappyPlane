@@ -151,7 +151,7 @@ MonoBehaviour:
   rocks:
   - {fileID: 5741287546206535088, guid: 7c90f96617870134a9b0c0e3d82aee49, type: 3}
   - {fileID: 6714094358677231137, guid: 7120960cb29ee924b9e5194739c80d92, type: 3}
-  - {fileID: 7594264310125958694, guid: 76e1838cf52cca046b028f37a64488e5, type: 3}
+  - {fileID: 1996595615072557400, guid: 71485f000a5679b408aa2c9b2e1e7e16, type: 3}
   spawnRate: 3.5
   maxHeight: 5
   minHeight: 2.25
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000eb17d34197a9fcfebb48d35f
+  m_ApplyToSortingLayers: 00000000eb17d34197a9fcfebb48d35fdf505cd8
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1196,6 +1196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaneScript
   flapStrength: 3
   rotationStrength: 10
+  fuelConsumeSpeed: 5
 --- !u!1 &1160173103
 GameObject:
   m_ObjectHideFlags: 0

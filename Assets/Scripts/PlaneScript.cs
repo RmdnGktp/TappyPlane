@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +8,7 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] float flapStrength = 3f;
     [SerializeField] float rotationStrength = 10f;
     float fuel = 100;
-    [SerializeField] float fuelConsumeSpeed = 1f;
+    [SerializeField] float fuelConsumeSpeed = 10f;
 
     void Start()
     {
@@ -33,7 +34,29 @@ public class PlaneScript : MonoBehaviour
           rb.linearVelocity =  Vector2.up * flapStrength;
         }
     }
-    
+
+    public void addFuel (float value)
+    {
+        fuel += value;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {   
+
+        if (other.CompareTag ("Fuel"))
+        {
+            addFuel(25);
+            Destroy(other.gameObject);
+        }
+
+        else if (other.CompareTag ("Enemy"))
+        {
+            addFuel(-10);
+            Destroy(other.gameObject);
+        }
+        
+    }
+
 
 
 }

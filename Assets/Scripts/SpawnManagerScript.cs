@@ -12,6 +12,7 @@ public class SpawnManagerScript : MonoBehaviour
     {
         InvokeRepeating ("spawnTopRock", 0f, spawnRate);
         InvokeRepeating ("spawBottomRock", 2f, spawnRate);
+        InvokeRepeating ("spawnFuel", 3f, Random.Range(3f,6f));
     }
 
     void spawnTopRock ()
@@ -29,7 +30,8 @@ public class SpawnManagerScript : MonoBehaviour
 
     void spawnFuel ()
     {
-        
+        float Height = Random.Range(-1f,1f);
+        Instantiate(rocks[2], new Vector3(transform.position.x, 0, transform.position.z), transform.rotation, gameObject.transform);
     }
 
     [ContextMenu ("cancelSpawn")]

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Fuel
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - Plane
   - Rock
   - Ground
-  - 
-  - 
+  - Fuel
+  - Enemy
   - 
   - 
   - 
@@ -46,6 +48,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 4277971351
+    locked: 0
+  - name: Fuel
+    uniqueID: 3629928671
     locked: 0
   - name: Player
     uniqueID: 1104353259
