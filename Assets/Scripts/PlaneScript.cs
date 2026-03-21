@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,7 +6,9 @@ public class PlaneScript : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] float flapStrength = 3f;
-    [SerializeField] float rotationStrength = 5f;
+    [SerializeField] float rotationStrength = 10f;
+    float fuel = 100;
+    [SerializeField] float fuelConsumeSpeed = 10f;
 
     void Start()
     {
@@ -19,6 +22,9 @@ public class PlaneScript : MonoBehaviour
         angle = Mathf.Clamp(angle, -30f, 30f);
         float t = Time.deltaTime * 10f;
         rb.rotation = Mathf.SmoothStep(rb.rotation, angle, t);
+        fuel -= Time.deltaTime * fuelConsumeSpeed;
+        fuel = Mathf.Clamp (fuel, 0f,100f);
+        Debug.Log(fuel);
     }
 
     void OnTap (InputValue value)
@@ -28,7 +34,29 @@ public class PlaneScript : MonoBehaviour
           rb.linearVelocity =  Vector2.up * flapStrength;
         }
     }
-    
+
+    public void addFuel (float value)
+    {
+        fuel += value;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {   
+
+        if (other.CompareTag ("Fuel"))
+        {
+            addFuel(25);
+            Destroy(other.gameObject);
+        }
+
+        else if (other.CompareTag ("Enemy"))
+        {
+            addFuel(-10);
+            Destroy(other.gameObject);
+        }
+        
+    }
+
 
 
 }
