@@ -1,0 +1,2283 @@
+fileFormatVersion: 2
+guid: 46ba973a7ce31e240844ea8afaa5f15a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7042213970722816719
+    second: tappyPlane_vector_100_0
+  - first:
+      213: -4658835024485196934
+    second: tappyPlane_vector_100_1
+  - first:
+      213: -8691531417441602840
+    second: tappyPlane_vector_100_2
+  - first:
+      213: 2140271827657602895
+    second: tappyPlane_vector_100_3
+  - first:
+      213: -1242599834855483379
+    second: tappyPlane_vector_100_4
+  - first:
+      213: -528070208894019187
+    second: tappyPlane_vector_100_5
+  - first:
+      213: -358816116661872317
+    second: tappyPlane_vector_100_6
+  - first:
+      213: -1891321212732834292
+    second: tappyPlane_vector_100_7
+  - first:
+      213: 4515958691258112814
+    second: tappyPlane_vector_100_8
+  - first:
+      213: -5064973950217185245
+    second: tappyPlane_vector_100_9
+  - first:
+      213: -4784732257549634709
+    second: tappyPlane_vector_100_10
+  - first:
+      213: 2311581142476067684
+    second: tappyPlane_vector_100_11
+  - first:
+      213: -6737550361459752998
+    second: tappyPlane_vector_100_12
+  - first:
+      213: 3333852047761955963
+    second: tappyPlane_vector_100_13
+  - first:
+      213: 5156604586279614424
+    second: tappyPlane_vector_100_14
+  - first:
+      213: 8201146478972176464
+    second: tappyPlane_vector_100_15
+  - first:
+      213: -2896724219152530744
+    second: tappyPlane_vector_100_16
+  - first:
+      213: -4661527244727133018
+    second: tappyPlane_vector_100_17
+  - first:
+      213: -4328782376484843855
+    second: tappyPlane_vector_100_18
+  - first:
+      213: 8639440288574260521
+    second: tappyPlane_vector_100_19
+  - first:
+      213: -8724815045327171810
+    second: tappyPlane_vector_100_20
+  - first:
+      213: 6160986791126049258
+    second: tappyPlane_vector_100_21
+  - first:
+      213: -2982679088343455801
+    second: tappyPlane_vector_100_22
+  - first:
+      213: 7501725045464652237
+    second: tappyPlane_vector_100_23
+  - first:
+      213: -959091851945572802
+    second: tappyPlane_vector_100_24
+  - first:
+      213: 1435011775430125370
+    second: tappyPlane_vector_100_25
+  - first:
+      213: -6815145868906977274
+    second: tappyPlane_vector_100_26
+  - first:
+      213: -6747853942644262202
+    second: tappyPlane_vector_100_27
+  - first:
+      213: -5674140713365087354
+    second: tappyPlane_vector_100_28
+  - first:
+      213: -2394471279809210052
+    second: tappyPlane_vector_100_29
+  - first:
+      213: 7416006990839090222
+    second: tappyPlane_vector_100_30
+  - first:
+      213: -2444195052590603152
+    second: tappyPlane_vector_100_31
+  - first:
+      213: 2217412666020011165
+    second: tappyPlane_vector_100_32
+  - first:
+      213: 299592133765531494
+    second: tappyPlane_vector_100_33
+  - first:
+      213: 7252681306818832161
+    second: tappyPlane_vector_100_34
+  - first:
+      213: 836180287383810869
+    second: tappyPlane_vector_100_35
+  - first:
+      213: -1054475397064428324
+    second: tappyPlane_vector_100_36
+  - first:
+      213: -5204774037698121321
+    second: tappyPlane_vector_100_37
+  - first:
+      213: -177750234693014664
+    second: tappyPlane_vector_100_38
+  - first:
+      213: -4579026378453358750
+    second: tappyPlane_vector_100_39
+  - first:
+      213: -7407233906108818751
+    second: tappyPlane_vector_100_40
+  - first:
+      213: -1772411376949724095
+    second: tappyPlane_vector_100_41
+  - first:
+      213: 2069674813999685722
+    second: tappyPlane_vector_100_42
+  - first:
+      213: -6710131059271295769
+    second: tappyPlane_vector_100_43
+  - first:
+      213: -9132549567028581227
+    second: tappyPlane_vector_100_44
+  - first:
+      213: 8617062634271132360
+    second: tappyPlane_vector_100_45
+  - first:
+      213: -5055747181030831749
+    second: tappyPlane_vector_100_46
+  - first:
+      213: 492889489021956528
+    second: tappyPlane_vector_100_47
+  - first:
+      213: -6621137224105550150
+    second: tappyPlane_vector_100_48
+  - first:
+      213: -7357334849048386902
+    second: tappyPlane_vector_100_49
+  - first:
+      213: -3898567773101751973
+    second: tappyPlane_vector_100_50
+  - first:
+      213: -1634268649366644194
+    second: tappyPlane_vector_100_51
+  - first:
+      213: -1686745326405729449
+    second: tappyPlane_vector_100_52
+  - first:
+      213: -8684790879965263441
+    second: tappyPlane_vector_100_53
+  - first:
+      213: -5918907157771573786
+    second: tappyPlane_vector_100_54
+  - first:
+      213: 5557445160105272723
+    second: tappyPlane_vector_100_55
+  - first:
+      213: 3075735117790698101
+    second: tappyPlane_vector_100_56
+  - first:
+      213: -6668515550251591989
+    second: tappyPlane_vector_100_57
+  - first:
+      213: 5783899647899776269
+    second: tappyPlane_vector_100_58
+  - first:
+      213: -8494837490235375646
+    second: tappyPlane_vector_100_59
+  - first:
+      213: 6904305747151551750
+    second: tappyPlane_vector_100_60
+  - first:
+      213: -6989192530775721297
+    second: tappyPlane_vector_100_61
+  - first:
+      213: -6225397618931523374
+    second: tappyPlane_vector_100_62
+  - first:
+      213: 2345866642145590744
+    second: tappyPlane_vector_100_63
+  - first:
+      213: 4674338226252670583
+    second: tappyPlane_vector_100_64
+  - first:
+      213: -3952204648543004433
+    second: tappyPlane_vector_100_65
+  - first:
+      213: -8070191055199363387
+    second: tappyPlane_vector_100_66
+  - first:
+      213: -7258657360691045077
+    second: tappyPlane_vector_100_67
+  - first:
+      213: -7569113432151592744
+    second: tappyPlane_vector_100_68
+  - first:
+      213: 4038032216527954539
+    second: tappyPlane_vector_100_69
+  - first:
+      213: -4926256528811342813
+    second: tappyPlane_vector_100_70
+  - first:
+      213: 2345448836445432618
+    second: tappyPlane_vector_100_71
+  - first:
+      213: -8150923969360739470
+    second: tappyPlane_vector_100_72
+  - first:
+      213: 6675492719152647356
+    second: tappyPlane_vector_100_73
+  - first:
+      213: -7841471634013409365
+    second: tappyPlane_vector_100_74
+  - first:
+      213: -1546125066848213039
+    second: tappyPlane_vector_100_75
+  - first:
+      213: 1669214859446276556
+    second: tappyPlane_vector_100_76
+  - first:
+      213: -602139786338036048
+    second: tappyPlane_vector_100_77
+  - first:
+      213: 7238167052007035790
+    second: tappyPlane_vector_100_78
+  - first:
+      213: -4558947896258598137
+    second: tappyPlane_vector_100_79
+  - first:
+      213: -5213861141642424405
+    second: tappyPlane_vector_100_80
+  - first:
+      213: 1459556210998595648
+    second: tappyPlane_vector_100_81
+  - first:
+      213: -6451473800091188789
+    second: tappyPlane_vector_100_82
+  - first:
+      213: 2786964904429595957
+    second: tappyPlane_vector_100_83
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3013
+        width: 112
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13df5c274b7054e90800000000000000
+      internalID: -7042213970722816719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_1
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 3016
+        width: 78
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b59629a3e785fb0800000000000000
+      internalID: -4658835024485196934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_2
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 3016
+        width: 108
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e2fe3db93a716780800000000000000
+      internalID: -8691531417441602840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_3
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 3013
+        width: 108
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f47be4a33e5c3bd10800000000000000
+      internalID: 2140271827657602895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_4
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 3016
+        width: 116
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d08da75a80661cee0800000000000000
+      internalID: -1242599834855483379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_5
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 3013
+        width: 106
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d89d76e51faeba8f0800000000000000
+      internalID: -528070208894019187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_6
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 3013
+        width: 112
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3491faa94aa350bf0800000000000000
+      internalID: -358816116661872317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_7
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 3016
+        width: 108
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0ef5eea06da0c5e0800000000000000
+      internalID: -1891321212732834292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_8
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 3013
+        width: 110
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2b17ccc088ebae30800000000000000
+      internalID: 4515958691258112814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_9
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 3016
+        width: 111
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32892b4170995b9b0800000000000000
+      internalID: -5064973950217185245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2840
+        width: 128
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b63b663cc57399db0800000000000000
+      internalID: -4784732257549634709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 2839
+        width: 105
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46317c24dc2641020800000000000000
+      internalID: 2311581142476067684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_12
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 2838
+        width: 110
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adff2e0b4a96f72a0800000000000000
+      internalID: -6737550361459752998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_13
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 2839
+        width: 114
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c5f8026c8344e20800000000000000
+      internalID: 3333852047761955963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_14
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 2840
+        width: 97
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d7b854ec80ff8740800000000000000
+      internalID: 5156604586279614424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_15
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 2840
+        width: 93
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0580516654350d170800000000000000
+      internalID: 8201146478972176464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_16
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 2838
+        width: 111
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c284219ba4ccc7d0800000000000000
+      internalID: -2896724219152530744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_17
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 2840
+        width: 109
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6acdb333badee4fb0800000000000000
+      internalID: -4661527244727133018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_18
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 2840
+        width: 46
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1be46ab0d531de3c0800000000000000
+      internalID: -4328782376484843855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_19
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 2839
+        width: 91
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925caa23b2575e770800000000000000
+      internalID: 8639440288574260521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_20
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 2840
+        width: 112
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1f4a4c31fa3be680800000000000000
+      internalID: -8724815045327171810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_21
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 2840
+        width: 93
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae121fe18d8308550800000000000000
+      internalID: 6160986791126049258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_22
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 2838
+        width: 140
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c76d4c0c256b96d0800000000000000
+      internalID: -2982679088343455801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_23
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 2825
+        width: 838
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc95299de2b7b1860800000000000000
+      internalID: 7501725045464652237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_25
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2684
+        width: 112
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a37e3035b9f2ae310800000000000000
+      internalID: 1435011775430125370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_26
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 2681
+        width: 127
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608245fb0fcbb61a0800000000000000
+      internalID: -6815145868906977274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_27
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 2683
+        width: 102
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca3870479eca52a0800000000000000
+      internalID: -6747853942644262202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_28
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 2654
+        width: 127
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68bda4685176141b0800000000000000
+      internalID: -5674140713365087354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_29
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 2683
+        width: 108
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c39d816be0125ced0800000000000000
+      internalID: -2394471279809210052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_30
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 2681
+        width: 99
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2c07c40113fae660800000000000000
+      internalID: 7416006990839090222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_31
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 2684
+        width: 109
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 074e190bc89741ed0800000000000000
+      internalID: -2444195052590603152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_32
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 2683
+        width: 108
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c13964215d5ce10800000000000000
+      internalID: 2217412666020011165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_33
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 2684
+        width: 129
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6678896557d582400800000000000000
+      internalID: 299592133765531494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_34
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 2684
+        width: 160
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1276d02e833b6a460800000000000000
+      internalID: 7252681306818832161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_35
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 2684
+        width: 121
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53332b58a85ba9b00800000000000000
+      internalID: 836180287383810869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_36
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 2684
+        width: 121
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd4f5959630cd51f0800000000000000
+      internalID: -1054475397064428324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_37
+      rect:
+        serializedVersion: 2
+        x: 1691
+        y: 2684
+        width: 105
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 791f3dab69de4c7b0800000000000000
+      internalID: -5204774037698121321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_38
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 2620
+        width: 861
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b61627a11888df0800000000000000
+      internalID: -177750234693014664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_40
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 2419
+        width: 186
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca9722f108343990800000000000000
+      internalID: -7407233906108818751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_41
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 2419
+        width: 186
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14cfc094e312767e0800000000000000
+      internalID: -1772411376949724095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_42
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 2419
+        width: 186
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5026091746f8bc10800000000000000
+      internalID: 2069674813999685722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_43
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 2422
+        width: 1688
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec91d77a53d0e2a0800000000000000
+      internalID: -6710131059271295769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_44
+      rect:
+        serializedVersion: 2
+        x: 2454
+        y: 2404
+        width: 287
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59c2d9b1e8aa24180800000000000000
+      internalID: -9132549567028581227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_45
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 2232
+        width: 185
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cac50b8fc4f59770800000000000000
+      internalID: 8617062634271132360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_46
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 2232
+        width: 186
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b798970b9b066d9b0800000000000000
+      internalID: -5055747181030831749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_47
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 2232
+        width: 186
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b17daaf06817d600800000000000000
+      internalID: 492889489021956528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_48
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 2255
+        width: 1688
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abe921466cefc14a0800000000000000
+      internalID: -6621137224105550150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_49
+      rect:
+        serializedVersion: 2
+        x: 2454
+        y: 2216
+        width: 412
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa26ed48fee75e990800000000000000
+      internalID: -7357334849048386902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_50
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 2044
+        width: 185
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b510c7f044185e9c0800000000000000
+      internalID: -3898567773101751973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_51
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 2044
+        width: 186
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a91f67259e159e0800000000000000
+      internalID: -1634268649366644194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_52
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 2044
+        width: 186
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7534909ff0a7798e0800000000000000
+      internalID: -1686745326405729449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_53
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 2089
+        width: 1688
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa94e1b65bc697780800000000000000
+      internalID: -8684790879965263441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_54
+      rect:
+        serializedVersion: 2
+        x: 2454
+        y: 1623
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e5228abc41dbdda0800000000000000
+      internalID: -5918907157771573786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_55
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1857
+        width: 185
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 395e9c2bde2002d40800000000000000
+      internalID: 5557445160105272723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_56
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 1857
+        width: 186
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57adb1f2bc43faa20800000000000000
+      internalID: 3075735117790698101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_57
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 1857
+        width: 186
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc6d518307ca473a0800000000000000
+      internalID: -6668515550251591989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_58
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 1922
+        width: 1688
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d05b299d51a844050800000000000000
+      internalID: 5783899647899776269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_59
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1754
+        width: 41
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef79d96f464c1a80800000000000000
+      internalID: -8494837490235375646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_60
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1776
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60df7a71f7501df50800000000000000
+      internalID: 6904305747151551750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_61
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1775
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faabc407c66610f90800000000000000
+      internalID: -6989192530775721297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_62
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 1735
+        width: 181
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0260269d1fa99a0800000000000000
+      internalID: -6225397618931523374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_63
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 1755
+        width: 1688
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ddb68738413e8020800000000000000
+      internalID: 2345866642145590744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_64
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1689
+        width: 84
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 776e1dfd9d59ed040800000000000000
+      internalID: 4674338226252670583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_65
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 1689
+        width: 83
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe852f3dfc2f629c0800000000000000
+      internalID: -3952204648543004433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_66
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 1631
+        width: 181
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ce9e453efbe00090800000000000000
+      internalID: -8070191055199363387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_67
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 1606
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2d5cb5a691144b90800000000000000
+      internalID: -7258657360691045077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_68
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 1606
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d077f3bf6b15f690800000000000000
+      internalID: -7569113432151592744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_69
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 1606
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b626bb118e8f90830800000000000000
+      internalID: 4038032216527954539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_70
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 1623
+        width: 55
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32440c799cb62abb0800000000000000
+      internalID: -4926256528811342813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_71
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 1610
+        width: 90
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2bee2f3a45bc8020800000000000000
+      internalID: 2345448836445432618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_72
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1074
+        width: 228
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2734907d5d912ee80800000000000000
+      internalID: -8150923969360739470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_73
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 1074
+        width: 228
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbcccc1824d14ac50800000000000000
+      internalID: 6675492719152647356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_74
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 1074
+        width: 229
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf2452481f7d2390800000000000000
+      internalID: -7841471634013409365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_75
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 1074
+        width: 229
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d76f24817f0b8ae0800000000000000
+      internalID: -1546125066848213039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_76
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 1074
+        width: 229
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc1591f121e3a2710800000000000000
+      internalID: 1669214859446276556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_77
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 1074
+        width: 228
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b6113afd05c4a7f0800000000000000
+      internalID: -602139786338036048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_78
+      rect:
+        serializedVersion: 2
+        x: 1636
+        y: 1074
+        width: 228
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e83d0d79592237460800000000000000
+      internalID: 7238167052007035790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_79
+      rect:
+        serializedVersion: 2
+        x: 1907
+        y: 1074
+        width: 228
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70bedfdea0d5bb0c0800000000000000
+      internalID: -4558947896258598137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_80
+      rect:
+        serializedVersion: 2
+        x: 2212
+        y: 1324
+        width: 240
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bafc0387ae4a4a7b0800000000000000
+      internalID: -5213861141642424405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_81
+      rect:
+        serializedVersion: 2
+        x: 2483
+        y: 1324
+        width: 240
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040594e04a2614410800000000000000
+      internalID: 1459556210998595648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_82
+      rect:
+        serializedVersion: 2
+        x: 2753
+        y: 1324
+        width: 240
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc143db92c2c776a0800000000000000
+      internalID: -6451473800091188789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tappyPlane_vector_100_83
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 1670
+        height: 1003
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53da10a80d94da620800000000000000
+      internalID: 2786964904429595957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 37540e0e7aa54304baa7e0ea2fc06fe8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tappyPlane_vector_100_0: -7042213970722816719
+      tappyPlane_vector_100_1: -4658835024485196934
+      tappyPlane_vector_100_10: -4784732257549634709
+      tappyPlane_vector_100_11: 2311581142476067684
+      tappyPlane_vector_100_12: -6737550361459752998
+      tappyPlane_vector_100_13: 3333852047761955963
+      tappyPlane_vector_100_14: 5156604586279614424
+      tappyPlane_vector_100_15: 8201146478972176464
+      tappyPlane_vector_100_16: -2896724219152530744
+      tappyPlane_vector_100_17: -4661527244727133018
+      tappyPlane_vector_100_18: -4328782376484843855
+      tappyPlane_vector_100_19: 8639440288574260521
+      tappyPlane_vector_100_2: -8691531417441602840
+      tappyPlane_vector_100_20: -8724815045327171810
+      tappyPlane_vector_100_21: 6160986791126049258
+      tappyPlane_vector_100_22: -2982679088343455801
+      tappyPlane_vector_100_23: 7501725045464652237
+      tappyPlane_vector_100_24: -959091851945572802
+      tappyPlane_vector_100_25: 1435011775430125370
+      tappyPlane_vector_100_26: -6815145868906977274
+      tappyPlane_vector_100_27: -6747853942644262202
+      tappyPlane_vector_100_28: -5674140713365087354
+      tappyPlane_vector_100_29: -2394471279809210052
+      tappyPlane_vector_100_3: 2140271827657602895
+      tappyPlane_vector_100_30: 7416006990839090222
+      tappyPlane_vector_100_31: -2444195052590603152
+      tappyPlane_vector_100_32: 2217412666020011165
+      tappyPlane_vector_100_33: 299592133765531494
+      tappyPlane_vector_100_34: 7252681306818832161
+      tappyPlane_vector_100_35: 836180287383810869
+      tappyPlane_vector_100_36: -1054475397064428324
+      tappyPlane_vector_100_37: -5204774037698121321
+      tappyPlane_vector_100_38: -177750234693014664
+      tappyPlane_vector_100_39: -4579026378453358750
+      tappyPlane_vector_100_4: -1242599834855483379
+      tappyPlane_vector_100_40: -7407233906108818751
+      tappyPlane_vector_100_41: -1772411376949724095
+      tappyPlane_vector_100_42: 2069674813999685722
+      tappyPlane_vector_100_43: -6710131059271295769
+      tappyPlane_vector_100_44: -9132549567028581227
+      tappyPlane_vector_100_45: 8617062634271132360
+      tappyPlane_vector_100_46: -5055747181030831749
+      tappyPlane_vector_100_47: 492889489021956528
+      tappyPlane_vector_100_48: -6621137224105550150
+      tappyPlane_vector_100_49: -7357334849048386902
+      tappyPlane_vector_100_5: -528070208894019187
+      tappyPlane_vector_100_50: -3898567773101751973
+      tappyPlane_vector_100_51: -1634268649366644194
+      tappyPlane_vector_100_52: -1686745326405729449
+      tappyPlane_vector_100_53: -8684790879965263441
+      tappyPlane_vector_100_54: -5918907157771573786
+      tappyPlane_vector_100_55: 5557445160105272723
+      tappyPlane_vector_100_56: 3075735117790698101
+      tappyPlane_vector_100_57: -6668515550251591989
+      tappyPlane_vector_100_58: 5783899647899776269
+      tappyPlane_vector_100_59: -8494837490235375646
+      tappyPlane_vector_100_6: -358816116661872317
+      tappyPlane_vector_100_60: 6904305747151551750
+      tappyPlane_vector_100_61: -6989192530775721297
+      tappyPlane_vector_100_62: -6225397618931523374
+      tappyPlane_vector_100_63: 2345866642145590744
+      tappyPlane_vector_100_64: 4674338226252670583
+      tappyPlane_vector_100_65: -3952204648543004433
+      tappyPlane_vector_100_66: -8070191055199363387
+      tappyPlane_vector_100_67: -7258657360691045077
+      tappyPlane_vector_100_68: -7569113432151592744
+      tappyPlane_vector_100_69: 4038032216527954539
+      tappyPlane_vector_100_7: -1891321212732834292
+      tappyPlane_vector_100_70: -4926256528811342813
+      tappyPlane_vector_100_71: 2345448836445432618
+      tappyPlane_vector_100_72: -8150923969360739470
+      tappyPlane_vector_100_73: 6675492719152647356
+      tappyPlane_vector_100_74: -7841471634013409365
+      tappyPlane_vector_100_75: -1546125066848213039
+      tappyPlane_vector_100_76: 1669214859446276556
+      tappyPlane_vector_100_77: -602139786338036048
+      tappyPlane_vector_100_78: 7238167052007035790
+      tappyPlane_vector_100_79: -4558947896258598137
+      tappyPlane_vector_100_8: 4515958691258112814
+      tappyPlane_vector_100_80: -5213861141642424405
+      tappyPlane_vector_100_81: 1459556210998595648
+      tappyPlane_vector_100_82: -6451473800091188789
+      tappyPlane_vector_100_83: 2786964904429595957
+      tappyPlane_vector_100_9: -5064973950217185245
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
