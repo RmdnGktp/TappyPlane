@@ -5,7 +5,7 @@ public class PlaneScript : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] float flapStrength = 3f;
-    [SerializeField] float rotationStrength = 5f;
+    [SerializeField] float rotationStrength = 10f;
 
     void Start()
     {
