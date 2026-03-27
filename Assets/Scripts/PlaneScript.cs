@@ -9,6 +9,8 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] float rotationStrength = 10f;
     float fuel = 100;
     [SerializeField] float fuelConsumeSpeed = 10f;
+    [SerializeField] float fuelToAdd = 30f;
+    [SerializeField] float fuelToRemove = 10f;
     [SerializeField] TextMeshProUGUI fuelText;
     [SerializeField] TextMeshProUGUI distanceText;
     float distance = 0f;
@@ -20,7 +22,7 @@ public class PlaneScript : MonoBehaviour
 
     
     void Update()
-    {
+    {   
         float angle = rb.linearVelocity.y * rotationStrength;
         angle = Mathf.Clamp(angle, -30f, 30f);
         float t = Time.deltaTime * 10f;
@@ -68,13 +70,13 @@ public class PlaneScript : MonoBehaviour
 
         if (other.CompareTag ("Fuel"))
         {
-            addFuel(25);
+            addFuel(fuelToAdd);
             Destroy(other.gameObject);
         }
 
         else if (other.CompareTag ("Enemy"))
         {
-            addFuel(-10);
+            addFuel(-fuelToRemove);
             Destroy(other.gameObject);
         }
         
