@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 48016202}
-  - component: {fileID: 48016201}
+  - component: {fileID: 48016203}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -136,25 +136,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &48016201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48016200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd93217fbca751c4081f911a9c6f2eb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RockSpawnerScript
-  rocks:
-  - {fileID: 5741287546206535088, guid: 7c90f96617870134a9b0c0e3d82aee49, type: 3}
-  - {fileID: 6714094358677231137, guid: 7120960cb29ee924b9e5194739c80d92, type: 3}
-  - {fileID: 1996595615072557400, guid: 71485f000a5679b408aa2c9b2e1e7e16, type: 3}
-  spawnRate: 3.5
-  maxHeight: 5
-  minHeight: 2.25
 --- !u!4 &48016202
 Transform:
   m_ObjectHideFlags: 0
@@ -170,6 +151,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &48016203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48016200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179d6451242070f4a94f44fcc93f59d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
+  objects:
+  - {fileID: 5741287546206535088, guid: 7c90f96617870134a9b0c0e3d82aee49, type: 3}
+  - {fileID: 6714094358677231137, guid: 7120960cb29ee924b9e5194739c80d92, type: 3}
+  - {fileID: 1996595615072557400, guid: 71485f000a5679b408aa2c9b2e1e7e16, type: 3}
+  - {fileID: 5719344765473883936, guid: 253e5cf4effb7bb4c99e59bb14581854, type: 3}
+  spawnDelay: 1.5
+  minY: -1.6
+  maxY: 1.6
+  minX: -1
+  maxX: 1
+  fuelMaxX: 2
+  fuelMinX: 1.5
+  fuelSpawnChange: 0.3
+  enemySpawnChange: 0.1
+  gapSizeEasy: 4.5
+  gapSizeMedium: 4.25
+  gapSizeHard: 4
 --- !u!1 &184752973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,6 +1860,8 @@ MonoBehaviour:
   flapStrength: 3
   rotationStrength: 10
   fuelConsumeSpeed: 5
+  fuelToAdd: 30
+  fuelToRemove: 10
   fuelText: {fileID: 449348091}
   distanceText: {fileID: 668849354}
 --- !u!1 &1160173103
