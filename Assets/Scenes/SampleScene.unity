@@ -168,18 +168,13 @@ MonoBehaviour:
   - {fileID: 6714094358677231137, guid: 7120960cb29ee924b9e5194739c80d92, type: 3}
   - {fileID: 1996595615072557400, guid: 71485f000a5679b408aa2c9b2e1e7e16, type: 3}
   - {fileID: 5719344765473883936, guid: 253e5cf4effb7bb4c99e59bb14581854, type: 3}
-  spawnDelay: 1.5
-  minY: -1.6
-  maxY: 1.6
-  minX: -1
-  maxX: 1
-  fuelMaxX: 2
-  fuelMinX: 1.5
-  fuelSpawnChange: 0.3
-  enemySpawnChange: 0.1
-  gapSizeEasy: 4.5
-  gapSizeMedium: 4.25
-  gapSizeHard: 4
+  minSpawnDelay: 1.5
+  xDifference: 1
+  fuelMaxXDifference: 2
+  fuelMinXDifference: 1.5
+  minGap: 4.5
+  maxGap: 4.3
+  gapDifference: 0.3
 --- !u!1 &184752973
 GameObject:
   m_ObjectHideFlags: 0

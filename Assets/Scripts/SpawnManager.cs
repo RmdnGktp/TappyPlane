@@ -4,115 +4,103 @@ using System.Collections;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject[] objects; // 0: top, 1: bottom, 2: fuel, 3: Enemy
-    [SerializeField] float spawnDelay = 1.5f;
-    [SerializeField] float minY = -1.6f;
-    [SerializeField] float maxY = 1.6f;
-    [SerializeField] float minX = -1f;
-    [SerializeField] float maxX = 1f;
-    [SerializeField] float fuelMaxX = 2.0f;
-    [SerializeField] float fuelMinX = 1.5f;
-    [SerializeField] float fuelSpawnChange = 0.3f;
-    [SerializeField] float enemySpawnChange = 0.1f;
-    [SerializeField] float gapSizeEasy = 4.5f;
-    [SerializeField] float gapSizeMedium = 4.25f;
-    [SerializeField] float gapSizeHard = 4.0f;
-    float minRand = 0f;
-    float maxRand = 0f;
+    [SerializeField] float minSpawnDelay = 1.5f;
+    float yDifference = 1.6f;
+    [SerializeField] float xDifference = 1f;
+    [SerializeField] float fuelMaxXDifference = 2.0f;
+    [SerializeField] float fuelMinXDifference = 1.5f;
+    
+    float currentGap;
+    [SerializeField] float minGap = 4.4f;
+    [SerializeField] float maxGap = 4.3f;
+    [SerializeField] float gapDifference = 0.3f;
+
+    float difficulty = 0;
+    
 
     void Start()
     {
         StartCoroutine(SpawnLoop());
     }
 
+    void Update()
+    {
+        difficulty = Mathf.Clamp01 (Time.time / 30f); 
+    }
+
     IEnumerator SpawnLoop()
     {
         while (true)
-        {
-            yield return new WaitForSeconds(spawnDelay);
-
+        {   
+            float delay = Mathf.Lerp(2f, minSpawnDelay, difficulty);
+            print (delay);
+            yield return new WaitForSeconds(delay);
             SpawnPattern();
         }
     }
 
     void SpawnPattern()
     {   
-        if (Time.time < 5f)
-        {
-            // Easy Mode
-            maxRand = 0.3f;
-        } 
-        else if (Time.time < 10f)
-        {
-            // Medium Mode
-            maxRand = 0.7f;
-        }
-        else if (Time.time < 20f)
-        {
-            // Hard Mode
-            maxRand = 1f;
-        }
-        else if (Time.time < 30f)
-        {
-            // Harder Mode
-            minRand = 0.4f;
-        }
-        else
-        {   
-            // Insane Mode
-            minRand = 0.75f;
-        }
+        float rand = Random.value;
 
+        float easyLevel = Mathf.Lerp(0.6f, 0.2f , difficulty);
+        float mediumLevel = Mathf.Lerp(0.3f, 0.2f , difficulty);
 
-        float rand = Random.Range (minRand, maxRand);
-
-        if (rand < 0.4f)
+        currentGap = Mathf.Lerp (minGap, maxGap, difficulty);
+        
+        if (rand < easyLevel)
         {
-            SpawnObstacle(gapSizeEasy);
+            SpawnObstacle(currentGap + gapDifference); 
         }
-        else if (rand < 0.75f)
+        else if (rand < easyLevel + mediumLevel)
         {
-            SpawnObstacle(gapSizeMedium);
+            SpawnObstacle(currentGap); 
         }
         else
         {
-            SpawnObstacle(gapSizeHard); 
+            SpawnObstacle(currentGap - gapDifference); 
         }
+
     }
 
     void SpawnObstacle(float gapSize)
     {
-        float centerY = Random.Range(minY, maxY);
-
+        // Spawn Rocks -----------------------------------------------------------------------------------------------------------
+        float centerY = Random.Range(-yDifference, yDifference);
         float topY = centerY + gapSize;
         float bottomY = centerY - gapSize;
-        float x = Random.Range(minX, maxX);
+
+        float x = Random.Range(-xDifference, xDifference);
 
         Instantiate(objects[0], new Vector3(transform.position.x + x, topY, 0), Quaternion.identity, gameObject.transform);
         Instantiate(objects[1], new Vector3(transform.position.x, bottomY, 0), Quaternion.identity, gameObject.transform);
 
+
+        // Spawn Fuel or Enemy ----------------------------------------------------------------------------------------------------
         float spwanChance = Random.value;
+        float fuelSpawnChange = Mathf.Lerp (0.4f, 0.2f, difficulty);
+        float enemySpawnChange = Mathf.Lerp (0.05f, 0.2f, difficulty);
+
         if ( spwanChance < fuelSpawnChange)
         {
-            SpawnFuel();
+            SpawnFuel(centerY);
         }
         else if (spwanChance < (fuelSpawnChange + enemySpawnChange))
         {
-            SpawnEnemy();
+            SpawnEnemy(centerY);
         }
     }
 
-    void SpawnFuel()
+    void SpawnFuel(float y)
     {
-        float y = Random.Range(minY, maxY);
-        float x = Random.Range (fuelMinX, fuelMaxX);
+        float x = Mathf.Lerp (fuelMaxXDifference, fuelMinXDifference, difficulty);
 
         Instantiate(objects[2], new Vector3(transform.position.x + x, y, 0), Quaternion.identity, gameObject.transform);
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(float y)
     {
-        float y = Random.Range(minY, maxY);
-        float x = Random.Range (fuelMinX, fuelMaxX);
+        float x = Mathf.Lerp (fuelMinXDifference, fuelMaxXDifference, difficulty);
 
         Instantiate(objects[3], new Vector3(transform.position.x + x, y, 0), Quaternion.identity, gameObject.transform);
     }
