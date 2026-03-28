@@ -21,4 +21,14 @@ public class FuelScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnTriggerEntD(Collider2D other)
+    {   
+        int layerIndex = LayerMask.NameToLayer("Rock");
+        if (other.gameObject.layer == layerIndex)
+        {
+            Destroy(gameObject);
+            Debug.Log ("fuel destroyed!");
+        }
+    }
 }
