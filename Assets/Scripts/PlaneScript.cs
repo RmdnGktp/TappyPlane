@@ -14,6 +14,7 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI fuelText;
     [SerializeField] TextMeshProUGUI distanceText;
     float distance = 0f;
+    public bool isAlive = true;
 
     void Start()
     {
@@ -28,41 +29,43 @@ public class PlaneScript : MonoBehaviour
         float t = Time.deltaTime * 10f;
         rb.rotation = Mathf.SmoothStep(rb.rotation, angle, t);
 
-        // fuel managment
-        fuel -= Time.deltaTime * fuelConsumeSpeed;
-        fuel = Mathf.Clamp (fuel, 0f,100f);
-        fuelText.text = Mathf.RoundToInt(fuel) + "%";
-
-        if (fuel <= 30)
+        if (isAlive)
         {
-            fuelText.color = new Color (245f/255f, 105f/255f, 0f/255f);
-        }
-        else if (fuel <= 60)
-        {
-            fuelText.color = new Color (253f/255f, 241f/255f, 0f/255f);
-        }
-        else
-        {
-            fuelText.color = new Color (4f/255f, 226f/255f, 67f/255f);
-        }
+            // fuel managment
+            fuel -= Time.deltaTime * fuelConsumeSpeed;
+            fuel = Mathf.Clamp (fuel, 0f,100f);
+            fuelText.text = Mathf.RoundToInt(fuel) + "%";
 
-        // distance managment
-        distance += Time.deltaTime * 20f;
-        distanceText.text = Mathf.RoundToInt(distance) + "m";
+            if (fuel == 0f)
+            {
+                GameOver();
+            }
+            else if (fuel <= 30)
+            {
+                fuelText.color = new Color (245f/255f, 105f/255f, 0f/255f);
+            }
+            else if (fuel <= 60)
+            {
+                fuelText.color = new Color (253f/255f, 241f/255f, 0f/255f);
+            }
+            else
+            {
+                fuelText.color = new Color (4f/255f, 226f/255f, 67f/255f);
+            }
 
+
+            // distance managment
+            distance += Time.deltaTime * 20f;
+            distanceText.text = Mathf.RoundToInt(distance) + "m";
+        }
     }
 
     void OnTap (InputValue value)
     {
-        if (value.isPressed)
+        if (value.isPressed && isAlive)
         {
           rb.linearVelocity =  Vector2.up * flapStrength;
         }
-    }
-
-    public void addFuel (float value)
-    {
-        fuel += value;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -82,6 +85,21 @@ public class PlaneScript : MonoBehaviour
         
     }
 
+    public void addFuel (float value)
+    {
+        fuel += value;
+    }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameOver();
+    }
+
+    void GameOver ()
+    {   
+        print ("GameOver!");
+        isAlive = false;
+        gameObject.GetComponent<Animator>().enabled = false;
+    }
 
 }

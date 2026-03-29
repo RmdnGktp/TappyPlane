@@ -175,6 +175,7 @@ MonoBehaviour:
   minGap: 4.5
   maxGap: 4.3
   gapDifference: 0.3
+  planeScript: {fileID: 1090941336}
 --- !u!1 &184752973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,8 +1782,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1104353259
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7407233906108818751, guid: 46ba973a7ce31e240844ea8afaa5f15a, type: 3}
@@ -1859,6 +1860,7 @@ MonoBehaviour:
   fuelToRemove: 10
   fuelText: {fileID: 449348091}
   distanceText: {fileID: 668849354}
+  isAlive: 1
 --- !u!1 &1160173103
 GameObject:
   m_ObjectHideFlags: 0
