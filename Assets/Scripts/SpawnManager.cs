@@ -14,6 +14,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float minGap = 4.4f;
     [SerializeField] float maxGap = 4.3f;
     [SerializeField] float gapDifference = 0.3f;
+    [SerializeField] PlaneScript planeScript;
 
     float difficulty = 0;
     
@@ -26,14 +27,22 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         difficulty = Mathf.Clamp01 (Time.time / 30f); 
+
+        if (!planeScript.isAlive)
+        {
+            Rigidbody2D[] rigidbodies = GetComponentsInChildren<Rigidbody2D>();
+            foreach (Rigidbody2D rb in rigidbodies)
+            {
+                rb.simulated = false;
+            }
+        }
     }
 
     IEnumerator SpawnLoop()
     {
-        while (true)
+        while (planeScript.isAlive)
         {   
             float delay = Mathf.Lerp(2f, minSpawnDelay, difficulty);
-            print (delay);
             yield return new WaitForSeconds(delay);
             SpawnPattern();
         }
