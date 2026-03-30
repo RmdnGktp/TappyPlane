@@ -1,28 +1,30 @@
 using UnityEngine;
 
-public class FuelScript : MonoBehaviour
+public class EnemyScript : MonoBehaviour
 {
-    
     static public float speed = 2f;
     Rigidbody2D rb;
     float deathZone = -5f;
+    Vector3 startPos;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        startPos = transform.position;
     }
 
     void Update()
     {
         rb.linearVelocity =  Vector2.left * speed;
 
-        float angle = Mathf.Sin (Time.time * 2f) * 15f;
-        rb.rotation = angle;
+        float newY = startPos.y + Mathf.Sin(Time.time * 1f) * 0.5f;
+        transform.position = new Vector3 (transform.position.x, newY, transform.position.z);
 
         if (gameObject.transform.position.x < deathZone)
         {
             Destroy(gameObject);
         }
+
     }
 
     void OnTriggerEntD(Collider2D other)

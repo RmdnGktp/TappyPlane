@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Fuel
   - Enemy
+  - Bat
+  - Bee
+  - Fly
   layers:
   - Default
   - TransparentFX
@@ -51,6 +54,9 @@ TagManager:
     locked: 0
   - name: Fuel
     uniqueID: 3629928671
+    locked: 0
+  - name: Enemy
+    uniqueID: 4088411075
     locked: 0
   - name: Player
     uniqueID: 1104353259

@@ -77,9 +77,19 @@ public class PlaneScript : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        else if (other.CompareTag ("Enemy"))
+        else if (other.CompareTag ("Bat"))
+        {
+            addFuel(-fuelToRemove - 5f);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag ("Bee"))
         {
             addFuel(-fuelToRemove);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag ("Fly"))
+        {
+            addFuel(-fuelToRemove + 5f);
             Destroy(other.gameObject);
         }
         
