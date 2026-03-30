@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] objects; // 0: top, 1: bottom, 2: fuel, 3: Enemy
+    [SerializeField] GameObject[] objects; // 0: top, 1: bottom, 2: fuel, 3: Bat, 4:Bee, 5:Fly
     [SerializeField] float minSpawnDelay = 1.5f;
     float yDifference = 1.6f;
     [SerializeField] float xDifference = 1f;
@@ -22,11 +22,12 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnLoop());
+        SpawnPattern();
     }
 
     void Update()
     {
-        difficulty = Mathf.Clamp01 (Time.time / 30f); 
+        difficulty = Mathf.Clamp01 (Time.time / 15f); 
 
         if (!planeScript.isAlive)
         {
@@ -111,6 +112,7 @@ public class SpawnManager : MonoBehaviour
     {
         float x = Mathf.Lerp (fuelMinXDifference, fuelMaxXDifference, difficulty);
 
-        Instantiate(objects[3], new Vector3(transform.position.x + x, y, 0), Quaternion.identity, gameObject.transform);
+        int value = Random.Range(3, 6);
+        Instantiate(objects[value], new Vector3(transform.position.x + x, y, 0), Quaternion.identity, gameObject.transform);
     }
 }

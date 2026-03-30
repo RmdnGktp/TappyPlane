@@ -168,6 +168,8 @@ MonoBehaviour:
   - {fileID: 6714094358677231137, guid: 7120960cb29ee924b9e5194739c80d92, type: 3}
   - {fileID: 1996595615072557400, guid: 71485f000a5679b408aa2c9b2e1e7e16, type: 3}
   - {fileID: 5719344765473883936, guid: 253e5cf4effb7bb4c99e59bb14581854, type: 3}
+  - {fileID: 1287423229378750771, guid: e44d555ed7e751340ba98555c74a10a1, type: 3}
+  - {fileID: 8526178767941537086, guid: f8e53cfe2ac96834b9607dbb1dd03dae, type: 3}
   minSpawnDelay: 1.5
   xDifference: 1
   fuelMaxXDifference: 2
@@ -894,7 +896,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000eb17d34197a9fcfebb48d35fdf505cd8
+  m_ApplyToSortingLayers: 00000000eb17d34197a9fcfebb48d35fdf505cd8c333b0f3
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1604,7 +1606,7 @@ GameObject:
   - component: {fileID: 1090941333}
   - component: {fileID: 1090941332}
   - component: {fileID: 1090941331}
-  - component: {fileID: 1090941330}
+  - component: {fileID: 1090941337}
   - component: {fileID: 1090941329}
   - component: {fileID: 1090941335}
   - component: {fileID: 1090941336}
@@ -1637,79 +1639,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!60 &1090941330
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090941328}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9300782, y: 0.775}
-    newSize: {x: 0.9300782, y: 0.775}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.31247306, y: 0.2015493}
-      - {x: 0.3115337, y: 0.33004597}
-      - {x: 0.29566205, y: 0.3530033}
-      - {x: 0.28912413, y: 0.35897636}
-      - {x: 0.2715541, y: 0.3750285}
-      - {x: -0.1945493, y: 0.37678578}
-      - {x: -0.2872435, y: 0.26059738}
-      - {x: -0.41292292, y: 0.25974262}
-      - {x: -0.4583299, y: 0.21300977}
-      - {x: -0.45798707, y: 0.16015257}
-      - {x: -0.4415679, y: 0.12012628}
-      - {x: -0.42756957, y: 0.067092195}
-      - {x: -0.3565085, y: 0.036178894}
-      - {x: -0.32632166, y: 0.011029232}
-      - {x: -0.2219048, y: -0.124700494}
-      - {x: -0.26421815, y: -0.17405297}
-      - {x: -0.2630551, y: -0.25067735}
-      - {x: -0.22054738, y: -0.29841042}
-      - {x: -0.1536887, y: -0.29855245}
-      - {x: -0.115082555, y: -0.25361153}
-      - {x: 0.03865827, y: -0.29942837}
-      - {x: 0.10027136, y: -0.3769702}
-      - {x: 0.19493361, y: -0.376635}
-      - {x: 0.2559826, y: -0.31060138}
-      - {x: 0.4370768, y: -0.308665}
-      - {x: 0.4358803, y: 0.19837779}
-  m_UseDelaunayMesh: 1
 --- !u!50 &1090941331
 Rigidbody2D:
   serializedVersion: 5
@@ -1783,7 +1712,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1104353259
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7407233906108818751, guid: 46ba973a7ce31e240844ea8afaa5f15a, type: 3}
@@ -1855,12 +1784,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaneScript
   flapStrength: 3
   rotationStrength: 10
-  fuelConsumeSpeed: 5
+  fuelConsumeSpeed: 4
   fuelToAdd: 30
   fuelToRemove: 10
   fuelText: {fileID: 449348091}
   distanceText: {fileID: 668849354}
   isAlive: 1
+--- !u!70 &1090941337
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090941328}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.03, y: 0.04}
+  m_Size: {x: 0.85, y: 0.65}
+  m_Direction: 1
 --- !u!1 &1160173103
 GameObject:
   m_ObjectHideFlags: 0

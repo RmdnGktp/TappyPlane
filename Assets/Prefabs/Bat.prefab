@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 7526563205213001202}
   - component: {fileID: 1592577319709605824}
   - component: {fileID: 2264935328887651380}
-  - component: {fileID: 3175467424433873137}
+  - component: {fileID: 1673883668180666371}
+  - component: {fileID: 3312081636074946593}
   m_Layer: 11
-  m_Name: Enemy
-  m_TagString: Enemy
+  m_Name: Bat
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,11 +81,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -206556221
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7258657360691045077, guid: 46ba973a7ce31e240844ea8afaa5f15a, type: 3}
+  m_Sprite: {fileID: -697763020151794088, guid: bde39b81a9f9d7f449c296e05a0da6ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,9 +156,31 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.21001767
---- !u!114 &3175467424433873137
+  m_Offset: {x: 0.03, y: -0.01}
+  m_Radius: 0.2
+--- !u!95 &1673883668180666371
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5719344765473883936}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6bcb74b5391fcae4ab9ef442ec581174, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3312081636074946593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,6 +189,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5719344765473883936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1480ece2bfc08594e95f51ba370488d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 64126f7ad17b2e940bb5ab652d50ac5f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FuelScript
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
