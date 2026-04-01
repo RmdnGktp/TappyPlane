@@ -15,6 +15,9 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI distanceText;
     float distance = 0f;
     public bool isAlive = true;
+    public bool isStarted = false;
+    [SerializeField] SpawnManager spawnManager;
+    [SerializeField] GameObject startScripts;
 
     void Start()
     {
@@ -24,6 +27,7 @@ public class PlaneScript : MonoBehaviour
     
     void Update()
     {   
+        if (!isStarted) return;
         float angle = rb.linearVelocity.y * rotationStrength;
         angle = Mathf.Clamp(angle, -30f, 30f);
         float t = Time.deltaTime * 10f;
@@ -62,9 +66,14 @@ public class PlaneScript : MonoBehaviour
 
     void OnTap (InputValue value)
     {
-        if (value.isPressed && isAlive)
+        if (value.isPressed && isAlive && isStarted)
         {
           rb.linearVelocity =  Vector2.up * flapStrength;
+        }
+        else if (value.isPressed && isAlive && !isStarted)
+        {
+            StartGame();
+            rb.linearVelocity =  Vector2.up * flapStrength;
         }
     }
 
@@ -98,6 +107,15 @@ public class PlaneScript : MonoBehaviour
     public void addFuel (float value)
     {
         fuel += value;
+    }
+
+    void StartGame()
+    {
+        isStarted = true;
+        rb.simulated = true;
+        spawnManager.StartSpawn();
+        Destroy(startScripts);
+        //startScripts.SetActive(false);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

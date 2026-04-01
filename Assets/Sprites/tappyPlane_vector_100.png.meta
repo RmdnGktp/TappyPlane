@@ -1629,72 +1629,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tappyPlane_vector_100_59
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 1754
-        width: 41
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2ef79d96f464c1a80800000000000000
-      internalID: -8494837490235375646
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tappyPlane_vector_100_60
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 1776
-        width: 33
-        height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 60df7a71f7501df50800000000000000
-      internalID: 6904305747151551750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tappyPlane_vector_100_61
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 1775
-        width: 30
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: faabc407c66610f90800000000000000
-      internalID: -6989192530775721297
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: tappyPlane_vector_100_62
       rect:
         serializedVersion: 2
@@ -1742,10 +1676,10 @@ TextureImporter:
       name: tappyPlane_vector_100_64
       rect:
         serializedVersion: 2
-        x: 73
-        y: 1689
-        width: 84
-        height: 85
+        x: 31
+        y: 1690
+        width: 127
+        height: 124
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1764,10 +1698,10 @@ TextureImporter:
       name: tappyPlane_vector_100_65
       rect:
         serializedVersion: 2
-        x: 240
-        y: 1689
-        width: 83
-        height: 85
+        x: 197
+        y: 1690
+        width: 127
+        height: 124
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

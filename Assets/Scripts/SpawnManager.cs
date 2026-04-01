@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     float difficulty = 0;
     
 
-    void Start()
+    public void StartSpawn()
     {
         StartCoroutine(SpawnLoop());
         SpawnPattern();
@@ -27,6 +27,8 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
+        if (!planeScript.isStarted) return;
+
         difficulty = Mathf.Clamp01 (Time.time / 15f); 
 
         if (!planeScript.isAlive)
