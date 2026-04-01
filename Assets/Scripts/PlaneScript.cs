@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlaneScript : MonoBehaviour
 {
@@ -13,11 +14,18 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] float fuelToRemove = 10f;
     [SerializeField] TextMeshProUGUI fuelText;
     [SerializeField] TextMeshProUGUI distanceText;
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI bestScoreText;
+    [SerializeField] GameObject GameOverBoard;
+    [SerializeField] GameObject newText;
+    [SerializeField] Sprite[] Medals;
+    [SerializeField] Image Medal;
     float distance = 0f;
     public bool isAlive = true;
     public bool isStarted = false;
     [SerializeField] SpawnManager spawnManager;
     [SerializeField] GameObject startScripts;
+    float maxDistance;
 
     void Start()
     {
@@ -59,7 +67,7 @@ public class PlaneScript : MonoBehaviour
 
 
             // distance managment
-            distance += Time.deltaTime * 20f;
+            distance += Time.deltaTime * 20f; 
             distanceText.text = Mathf.RoundToInt(distance) + "m";
         }
     }
@@ -118,8 +126,11 @@ public class PlaneScript : MonoBehaviour
         //startScripts.SetActive(false);
     }
 
+
+    // GAME OVER --------------------------------------------------------
     void OnCollisionEnter2D(Collision2D collision)
-    {
+    {   
+        if (!isAlive) return;
         GameOver();
     }
 
@@ -128,6 +139,52 @@ public class PlaneScript : MonoBehaviour
         print ("GameOver!");
         isAlive = false;
         gameObject.GetComponent<Animator>().enabled = false;
+        GameOverBoard.SetActive(true);
+        
+        scoreText.text = Mathf.RoundToInt(distance) + "m";
+        addMedals(distance);
+        SetMaxScore(distance);
+    }
+
+    void addMedals (float value)
+    {
+        if (value > 2500f)
+        {
+            Medal.GetComponent<Image>().sprite = Medals [2];
+            Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
+        }
+        else if (value > 1500f)
+        {
+            Medal.GetComponent<Image>().sprite = Medals [1];
+            Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
+        }
+        else if (value > 500f)
+        {
+            Medal.GetComponent<Image>().sprite = Medals [0];
+            Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
+        }
+    }
+
+    void SetMaxScore (float value)
+    {
+        maxDistance = PlayerPrefs.GetFloat("maxDistance", 0);
+
+        bool isNewRecord = value > maxDistance;
+        newText.SetActive(isNewRecord);
+
+        maxDistance = Mathf.Max (maxDistance, value);
+        PlayerPrefs.SetFloat("maxDistance", maxDistance);
+        PlayerPrefs.Save();
+        bestScoreText.text = Mathf.RoundToInt(maxDistance) + "m";
+
+    }
+
+
+    [ContextMenu ("deleteAllSaves")]
+    void deleteAllSaves ()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
 
 }
