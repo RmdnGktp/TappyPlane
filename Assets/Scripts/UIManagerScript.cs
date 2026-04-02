@@ -3,8 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class UIManagerScript : MonoBehaviour
 {
-    
-
     public void Restart ()
     {
         LoadScene(0);
