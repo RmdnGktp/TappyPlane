@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlaneScript : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] GameObject startScripts;
     [SerializeField] GameObject board;
     [SerializeField] GameObject buttons;
+   
 
     void Start()
     {
@@ -31,41 +33,39 @@ public class PlaneScript : MonoBehaviour
     
     void Update()
     {   
-        if (!isStarted) return;
+        if (!isStarted || !isAlive) return;
+       
+        // rotation
         float angle = rb.linearVelocity.y * rotationStrength;
         angle = Mathf.Clamp(angle, -30f, 30f);
         float t = Time.deltaTime * 10f;
         rb.rotation = Mathf.SmoothStep(rb.rotation, angle, t);
 
-        if (isAlive)
+        // fuel managment
+        fuel -= Time.deltaTime * fuelConsumeSpeed;
+        fuel = Mathf.Clamp (fuel, 0f,100f);
+        fuelText.text = Mathf.RoundToInt(fuel) + "%";
+
+        if (fuel == 0f)
         {
-            // fuel managment
-            fuel -= Time.deltaTime * fuelConsumeSpeed;
-            fuel = Mathf.Clamp (fuel, 0f,100f);
-            fuelText.text = Mathf.RoundToInt(fuel) + "%";
-
-            if (fuel == 0f)
-            {
-                GameOver();
-            }
-            else if (fuel <= 30)
-            {
-                fuelText.color = new Color (245f/255f, 105f/255f, 0f/255f);
-            }
-            else if (fuel <= 60)
-            {
-                fuelText.color = new Color (253f/255f, 241f/255f, 0f/255f);
-            }
-            else
-            {
-                fuelText.color = new Color (4f/255f, 226f/255f, 67f/255f);
-            }
-
-
-            // distance managment
-            distance += Time.deltaTime * 20f; 
-            distanceText.text = Mathf.RoundToInt(distance) + "m";
+            GameOver();
         }
+        else if (fuel <= 30)
+        {
+            fuelText.color = new Color (245f/255f, 105f/255f, 0f/255f);
+        }
+        else if (fuel <= 60)
+        {
+            fuelText.color = new Color (253f/255f, 241f/255f, 0f/255f);
+        }
+        else
+        {
+            fuelText.color = new Color (4f/255f, 226f/255f, 67f/255f);
+        }
+
+        // distance managment
+        distance += Time.deltaTime * 20f; 
+        distanceText.text = Mathf.RoundToInt(distance) + "m";
     }
 
     void OnTap (InputValue value)
@@ -131,10 +131,11 @@ public class PlaneScript : MonoBehaviour
 
     void GameOver ()
     {   
-        print ("GameOver!");
         isAlive = false;
         gameObject.GetComponent<Animator>().enabled = false;
         GameOverBoard.SetActive(true);
         GameOverBoard.GetComponent<GameOverScript>().GameOver(distance);
     }
+
+    
 }
