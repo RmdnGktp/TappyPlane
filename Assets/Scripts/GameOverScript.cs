@@ -14,12 +14,11 @@ public class GameOverScript : MonoBehaviour
     // float maxDistance;
     [SerializeField] GameObject board;
     [SerializeField] GameObject buttons;
-    [SerializeField] Image flashImage;
+    
 
     
     public void GameOver(float score)
     {
-        StartCoroutine(ImpactEffect());
         StartCoroutine (GameOverAnimation(score));
     }
 
@@ -83,19 +82,5 @@ public class GameOverScript : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
-    }
-
-    IEnumerator ImpactEffect ()
-    {
-        flashImage.color = new Color (1f, 1f, 1f, 1f);
-        float alpha = 1f;
-        while (alpha > 0)
-        {
-            alpha -= Time.deltaTime * 5f;
-            flashImage.color = new Color (1f, 1f, 1f, alpha);
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(5f);
     }
 }

@@ -23,6 +23,9 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] GameObject startScripts;
     [SerializeField] GameObject board;
     [SerializeField] GameObject buttons;
+    [SerializeField] ParticleSystem explosion;
+    [SerializeField] ParticleSystem flyingParticals;
+    [SerializeField] Image flashImage;
    
 
     void Start()
@@ -53,10 +56,15 @@ public class PlaneScript : MonoBehaviour
         else if (fuel <= 30)
         {
             fuelText.color = new Color (245f/255f, 105f/255f, 0f/255f);
+            var main = flyingParticals.main;
+            main.startColor = new Color (61f/255f, 61f/255f, 61f/255f);
+            
         }
         else if (fuel <= 60)
         {
             fuelText.color = new Color (253f/255f, 241f/255f, 0f/255f);
+            var main = flyingParticals.main;
+            main.startColor = new Color (138f/255f, 139f/255f, 152f/255f);
         }
         else
         {
@@ -119,12 +127,21 @@ public class PlaneScript : MonoBehaviour
         rb.simulated = true;
         spawnManager.StartSpawn();
         Destroy(startScripts);
+        flyingParticals.Play();
         //startScripts.SetActive(false);
     }
 
     // GAME OVER --------------------------------------------------------
     void OnCollisionEnter2D(Collision2D collision)
     {   
+        Impact();
+        
+        if (collision.gameObject.CompareTag ("Ground"))
+        {
+            explosion.Play();
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        } 
+
         if (!isAlive) return;
         GameOver();
     }
@@ -132,9 +149,29 @@ public class PlaneScript : MonoBehaviour
     void GameOver ()
     {   
         isAlive = false;
+        flyingParticals.Stop();
         gameObject.GetComponent<Animator>().enabled = false;
         GameOverBoard.SetActive(true);
-        GameOverBoard.GetComponent<GameOverScript>().GameOver(distance);
+        GameOverBoard.GetComponent<GameOverScript>().GameOver(distance); 
+    }
+
+    public void Impact()
+    {
+        StartCoroutine(ImpactEffect());
+    }
+
+    IEnumerator ImpactEffect ()
+    {
+        flashImage.color = new Color (1f, 1f, 1f, 1f);
+        float alpha = 1f;
+        while (alpha > 0)
+        {
+            alpha -= Time.deltaTime * 5f;
+            flashImage.color = new Color (1f, 1f, 1f, alpha);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(5f);
     }
 
     
