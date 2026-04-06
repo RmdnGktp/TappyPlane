@@ -691,9 +691,9 @@ GameObject:
   - component: {fileID: 286643792}
   - component: {fileID: 286643793}
   - component: {fileID: 286643794}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: tappyPlane_vector_100_53 (1)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3804,9 +3804,9 @@ GameObject:
   - component: {fileID: 1219787710}
   - component: {fileID: 1219787711}
   - component: {fileID: 1219787712}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: tappyPlane_vector_100_53
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
