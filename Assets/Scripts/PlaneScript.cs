@@ -69,6 +69,8 @@ public class PlaneScript : MonoBehaviour
         else
         {
             fuelText.color = new Color (4f/255f, 226f/255f, 67f/255f);
+            var main = flyingParticals.main;
+            main.startColor = new Color (208f/255f, 211f/255f, 229f/255f);
         }
 
         // distance managment
@@ -127,7 +129,7 @@ public class PlaneScript : MonoBehaviour
         rb.simulated = true;
         spawnManager.StartSpawn();
         Destroy(startScripts);
-        flyingParticals.Play();
+        //flyingParticals.Play();
         //startScripts.SetActive(false);
     }
 
