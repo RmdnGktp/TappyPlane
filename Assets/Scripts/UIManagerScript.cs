@@ -17,6 +17,11 @@ public class UIManagerScript : MonoBehaviour
 
     public void Restart ()
     {
+        StartCoroutine(LoadGame(1));
+    }
+
+    public void Menu()
+    {
         StartCoroutine(LoadGame(0));
     }
 
@@ -45,5 +50,7 @@ public class UIManagerScript : MonoBehaviour
             yield return null;
         }
     }
+
+    
 
 }

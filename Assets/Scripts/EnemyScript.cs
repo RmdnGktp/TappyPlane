@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour
     {
         rb.linearVelocity =  Vector2.left * speed;
 
-        float newY = startPos.y + Mathf.Sin(Time.time * 1f) * 0.5f;
+        float newY = startPos.y + Mathf.Sin(Time.time * 2f) * 0.5f;
         transform.position = new Vector3 (transform.position.x, newY, transform.position.z);
 
         if (gameObject.transform.position.x < deathZone)
