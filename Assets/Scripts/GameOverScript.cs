@@ -14,7 +14,6 @@ public class GameOverScript : MonoBehaviour
     // float maxDistance;
     [SerializeField] GameObject board;
     [SerializeField] GameObject buttons;
-    
 
     
     public void GameOver(float score)

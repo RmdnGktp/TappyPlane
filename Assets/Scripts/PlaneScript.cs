@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.Cinemachine;
 
 public class PlaneScript : MonoBehaviour
 {
@@ -26,10 +27,12 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] ParticleSystem explosion;
     [SerializeField] ParticleSystem flyingParticals;
     [SerializeField] Image flashImage;
-   
+
+    [SerializeField] CinemaschineShake cinemaschineShake;
 
     void Start()
-    {
+    {   
+        
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -142,6 +145,7 @@ public class PlaneScript : MonoBehaviour
         {
             explosion.Play();
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            cinemaschineShake.ShakeCamera(5f, 0.1f);
         } 
 
         if (!isAlive) return;
