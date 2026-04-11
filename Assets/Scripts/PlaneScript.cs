@@ -106,16 +106,19 @@ public class PlaneScript : MonoBehaviour
         else if (other.CompareTag ("Bat"))
         {
             addFuel(-fuelToRemove - 5f);
+            cinemaschineShake.ShakeCamera(2f, 0.1f);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag ("Bee"))
         {
             addFuel(-fuelToRemove);
+            cinemaschineShake.ShakeCamera(2f, 0.1f);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag ("Fly"))
         {
             addFuel(-fuelToRemove + 5f);
+            cinemaschineShake.ShakeCamera(2f, 0.1f);
             Destroy(other.gameObject);
         }
         
@@ -145,7 +148,7 @@ public class PlaneScript : MonoBehaviour
         {
             explosion.Play();
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            cinemaschineShake.ShakeCamera(5f, 0.1f);
+            cinemaschineShake.ShakeCamera(5f, 0.2f);
         } 
 
         if (!isAlive) return;
