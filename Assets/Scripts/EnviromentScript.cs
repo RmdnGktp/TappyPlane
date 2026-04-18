@@ -9,7 +9,7 @@ public class EnviromentScript : MonoBehaviour
 
     void Update()
     {
-        if (!planeScript.isAlive || !planeScript.isStarted) return;
+        if (!planeScript.isAlive) return;
 
         transform.Translate (Vector2.left * speed * Time.deltaTime);
         if (transform.position.x < -width)
