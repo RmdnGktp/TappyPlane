@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
+using System.Threading.Tasks;
 
 public class UIManagerScript : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] GameObject gameUI;
     [SerializeField] GameObject startGameScripts;
     [SerializeField] PlaneScript planeScript;
+    [SerializeField] Button extraFuelButton; 
     float fadeSpeed = 2f;
     float alpha;
 
@@ -66,6 +69,12 @@ public class UIManagerScript : MonoBehaviour
         }
     }
 
-    
+    public void GetExtraFuel()
+    {
+        Debug.Log ("Playing Ads");
+        planeScript.setMaxFuel(50);
+        extraFuelButton.interactable = false;
+        extraFuelButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
+    }
 
 }
