@@ -6,6 +6,11 @@ using System.Collections;
 public class UIManagerScript : MonoBehaviour
 {
     [SerializeField] Image blackScreen;
+    [SerializeField] GameObject startGameUI;
+    [SerializeField] GameObject tappyPlaneText;
+    [SerializeField] GameObject gameUI;
+    [SerializeField] GameObject startGameScripts;
+    [SerializeField] PlaneScript planeScript;
     float fadeSpeed = 2f;
     float alpha;
 
@@ -13,16 +18,26 @@ public class UIManagerScript : MonoBehaviour
     {  
         StartCoroutine(FadeIn()); 
     }
+
+    public void StartGame()
+    {
+        startGameUI.SetActive(false);
+        tappyPlaneText.SetActive(false);
+        gameUI.SetActive(true);
+        startGameScripts.SetActive(true);
+        planeScript.Play();
+    }
     
 
     public void Restart ()
     {
-        StartCoroutine(LoadGame(1));
+        StartCoroutine(LoadGame(0));
     }
 
-    public void Menu()
+    public void QuitGame()
     {
-        StartCoroutine(LoadGame(0));
+        Debug.Log("Quitting Game...");
+        Application.Quit();
     }
 
     public IEnumerator LoadGame(int value)
