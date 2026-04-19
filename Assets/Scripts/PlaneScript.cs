@@ -20,6 +20,7 @@ public class PlaneScript : MonoBehaviour
     float distance = 0f;
     public bool isAlive = true;
     public bool isStarted = false;
+    bool isPlayPressed = false;
     [SerializeField] SpawnManager spawnManager;
     [SerializeField] GameObject startScripts;
     [SerializeField] GameObject board;
@@ -83,6 +84,8 @@ public class PlaneScript : MonoBehaviour
 
     void OnTap (InputValue value)
     {
+        if (!isPlayPressed) return;
+
         if (value.isPressed && isAlive && isStarted)
         {
           rb.linearVelocity =  Vector2.up * flapStrength;
@@ -183,5 +186,9 @@ public class PlaneScript : MonoBehaviour
         yield return new WaitForSeconds(5f);
     }
 
+    public void Play()
+    {
+        isPlayPressed = true;
+    }
     
 }
