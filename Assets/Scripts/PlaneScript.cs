@@ -14,6 +14,7 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] float fuelConsumeSpeed = 10f;
     [SerializeField] float fuelToAdd = 30f;
     [SerializeField] float fuelToRemove = 10f;
+    float maxFuel = 100f;
     [SerializeField] TextMeshProUGUI fuelText;
     [SerializeField] TextMeshProUGUI distanceText;
     [SerializeField] GameObject GameOverBoard;
@@ -32,11 +33,16 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] CinemaschineShake cinemaschineShake;
 
     void Start()
-    {   
-        
+    {    
         rb = GetComponent<Rigidbody2D>();
     }
 
+    public void setMaxFuel(float value)
+    {
+        maxFuel += value;
+        fuel = maxFuel;
+        fuelText.text = Mathf.RoundToInt(fuel) + "%";
+    }
     
     void Update()
     {   
@@ -50,7 +56,7 @@ public class PlaneScript : MonoBehaviour
 
         // fuel managment
         fuel -= Time.deltaTime * fuelConsumeSpeed;
-        fuel = Mathf.Clamp (fuel, 0f,100f);
+        fuel = Mathf.Clamp (fuel, 0f,maxFuel);
         fuelText.text = Mathf.RoundToInt(fuel) + "%";
 
         if (fuel == 0f)
@@ -190,5 +196,6 @@ public class PlaneScript : MonoBehaviour
     {
         isPlayPressed = true;
     }
+    
     
 }
