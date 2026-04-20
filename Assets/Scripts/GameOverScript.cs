@@ -14,6 +14,7 @@ public class GameOverScript : MonoBehaviour
     // float maxDistance;
     [SerializeField] GameObject board;
     [SerializeField] GameObject buttons;
+    [SerializeField] GameManagerScript gameManagerScript;
 
     
     public void GameOver(float score)
@@ -54,6 +55,8 @@ public class GameOverScript : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         addMedals(score);
+
+        gameManagerScript.UpdateDistanceQuest(Mathf.RoundToInt(score));
    
     }
 
