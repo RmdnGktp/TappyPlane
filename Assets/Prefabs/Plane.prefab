@@ -231,6 +231,14 @@ MonoBehaviour:
   fuelToRemove: 10
   fuelText: {fileID: 0}
   distanceText: {fileID: 0}
+  GameOverBoard: {fileID: 0}
   isAlive: 1
   isStarted: 0
   spawnManager: {fileID: 0}
+  startScripts: {fileID: 0}
+  board: {fileID: 0}
+  buttons: {fileID: 0}
+  explosion: {fileID: 0}
+  flyingParticals: {fileID: 0}
+  flashImage: {fileID: 0}
+  cinemaschineShake: {fileID: 0}

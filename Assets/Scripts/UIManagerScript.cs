@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 
 public class UIManagerScript : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] PlaneScript planeScript;
     [SerializeField] Button extraFuelButton; 
     [SerializeField] GameManagerScript gameManagerScript;
+    [SerializeField] GameObject shopMenu;
     float fadeSpeed = 2f;
     float alpha;
 
@@ -77,6 +79,18 @@ public class UIManagerScript : MonoBehaviour
         planeScript.setMaxFuel(50);
         extraFuelButton.interactable = false;
         extraFuelButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
+    }
+
+    public void OpenShop()
+    {
+        shopMenu.SetActive(true);
+        blackScreen.color = new Color (0, 0, 0, 0.7f);
+    }
+
+    public void CloseShop()
+    {
+        shopMenu.SetActive(false);
+        blackScreen.color = new Color (0, 0, 0, 0);
     }
 
 }
