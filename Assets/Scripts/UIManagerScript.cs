@@ -14,6 +14,7 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] GameObject startGameScripts;
     [SerializeField] PlaneScript planeScript;
     [SerializeField] Button extraFuelButton; 
+    [SerializeField] GameManagerScript gameManagerScript;
     float fadeSpeed = 2f;
     float alpha;
 
@@ -29,6 +30,7 @@ public class UIManagerScript : MonoBehaviour
         gameUI.SetActive(true);
         startGameScripts.SetActive(true);
         planeScript.Play();
+        gameManagerScript.ResetUI();
     }
     
 
