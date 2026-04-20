@@ -14,6 +14,7 @@ public class GameManagerScript : MonoBehaviour
 
     [Header("Awards")]
     [SerializeField] TextMeshProUGUI starsText;
+    [SerializeField] TextMeshProUGUI starsOnShop;
     int stars = 0;
 
     void Start()
@@ -55,6 +56,8 @@ public class GameManagerScript : MonoBehaviour
         distanceNewText.SetActive(isNewDistance);
 
         starsText.text = stars.ToString();
+        starsOnShop.text = stars.ToString();
+
     }
 
     void SetValue(string name, int value)

@@ -33,7 +33,7 @@ public class EnemyScript : MonoBehaviour
         if (other.gameObject.layer == layerIndex)
         {
             Destroy(gameObject);
-            Debug.Log ("fuel destroyed!");
+            //Debug.Log ("fuel destroyed!");
         }
     }
 }
