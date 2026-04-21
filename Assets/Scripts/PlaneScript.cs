@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections;
 using Unity.Cinemachine;
+using System;
 
 public class PlaneScript : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] Image flashImage;
 
     [SerializeField] CinemaschineShake cinemaschineShake;
+    [SerializeField] GameManagerScript gameManagerScript;
 
     void Start()
     {    
@@ -117,18 +119,21 @@ public class PlaneScript : MonoBehaviour
             addFuel(-fuelToRemove - 5f);
             cinemaschineShake.ShakeCamera(2f, 0.1f);
             Destroy(other.gameObject);
+            gameManagerScript.UpdateEnemyQuest(1);
         }
         else if (other.CompareTag ("Bee"))
         {
             addFuel(-fuelToRemove);
             cinemaschineShake.ShakeCamera(2f, 0.1f);
             Destroy(other.gameObject);
+            gameManagerScript.UpdateEnemyQuest(1);
         }
         else if (other.CompareTag ("Fly"))
         {
             addFuel(-fuelToRemove + 5f);
             cinemaschineShake.ShakeCamera(2f, 0.1f);
             Destroy(other.gameObject);
+            gameManagerScript.UpdateEnemyQuest(1);
         }
         
     }
