@@ -10,6 +10,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] int targetDistance;
     [SerializeField] int distanceIncrement;
     bool isNewDistanceQuest;
+    int currentDistance;
 
     [Header("Enemy Quest")]
     [SerializeField] TextMeshProUGUI enemyText;
@@ -18,6 +19,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] int enemyIncrement;
     bool isNewEnemyQuest;
     int currentAmount;
+    bool isEnemyQuestCompleted;
 
     [Header("Awards")]
     [SerializeField] TextMeshProUGUI starsText;
@@ -29,10 +31,12 @@ public class GameManagerScript : MonoBehaviour
         // Distance Quest
         targetDistance = GetValue("targetDistance", targetDistance);
         isNewDistanceQuest = GetValue("isNewDistanceQuest", 1) == 1;
+        currentDistance = GetValue("currentDistance", targetDistance);
         // Enemy Quest
-        targetEnemy = GetValue("targetAmount", targetEnemy);
+        targetEnemy = GetValue("targetEnemy", targetEnemy);
         isNewEnemyQuest = GetValue("isNewEnemyQuest", 1) == 1;
         currentAmount = GetValue("currentAmount", targetEnemy);
+        isEnemyQuestCompleted = false;
         // Stars
         stars = GetValue("stars", stars);
         UpdateUI();
@@ -40,11 +44,13 @@ public class GameManagerScript : MonoBehaviour
 
     public void UpdateDistanceQuest (int distance)
     {
-        if (distance >= targetDistance)
+        currentDistance -= distance;
+        if (currentDistance <= 0)
         {
             Debug.Log ("Distance Quest Completed!");
             targetDistance += distanceIncrement;
             SetValue("targetDistance", targetDistance);
+            SetValue("currentDistance", targetDistance);
 
             isNewDistanceQuest = true;
             SetValue("isNewDistanceQuest", isNewDistanceQuest ? 1:0);
@@ -52,19 +58,27 @@ public class GameManagerScript : MonoBehaviour
 
             GetAwards(3);
         }
+        else
+        {
+            SetValue("currentDistance", currentDistance);
+        }
     }
 
     public void UpdateEnemyQuest (int amount)
     {   
+
+       if (isEnemyQuestCompleted) return;
+
         currentAmount -= amount;
 
         if (currentAmount <= 0)
         {
             Debug.Log ("Enemy Quest Completed!");
+            isEnemyQuestCompleted = true;
             targetEnemy += enemyIncrement;
             SetValue("targetEnemy", targetEnemy);
             SetValue("currentAmount", targetEnemy);
-
+            
             isNewEnemyQuest = true;
             SetValue("isNewEnemyQuest", isNewEnemyQuest ? 1:0);
 
@@ -81,13 +95,13 @@ public class GameManagerScript : MonoBehaviour
     {
         stars += value;
         SetValue("stars", stars);
-        Debug.Log (stars);
+        //Debug.Log (stars);
     }
 
     void UpdateUI ()
     {
         // Distance Quest
-        distanceText.text = "Fly " + targetDistance.ToString() + " meters";
+        distanceText.text = "Fly " + currentDistance.ToString() + " meters";
         distanceNewText.SetActive(isNewDistanceQuest);
         // Enemy Quest
         enemyText.text = "Kill " + currentAmount.ToString() + " enemies";

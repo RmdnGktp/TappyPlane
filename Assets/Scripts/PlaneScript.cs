@@ -112,6 +112,7 @@ public class PlaneScript : MonoBehaviour
         {
             addFuel(fuelToAdd);
             Destroy(other.gameObject);
+            gameManagerScript.UpdateEnemyQuest(1);
         }
 
         else if (other.CompareTag ("Bat"))

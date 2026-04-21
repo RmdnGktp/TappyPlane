@@ -2381,8 +2381,8 @@ MonoBehaviour:
   distanceIncrement: 500
   enemyText: {fileID: 768870327}
   enemyNewText: {fileID: 18439597}
-  targetEnemy: 5
-  enemyIncrement: 5
+  targetEnemy: 3
+  enemyIncrement: 3
   starsText: {fileID: 292041408}
   starsOnShop: {fileID: 51196125}
 --- !u!1 &265016990
