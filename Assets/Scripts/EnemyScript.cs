@@ -27,13 +27,13 @@ public class EnemyScript : MonoBehaviour
 
     }
 
-    void OnTriggerEntD(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {   
         int layerIndex = LayerMask.NameToLayer("Rock");
         if (other.gameObject.layer == layerIndex)
         {
-            Destroy(gameObject);
-            //Debug.Log ("fuel destroyed!");
+            // Destroy(gameObject);
+            Debug.Log ("fuel/enemy is destroyed!");
         }
     }
 }

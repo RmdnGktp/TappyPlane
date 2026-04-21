@@ -8,18 +8,27 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI distanceText;
     [SerializeField] GameObject distanceNewText;
     [SerializeField] int targetDistance;
-    [SerializeField] int distanceIncrement;
+    [SerializeField] TextMeshProUGUI awardsTextDQ;
+    int starsDQ;
     bool isNewDistanceQuest;
-    int currentDistance;
 
     [Header("Enemy Quest")]
     [SerializeField] TextMeshProUGUI enemyText;
     [SerializeField] GameObject enemyNewText;
     [SerializeField] int targetEnemy;
-    [SerializeField] int enemyIncrement;
     bool isNewEnemyQuest;
     int currentAmount;
     bool isEnemyQuestCompleted;
+
+    [Header("Game Quest")]
+    [SerializeField] TextMeshProUGUI gameText;
+    [SerializeField] GameObject gameNewText;
+    [SerializeField] int targetPlayedGame;
+    int increment = 3;
+    bool isNewGameQuest;
+    int currentPlayedGameCount;
+    bool isGameQuestCompleted;
+    [SerializeField] TextMeshProUGUI awardsTextGQ;
 
     [Header("Awards")]
     [SerializeField] TextMeshProUGUI starsText;
@@ -31,12 +40,20 @@ public class GameManagerScript : MonoBehaviour
         // Distance Quest
         targetDistance = GetValue("targetDistance", targetDistance);
         isNewDistanceQuest = GetValue("isNewDistanceQuest", 1) == 1;
-        currentDistance = GetValue("currentDistance", targetDistance);
+        starsDQ = GetValue ("starsDQ", 3);
+
         // Enemy Quest
         targetEnemy = GetValue("targetEnemy", targetEnemy);
         isNewEnemyQuest = GetValue("isNewEnemyQuest", 1) == 1;
         currentAmount = GetValue("currentAmount", targetEnemy);
         isEnemyQuestCompleted = false;
+
+        // Played Game Quest
+        targetPlayedGame = GetValue("targetPlayedGame", targetPlayedGame);
+        isNewGameQuest = GetValue("isNewGameQuest", 1) == 1;
+        currentPlayedGameCount = GetValue("currentPlayedGameCount", targetPlayedGame);
+        isGameQuestCompleted = false;
+        
         // Stars
         stars = GetValue("stars", stars);
         UpdateUI();
@@ -44,13 +61,15 @@ public class GameManagerScript : MonoBehaviour
 
     public void UpdateDistanceQuest (int distance)
     {
-        currentDistance -= distance;
-        if (currentDistance <= 0)
+        if (distance >= targetDistance)
         {
             Debug.Log ("Distance Quest Completed!");
-            targetDistance += distanceIncrement;
+            targetDistance = Mathf.RoundToInt(targetDistance * 1.3f);;
             SetValue("targetDistance", targetDistance);
-            SetValue("currentDistance", targetDistance);
+
+            starsDQ = Mathf.FloorToInt(starsDQ * 1.2f);
+            SetValue("starsDQ", starsDQ);
+            print ("StarsDQ: " + starsDQ);
 
             isNewDistanceQuest = true;
             SetValue("isNewDistanceQuest", isNewDistanceQuest ? 1:0);
@@ -58,10 +77,7 @@ public class GameManagerScript : MonoBehaviour
 
             GetAwards(3);
         }
-        else
-        {
-            SetValue("currentDistance", currentDistance);
-        }
+
     }
 
     public void UpdateEnemyQuest (int amount)
@@ -75,7 +91,7 @@ public class GameManagerScript : MonoBehaviour
         {
             Debug.Log ("Enemy Quest Completed!");
             isEnemyQuestCompleted = true;
-            targetEnemy += enemyIncrement;
+            targetEnemy = Mathf.RoundToInt(targetEnemy * 1.3f);
             SetValue("targetEnemy", targetEnemy);
             SetValue("currentAmount", targetEnemy);
             
@@ -91,21 +107,53 @@ public class GameManagerScript : MonoBehaviour
 
     }
 
-   void GetAwards (int value)
+    public void UpdateGameQuest (int value)
+    {
+        if (isGameQuestCompleted) return;
+
+        currentPlayedGameCount -= value;
+        if (currentPlayedGameCount <= 0)
+        {
+            Debug.Log ("Game Quest Completed!");
+            isGameQuestCompleted = true;
+            GetAwards(targetPlayedGame);
+            targetPlayedGame += increment;
+            SetValue("targetPlayedGame", targetPlayedGame);
+            SetValue("currentPlayedGameCount", targetPlayedGame);
+
+            isNewGameQuest = true;
+            SetValue("isNewGameQuest", isNewGameQuest ? 1:0);
+        }
+        else
+        {
+            SetValue("currentPlayedGameCount", currentPlayedGameCount);
+        }
+    }
+
+   public void GetAwards (int value)
     {
         stars += value;
         SetValue("stars", stars);
         //Debug.Log (stars);
+        UpdateUI();
     }
 
     void UpdateUI ()
     {
         // Distance Quest
-        distanceText.text = "Fly " + currentDistance.ToString() + " meters";
+        distanceText.text = "Fly " + targetDistance.ToString() + " meters";
         distanceNewText.SetActive(isNewDistanceQuest);
+        awardsTextDQ.text = starsDQ.ToString();
+
         // Enemy Quest
         enemyText.text = "Kill " + currentAmount.ToString() + " enemies";
         enemyNewText.SetActive(isNewEnemyQuest);
+
+        // Played Game Quest
+        gameText.text = "Play " + currentPlayedGameCount.ToString() + " games";
+        gameNewText.SetActive(isNewGameQuest);
+        awardsTextGQ.text = targetPlayedGame.ToString();
+
         // Stars
         starsText.text = stars.ToString();
         starsOnShop.text = stars.ToString();
@@ -127,6 +175,7 @@ public class GameManagerScript : MonoBehaviour
     {
         SetValue("isNewDistanceQuest", 0);
         SetValue("isNewEnemyQuest", 0);
+        SetValue("isNewGameQuest", 0);
     }
 
     [ContextMenu ("Reset")]

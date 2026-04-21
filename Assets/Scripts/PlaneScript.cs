@@ -112,7 +112,7 @@ public class PlaneScript : MonoBehaviour
         {
             addFuel(fuelToAdd);
             Destroy(other.gameObject);
-            gameManagerScript.UpdateEnemyQuest(1);
+            //gameManagerScript.UpdateEnemyQuest(1);
         }
 
         else if (other.CompareTag ("Bat"))
@@ -177,6 +177,7 @@ public class PlaneScript : MonoBehaviour
         gameObject.GetComponent<Animator>().enabled = false;
         GameOverBoard.SetActive(true);
         GameOverBoard.GetComponent<GameOverScript>().GameOver(distance); 
+        gameManagerScript.UpdateGameQuest(1);
     }
 
     public void Impact()
