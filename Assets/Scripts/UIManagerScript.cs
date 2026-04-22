@@ -97,7 +97,7 @@ public class UIManagerScript : MonoBehaviour
     public void Buy()
     {
         Debug.Log ("Playing Ads");
-        gameManagerScript.GetAwards(3);
+        gameManagerScript.SetStars(3);
         buyButton.interactable = false;
         buyButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
     }
