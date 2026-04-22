@@ -133,6 +133,7 @@ public class GameManagerScript : MonoBehaviour
    public void SetStars (int value)
     {
         stars += value;
+        stars = Mathf.Clamp(stars, 0, int.MaxValue);
         SetValue("stars", stars);
         //Debug.Log (stars);
         UpdateUI();

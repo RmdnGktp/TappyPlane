@@ -4,34 +4,102 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
-    [Header("Fuel Boost")]
+    [Header("FUEL BOOST")]
     [SerializeField] Button buyFuelBoost;
+    [SerializeField] TextMeshProUGUI buyFuelBoostText;
     bool isFuelBoostActivated;
-    [SerializeField] PlaneScript planeScript;
 
+    [Header("SHIELD")]
+    [SerializeField] Button buyShield;
+    [SerializeField] TextMeshProUGUI buyShieldText;
+    bool isShieldActivated;
 
-    [Header("General")]
+    [Header ("FUEL MAGNET")]
+    [SerializeField] Button buyFuelMagnet;
+    [SerializeField] TextMeshProUGUI buyFuelMagnetText;
+    bool isFuelMagnetActivated;
+
+    [Header ("EXTRA LIFE")]
+    [SerializeField] Button buyExtraLife;
+    [SerializeField] TextMeshProUGUI buyExtraLifeText;
+    bool isExtraLifeActivated;
+
+    [Header("GENERAL")]
     [SerializeField] GameManagerScript gameManagerScript;
+    [SerializeField] PlaneScript planeScript;
     int stars;
 
     void Start()
     {
-        stars = gameManagerScript.GetValue("stars", 0);
-        UpdateShopUI();
+        UpdateShopUI();   
     }
 
     public void BuyFuelBoost()
     {   
+        isFuelBoostActivated = true;
         gameManagerScript.SetStars(-3);
         planeScript.setMaxFuel(50);
-        buyFuelBoost.interactable = false;
+        UpdateButton(buyFuelBoost, buyFuelBoostText);
     }
 
-    public 
+    public void BuyShield()
+    {   
+        isShieldActivated = true;
+        gameManagerScript.SetStars(-3);
+        UpdateButton(buyShield, buyShieldText);
+    }
+    public void BuyFuelMagnet()
+    {   
+        isFuelMagnetActivated = true;
+        gameManagerScript.SetStars(-3);
+        UpdateButton(buyFuelMagnet, buyFuelMagnetText);
+    }
 
-    void UpdateShopUI()
+    public void BuyExtraLife()
+    {   
+        isExtraLifeActivated = true;
+        gameManagerScript.SetStars(-6);
+        UpdateButton(buyExtraLife, buyExtraLifeText);
+    }
+
+    void UpdateButton (Button button, TextMeshProUGUI text)
+    {   
+        UpdateShopUI();
+        button.interactable = false;
+        text.text = "Activated";
+    }
+    
+
+    public void UpdateShopUI()
     {
-        
+        stars = gameManagerScript.GetValue("stars", 0);
+
+        if (stars >= 6)
+        {   
+            ActivateButton(buyExtraLife, isExtraLifeActivated);
+        }
+        else if (stars >= 3)
+        {   
+            ActivateButton(buyFuelBoost, isFuelBoostActivated);
+            ActivateButton(buyShield, isShieldActivated);
+            ActivateButton(buyFuelMagnet, isFuelMagnetActivated);
+            buyExtraLife.interactable = false;
+        }
+        else
+        {
+            buyFuelBoost.interactable = false;
+            buyShield.interactable = false;
+            buyFuelMagnet.interactable = false;
+            buyExtraLife.interactable = false;
+        }
+    }
+
+    void ActivateButton (Button button, bool statement)
+    {
+        if (!statement)
+        {
+            button.interactable = true;
+        }
     }
 
 }
