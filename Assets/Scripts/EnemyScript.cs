@@ -33,7 +33,8 @@ public class EnemyScript : MonoBehaviour
         if (other.gameObject.layer == layerIndex)
         {
             // Destroy(gameObject);
-            Debug.Log ("fuel/enemy is destroyed!");
+            transform.position = new Vector3 (transform.position.x + 1, transform.position.y, transform.position.z);
+            Debug.Log ("Enemy destroyed!");
         }
     }
 }

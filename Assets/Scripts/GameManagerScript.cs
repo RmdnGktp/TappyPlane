@@ -75,7 +75,7 @@ public class GameManagerScript : MonoBehaviour
             SetValue("isNewDistanceQuest", isNewDistanceQuest ? 1:0);
             // ? means if -> If isNewDistanceQuest is true, the value is 1, if it is false, the value is 0
 
-            GetAwards(3);
+            SetStars(3);
         }
 
     }
@@ -98,7 +98,7 @@ public class GameManagerScript : MonoBehaviour
             isNewEnemyQuest = true;
             SetValue("isNewEnemyQuest", isNewEnemyQuest ? 1:0);
 
-            GetAwards(3);
+            SetStars(3);
         }
         else
         {
@@ -116,7 +116,7 @@ public class GameManagerScript : MonoBehaviour
         {
             Debug.Log ("Game Quest Completed!");
             isGameQuestCompleted = true;
-            GetAwards(targetPlayedGame);
+            SetStars(targetPlayedGame);
             targetPlayedGame += increment;
             SetValue("targetPlayedGame", targetPlayedGame);
             SetValue("currentPlayedGameCount", targetPlayedGame);
@@ -130,9 +130,10 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
-   public void GetAwards (int value)
+   public void SetStars (int value)
     {
         stars += value;
+        stars = Mathf.Clamp(stars, 0, int.MaxValue);
         SetValue("stars", stars);
         //Debug.Log (stars);
         UpdateUI();
@@ -166,7 +167,7 @@ public class GameManagerScript : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    int GetValue (string name, int value)
+    public int GetValue (string name, int value)
     {
         return PlayerPrefs.GetInt (name, value);
     }

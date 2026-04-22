@@ -30,8 +30,9 @@ public class FuelScript : MonoBehaviour
         int layerIndex = LayerMask.NameToLayer("Rock");
         if (other.gameObject.layer == layerIndex)
         {
-            Destroy(gameObject);
-            Debug.Log ("fuel destroyed!");
+            // Destroy(gameObject);
+            transform.position = new Vector3 (transform.position.x + 1, transform.position.y, transform.position.z);
+            Debug.Log ("Fuel destroyed!");
         }
     }
 }
