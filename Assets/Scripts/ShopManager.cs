@@ -46,6 +46,7 @@ public class ShopManager : MonoBehaviour
     {   
         isShieldActivated = true;
         gameManagerScript.SetStars(-3);
+        planeScript.ActivateShield();
         UpdateButton(buyShield, buyShieldText);
     }
     public void BuyFuelMagnet()

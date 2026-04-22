@@ -33,6 +33,8 @@ public class PlaneScript : MonoBehaviour
 
     [SerializeField] CinemaschineShake cinemaschineShake;
     [SerializeField] GameManagerScript gameManagerScript;
+    [SerializeField] bool isShieldOn;
+    [SerializeField] GameObject Shield;
 
     void Start()
     {    
@@ -117,26 +119,31 @@ public class PlaneScript : MonoBehaviour
 
         else if (other.CompareTag ("Bat"))
         {
-            addFuel(-fuelToRemove - 5f);
-            cinemaschineShake.ShakeCamera(2f, 0.1f);
+            CrashEnemy(-5);
             Destroy(other.gameObject);
-            gameManagerScript.UpdateEnemyQuest(1);
         }
         else if (other.CompareTag ("Bee"))
         {
-            addFuel(-fuelToRemove);
-            cinemaschineShake.ShakeCamera(2f, 0.1f);
+            CrashEnemy(0);
             Destroy(other.gameObject);
-            gameManagerScript.UpdateEnemyQuest(1);
         }
         else if (other.CompareTag ("Fly"))
-        {
-            addFuel(-fuelToRemove + 5f);
-            cinemaschineShake.ShakeCamera(2f, 0.1f);
+        {   
+            CrashEnemy(5);
             Destroy(other.gameObject);
-            gameManagerScript.UpdateEnemyQuest(1);
         }
         
+    }
+
+    void CrashEnemy(float value)
+    {
+        if (!isShieldOn)
+        {
+            addFuel(-fuelToRemove + value);
+            cinemaschineShake.ShakeCamera(2f, 0.1f);
+        }
+    
+        gameManagerScript.UpdateEnemyQuest(1);
     }
 
     public void addFuel (float value)
@@ -178,6 +185,7 @@ public class PlaneScript : MonoBehaviour
         GameOverBoard.SetActive(true);
         GameOverBoard.GetComponent<GameOverScript>().GameOver(distance); 
         gameManagerScript.UpdateGameQuest(1);
+        Shield.SetActive(false);
     }
 
     public void Impact()
@@ -204,5 +212,10 @@ public class PlaneScript : MonoBehaviour
         isPlayPressed = true;
     }
     
+    public void ActivateShield()
+    {
+        isShieldOn = true;
+        Shield.SetActive(true);
+    }
     
 }
