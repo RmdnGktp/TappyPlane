@@ -7,9 +7,16 @@ public class FuelScript : MonoBehaviour
     Rigidbody2D rb;
     float deathZone = -5f;
 
+    Transform player;
+    float magnetSpeed = 1.5f;
+    bool isInMagnetRange;
+
+    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -19,14 +26,28 @@ public class FuelScript : MonoBehaviour
         float angle = Mathf.Sin (Time.time * 2f) * 15f;
         rb.rotation = angle;
 
+        
+        // Fuel Magnet
+        if (isInMagnetRange)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.position, magnetSpeed * Time.deltaTime);
+        }
+
+        //Destroy
         if (gameObject.transform.position.x < deathZone)
         {
             Destroy(gameObject);
         }
     }
 
-    void OnTriggerEntD(Collider2D other)
-    {   
+    void OnTriggerEnter2D(Collider2D other) {
+        
+        int layer = LayerMask.NameToLayer("Magnet");
+        if (other.gameObject.layer == layer)
+        {
+            isInMagnetRange = true;
+        }
+
         int layerIndex = LayerMask.NameToLayer("Rock");
         if (other.gameObject.layer == layerIndex)
         {
@@ -35,4 +56,7 @@ public class FuelScript : MonoBehaviour
             Debug.Log ("Fuel destroyed!");
         }
     }
+
+    
+
 }

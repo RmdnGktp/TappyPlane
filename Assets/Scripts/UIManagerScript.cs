@@ -94,7 +94,7 @@ public class UIManagerScript : MonoBehaviour
         blackScreen.color = new Color (0, 0, 0, 0);
     }
 
-    public void Buy()
+    public void BuyMore()
     {
         Debug.Log ("Playing Ads");
         gameManagerScript.SetStars(3);

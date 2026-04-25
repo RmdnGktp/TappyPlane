@@ -27,6 +27,7 @@ public class ShopManager : MonoBehaviour
     [Header("GENERAL")]
     [SerializeField] GameManagerScript gameManagerScript;
     [SerializeField] PlaneScript planeScript;
+    [SerializeField] GameObject Magnet;
     int stars;
 
     void Start()
@@ -54,6 +55,7 @@ public class ShopManager : MonoBehaviour
         isFuelMagnetActivated = true;
         gameManagerScript.SetStars(-3);
         UpdateButton(buyFuelMagnet, buyFuelMagnetText);
+        Magnet.SetActive(true);
     }
 
     public void BuyExtraLife()
