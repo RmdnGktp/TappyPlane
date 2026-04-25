@@ -35,10 +35,12 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] GameManagerScript gameManagerScript;
     [SerializeField] bool isShieldOn;
     [SerializeField] GameObject Shield;
+    CapsuleCollider2D collectCollider;
 
     void Start()
     {    
         rb = GetComponent<Rigidbody2D>();
+        collectCollider = GetComponent<CapsuleCollider2D>();
     }
 
     public void setMaxFuel(float value)
@@ -109,8 +111,7 @@ public class PlaneScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {   
-
-        if (other.CompareTag ("Fuel"))
+        if (other.CompareTag ("Fuel") && other.IsTouching(collectCollider))
         {
             addFuel(fuelToAdd);
             Destroy(other.gameObject);

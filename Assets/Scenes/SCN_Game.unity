@@ -1612,7 +1612,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 416277342}
         m_TargetAssemblyTypeName: UIManagerScript, Assembly-CSharp
-        m_MethodName: Buy
+        m_MethodName: BuyMore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3534,6 +3534,7 @@ MonoBehaviour:
   buyExtraLifeText: {fileID: 156349250}
   gameManagerScript: {fileID: 251301856}
   planeScript: {fileID: 1090941336}
+  Magnet: {fileID: 1880089172}
 --- !u!4 &316275176
 Transform:
   m_ObjectHideFlags: 0
@@ -13631,6 +13632,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850516870}
   m_CullTransparentMesh: 1
+--- !u!1 &1880089172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9143315557436612751, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
+  m_PrefabInstance: {fileID: 1378640256688064364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1883815432
 GameObject:
   m_ObjectHideFlags: 0
@@ -15274,21 +15280,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
-    - target: {fileID: 1659666029230238732, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
+    - target: {fileID: 1527655512275518249, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
+      propertyPath: m_Radius
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1659666029230238732, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1659666029230238732, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1659666029230238732, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
+    - target: {fileID: 1527655512275518249, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2269792365230313925, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15330,11 +15328,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6869850141207947958, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869850141207947958, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
+    - target: {fileID: 9143315557436612751, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
