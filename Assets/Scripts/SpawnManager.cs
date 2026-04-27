@@ -117,4 +117,12 @@ public class SpawnManager : MonoBehaviour
         int value = Random.Range(3, 6);
         Instantiate(objects[value], new Vector3(transform.position.x + x, y, 0), Quaternion.identity, gameObject.transform);
     }
+
+    public void ReviveDeleteAllChilds()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 }

@@ -5,6 +5,7 @@ using System.Collections;
 using TMPro;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
+using Unity.Multiplayer.Center.Common;
 
 public class UIManagerScript : MonoBehaviour
 {
@@ -15,12 +16,12 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] GameObject startGameScripts;
     [SerializeField] PlaneScript planeScript;
     [SerializeField] Button extraFuelButton; 
-    [SerializeField] Button buyButton;
+    [SerializeField] Button buyMoreButton;
     [SerializeField] GameManagerScript gameManagerScript;
     [SerializeField] GameObject shopMenu;
     float fadeSpeed = 2f;
     float alpha;
-
+   
     void Start()
     {  
         StartCoroutine(FadeIn()); 
@@ -98,8 +99,11 @@ public class UIManagerScript : MonoBehaviour
     {
         Debug.Log ("Playing Ads");
         gameManagerScript.SetStars(3);
-        buyButton.interactable = false;
-        buyButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
+        buyMoreButton.interactable = false;
+        buyMoreButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
     }
+
+    
+
 
 }

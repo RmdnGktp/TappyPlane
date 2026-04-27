@@ -22,7 +22,8 @@ public class ShopManager : MonoBehaviour
     [Header ("EXTRA LIFE")]
     [SerializeField] Button buyExtraLife;
     [SerializeField] TextMeshProUGUI buyExtraLifeText;
-    bool isExtraLifeActivated;
+    bool isExtraLifeActivated = false;
+    int extraLife = 1;
 
     [Header("GENERAL")]
     [SerializeField] GameManagerScript gameManagerScript;
@@ -30,9 +31,22 @@ public class ShopManager : MonoBehaviour
     [SerializeField] GameObject Magnet;
     int stars;
 
+    [Header("REVIVE")]
+    [SerializeField] Button reviveButton;
+    [SerializeField] TextMeshProUGUI reviveButtonText;
+
     void Start()
     {
         UpdateShopUI();   
+        extraLife = PlayerPrefs.GetInt("extraLife", 1);
+        isExtraLifeActivated = GetBool ("isExtraLifeActivated");
+
+        if (isExtraLifeActivated)
+        {
+            UpdateButton(buyExtraLife, buyExtraLifeText);
+        }
+
+        UpdateReviveButton();
     }
 
     public void BuyFuelBoost()
@@ -61,10 +75,25 @@ public class ShopManager : MonoBehaviour
     public void BuyExtraLife()
     {   
         isExtraLifeActivated = true;
+        SetBool("isExtraLifeActivated", true);
+        UpdateReviveButton();
         gameManagerScript.SetStars(-6);
         UpdateButton(buyExtraLife, buyExtraLifeText);
+        SetExtraLife (1);
+
     }
 
+    public void SetExtraLife(int value)
+    {
+        extraLife += value;
+        PlayerPrefs.SetInt("extraLife", extraLife);
+        PlayerPrefs.Save();
+    }
+
+    public int GetExtraLife()
+    {
+        return extraLife;
+    }
     void UpdateButton (Button button, TextMeshProUGUI text)
     {   
         UpdateShopUI();
@@ -102,6 +131,53 @@ public class ShopManager : MonoBehaviour
         if (!statement)
         {
             button.interactable = true;
+        }
+    }
+
+    public void SetBool (string name, bool value)
+    {
+        PlayerPrefs.SetInt(name, value ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    public bool GetBool (string name)
+    {
+        return PlayerPrefs.GetInt(name, 0) == 1;
+    }
+
+    public void Revive()
+    {
+        if (extraLife == 2)
+        {   
+            Debug.Log ("Extra Life used!");
+            SetExtraLife(-1);
+            planeScript.Revive(); 
+            isExtraLifeActivated = false;
+            SetBool("isExtraLifeActivated", false);
+            UpdateReviveButton();
+        }
+        else if (extraLife == 1)
+        {   
+            Debug.Log ("Playing Ads");
+            reviveButton.interactable = false;
+            reviveButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
+            planeScript.Revive(); 
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    public void UpdateReviveButton()
+    {
+        if (isExtraLifeActivated)
+        {
+            reviveButtonText.text = "Extra Life";
+        }
+        else
+        {
+            reviveButtonText.text = "Revive";
         }
     }
 

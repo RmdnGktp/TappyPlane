@@ -12,7 +12,7 @@ public class UIAnimationScript : MonoBehaviour
     {
         rect = GetComponent<RectTransform>();
         currentY = rect.anchoredPosition.y;
-        rect.anchoredPosition = new Vector2(0, startY);
+        RestartUIPosiotion();
     }
 
     [ContextMenu ("GameOver")]
@@ -31,6 +31,10 @@ public class UIAnimationScript : MonoBehaviour
             rect.anchoredPosition = new Vector2(0, y);
             yield return null;
         }
-        
+    }
+
+    public void RestartUIPosiotion()
+    {
+        rect.anchoredPosition = new Vector2(0, startY);
     }
 }

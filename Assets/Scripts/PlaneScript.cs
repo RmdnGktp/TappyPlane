@@ -157,9 +157,9 @@ public class PlaneScript : MonoBehaviour
         isStarted = true;
         rb.simulated = true;
         spawnManager.StartSpawn();
-        Destroy(startScripts);
+        //Destroy(startScripts);
         //flyingParticals.Play();
-        //startScripts.SetActive(false);
+        startScripts.SetActive(false);
     }
 
     // GAME OVER --------------------------------------------------------
@@ -217,6 +217,40 @@ public class PlaneScript : MonoBehaviour
     {
         isShieldOn = true;
         Shield.SetActive(true);
+    }
+
+    public void Revive()
+    {
+        StartCoroutine(RevivePlayer());
+    }
+
+    IEnumerator RevivePlayer()
+    {
+        yield return new WaitForSeconds(0f);
+        isAlive = true;
+        transform.position = new Vector3(-1.5f, 0, 0);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        flyingParticals.Play();
+        gameObject.GetComponent<Animator>().enabled = true;
+        isStarted = false;
+        rb.simulated = false;
+        startScripts.SetActive(true);
+
+        //fuel = maxFuel;
+        //fuelText.text = Mathf.RoundToInt(fuel) + "%";
+
+        if (isShieldOn)
+        {
+            Shield.SetActive(true);
+        }
+        
+        spawnManager.ReviveDeleteAllChilds();
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        GameOverBoard.GetComponent<GameOverScript>().ReviveUIReset(); 
+        GameOverBoard.SetActive(false);
+
+        yield return null;
     }
     
 }
