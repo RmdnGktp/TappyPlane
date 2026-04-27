@@ -18,7 +18,7 @@ public class GameOverScript : MonoBehaviour
 
     
     public void GameOver(float score)
-    {
+    {   
         StartCoroutine (GameOverAnimation(score));
     }
 
@@ -84,5 +84,15 @@ public class GameOverScript : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
+    }
+
+    public void ReviveUIReset()
+    {
+        board.GetComponent<UIAnimationScript>().RestartUIPosiotion();
+        buttons.GetComponent<UIAnimationScript>().RestartUIPosiotion();
+        scoreText.text = 0 + "m";
+        bestScoreText.text = 0 + "m";
+        Medal.GetComponent<Image>().sprite = Medals [1];
+        Medal.GetComponent<Image>().color = new Color (0f/255f, 0f/255f, 0f/255f, 62f/225f);
     }
 }
