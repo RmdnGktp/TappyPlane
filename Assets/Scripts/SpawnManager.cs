@@ -4,7 +4,7 @@ using System.Collections;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject[] objects; // 0: top, 1: bottom, 2: fuel, 3: Bat, 4:Bee, 5:Fly
-    [SerializeField] float minSpawnDelay = 1.5f;
+    [SerializeField] float minSpawnDelay; // default 1.5f
     float yDifference = 1.6f;
     [SerializeField] float xDifference = 1f;
     [SerializeField] float fuelMaxXDifference = 2.0f;
@@ -46,6 +46,7 @@ public class SpawnManager : MonoBehaviour
         while (planeScript.isAlive)
         {   
             float delay = Mathf.Lerp(2f, minSpawnDelay, difficulty);
+            print (delay);
             yield return new WaitForSeconds(delay);
             SpawnPattern();
         }
