@@ -154,7 +154,10 @@ public class ShopManager : MonoBehaviour
             planeScript.Revive(); 
             isExtraLifeActivated = false;
             SetBool("isExtraLifeActivated", false);
-            UpdateReviveButton();
+            reviveButton.interactable = false;
+            reviveButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
+            Invoke (nameof(UpdateReviveButton), 0.5f);
+            // UpdateReviveButton();
         }
         else if (extraLife == 1)
         {   
@@ -176,8 +179,10 @@ public class ShopManager : MonoBehaviour
             reviveButtonText.text = "Extra Life";
         }
         else
-        {
+        {   
             reviveButtonText.text = "Revive";
+            reviveButton.interactable = true;
+            reviveButton.GetComponent<Image>().color = new Color (78f/225f, 186f/255f, 26f/255f, 255f/255f);
         }
     }
 
