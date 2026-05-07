@@ -162,9 +162,11 @@ public class ShopManager : MonoBehaviour
         else if (extraLife == 1)
         {   
             Debug.Log ("Playing Ads");
+            AdManager.Instance.isRevived = true;
+            AdManager.Instance.ShowAd();
             reviveButton.interactable = false;
             reviveButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
-            planeScript.Revive(); 
+            //planeScript.Revive(); 
         }
         else
         {

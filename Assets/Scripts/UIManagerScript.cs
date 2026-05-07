@@ -78,7 +78,9 @@ public class UIManagerScript : MonoBehaviour
     public void GetExtraFuel()
     {
         Debug.Log ("Playing Ads");
-        planeScript.setMaxFuel(50);
+        AdManager.Instance.hasExtraFuel = true;
+        AdManager.Instance.ShowAd();
+        //planeScript.setMaxFuel(50);
         extraFuelButton.interactable = false;
         extraFuelButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
     }
@@ -98,7 +100,9 @@ public class UIManagerScript : MonoBehaviour
     public void BuyMore()
     {
         Debug.Log ("Playing Ads");
-        gameManagerScript.SetStars(3);
+        AdManager.Instance.hasExtraStars = true;
+        AdManager.Instance.ShowAd();
+        //gameManagerScript.SetStars(3);
         buyMoreButton.interactable = false;
         buyMoreButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
     }
