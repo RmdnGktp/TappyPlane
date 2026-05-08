@@ -7,29 +7,38 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     [Header ("INITIALIZE ADS")]
     [SerializeField] private string _androidGameId;
     [SerializeField] private string _iOSGameId;
-    [SerializeField] private bool _testMode = true;
+    [SerializeField] private bool _testMode;
     private string _gameId;
 
     [Header ("REWARDED ADS")]
     [SerializeField] private string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] private string _iOSAdUnitId = "Rewarded_iOS";
     private string _adUnitId = null;
+    private bool adLoaded = false;
 
     [Header ("REWARDS")]
-    [SerializeField] PlaneScript planeScript;
-    [SerializeField] public bool isRevived = false;
-    [SerializeField] public bool hasExtraFuel = false;
-    [SerializeField] GameManagerScript gameManagerScript;
-    [SerializeField] public bool hasExtraStars = false;
+    PlaneScript planeScript;
+    public bool isRevived = false;
+    public bool hasExtraFuel = false;
+    GameManagerScript gameManagerScript;
+    public bool hasExtraStars = false;
 
     public static AdManager Instance;
 
-
-    
     private void Awake()
     {   
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         InitializeAds();
-        Instance = this;
     }
 
     public void InitializeAds()
@@ -78,6 +87,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
         Debug.Log("Ad Loaded: " + adUnitId);
+        adLoaded = true;
     }
 
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
@@ -91,9 +101,16 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     //  Implement a method to execute when the user clicks the button:
     public void ShowAd() // Code Manuel Written, it is not an interface
     {   
-        // Show the ad:
-        Advertisement.Show(_adUnitId, this);
-        LoadAd();
+        if (adLoaded)
+        {
+            adLoaded = false;
+            // Show the ad:
+            Advertisement.Show(_adUnitId, this);
+        }
+        else
+        {
+            Debug.Log("Ad not loaded yet!");
+        } 
     }
 
     // IUnityAdsShowListener Interfaces .............................................................................
@@ -104,6 +121,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
             Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
             GrantAReward();
+            LoadAd();
         }
     }
 
@@ -126,19 +144,22 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     private void GrantAReward()
     {
         if (isRevived)
-        {
+        {   
+            planeScript = FindFirstObjectByType<PlaneScript>();
             planeScript.Revive();
             isRevived = false;
             Debug.Log("Rewarded with Revive!");
         }
         else if (hasExtraFuel)
         {   
+            planeScript = FindFirstObjectByType<PlaneScript>();
             planeScript.setMaxFuel(50);
             hasExtraFuel = false;
             Debug.Log("Rewarded with Extra Fuel!");
         }
         else if (hasExtraStars)
-        {
+        {   
+            gameManagerScript = FindFirstObjectByType<GameManagerScript>();
             gameManagerScript.SetStars(3);
             hasExtraStars = false;
             Debug.Log("Rewarded with Extra Stars!");
