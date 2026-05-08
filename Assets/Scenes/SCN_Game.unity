@@ -5161,7 +5161,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000df505cd8
+  m_ApplyToSortingLayers: 00000000bb48d35f97a9fcfedf505cd8c333b0f3eb17d341
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -7297,7 +7297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AdManager
   _androidGameId: 6109187
   _iOSGameId: 6109186
-  _testMode: 0
+  _testMode: 1
   _androidAdUnitId: Rewarded_Android
   _iOSAdUnitId: Rewarded_iOS
   planeScript: {fileID: 1090941336}
