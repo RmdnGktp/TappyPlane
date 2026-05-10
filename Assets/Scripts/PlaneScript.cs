@@ -36,6 +36,7 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] bool isShieldOn;
     [SerializeField] GameObject Shield;
     CapsuleCollider2D collectCollider;
+    [SerializeField] QuestManager questManager;
 
     void Start()
     {    
@@ -114,8 +115,8 @@ public class PlaneScript : MonoBehaviour
         if (other.CompareTag ("Fuel") && other.IsTouching(collectCollider))
         {
             addFuel(fuelToAdd);
+            questManager.UpdateQuest(QuestType.CollectFuel, 1);
             Destroy(other.gameObject);
-            //gameManagerScript.UpdateEnemyQuest(1);
         }
 
         else if (other.CompareTag ("Bat"))
@@ -145,6 +146,7 @@ public class PlaneScript : MonoBehaviour
         }
     
         gameManagerScript.UpdateEnemyQuest(1);
+        questManager.UpdateQuest(QuestType.AvoidEnemies,1);
     }
 
     public void addFuel (float value)
@@ -186,6 +188,7 @@ public class PlaneScript : MonoBehaviour
         GameOverBoard.SetActive(true);
         GameOverBoard.GetComponent<GameOverScript>().GameOver(distance); 
         gameManagerScript.UpdateGameQuest(1);
+        questManager.UpdateQuest(QuestType.PlayGames, 1);
         Shield.SetActive(false);
     }
 
