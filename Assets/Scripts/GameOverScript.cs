@@ -60,6 +60,7 @@ public class GameOverScript : MonoBehaviour
 
         gameManagerScript.UpdateDistanceQuest(Mathf.RoundToInt(score));
         questManager.UpdateQuest(QuestType.TotalDistance, Mathf.RoundToInt(score));
+        questManager.UpdateQuest(QuestType.ReachDistance, Mathf.RoundToInt(score));
    
     }
 

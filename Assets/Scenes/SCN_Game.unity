@@ -5169,7 +5169,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestManager
   questDatabase:
-  - {fileID: 11400000, guid: 708eb19b355e6f449a91911883ea0cf0, type: 2}
+  - {fileID: 11400000, guid: e2aaa69211e3fdf4eb03ebf03c0ffc37, type: 2}
+  - {fileID: 11400000, guid: 65b139fb9bd446740b3a749728f8e421, type: 2}
+  - {fileID: 11400000, guid: e7cd0a0ebd3fee2449322cbf64bd6150, type: 2}
+  - {fileID: 11400000, guid: 05be70282ff85144ba7bfd01c8c670e7, type: 2}
+  - {fileID: 11400000, guid: 3c756f1723f66bb49876856280b5159b, type: 2}
+  activeQuests: []
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -15751,6 +15756,10 @@ PrefabInstance:
       propertyPath: distanceText
       value: 
       objectReference: {fileID: 668849354}
+    - target: {fileID: 203795554727548561, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
+      propertyPath: questManager
+      value: 
+      objectReference: {fileID: 578827512}
     - target: {fileID: 203795554727548561, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: spawnManager
       value: 

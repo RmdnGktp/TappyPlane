@@ -10,6 +10,12 @@ public enum QuestType
     AchieveHighScore
 }
 
+public enum QuestProgressType
+{
+    SingleRun,
+    Cumulative
+}
+
 [CreateAssetMenu(fileName = "New Quest", menuName = "Scriptable Objects/Quest")]
 public class QuestData : ScriptableObject
 {
@@ -17,7 +23,10 @@ public class QuestData : ScriptableObject
     public string questName;
     public QuestType questType;
 
-    [Header("Quest")]
+    [Header("Progress")]
+    public QuestProgressType progressType;
+
+    [Header("Quest Values")]
     public int targetValue;
     public int reward;
     public bool isDaily;
