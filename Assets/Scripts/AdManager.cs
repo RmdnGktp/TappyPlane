@@ -63,7 +63,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     // IUnityAdsInitializationListener Interfaces ....................................................................
     public void OnInitializationComplete()
     {
-        Debug.Log("Unity Ads initialization complete.");
+        //Debug.Log("Unity Ads initialization complete.");
         LoadAd();
     }
 
@@ -78,7 +78,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     public void LoadAd() // Code Manuel Written, it is not an interface
     {
         // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-        Debug.Log("Loading Ad: " + _adUnitId);
+        //Debug.Log("Loading Ad: " + _adUnitId);
         Advertisement.Load(_adUnitId, this);
     }
 
@@ -86,7 +86,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     // IUnityAdsLoadListener Interfaces .............................................................................
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
-        Debug.Log("Ad Loaded: " + adUnitId);
+        //Debug.Log("Ad Loaded: " + adUnitId);
         adLoaded = true;
     }
 
@@ -118,7 +118,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     {
         if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
-            Debug.Log("Unity Ads Rewarded Ad Completed");
+            //Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
             GrantAReward();
             LoadAd();
@@ -148,21 +148,21 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
             planeScript = FindFirstObjectByType<PlaneScript>();
             planeScript.Revive();
             isRevived = false;
-            Debug.Log("Rewarded with Revive!");
+            //Debug.Log("Rewarded with Revive!");
         }
         else if (hasExtraFuel)
         {   
             planeScript = FindFirstObjectByType<PlaneScript>();
             planeScript.setMaxFuel(50);
             hasExtraFuel = false;
-            Debug.Log("Rewarded with Extra Fuel!");
+            //Debug.Log("Rewarded with Extra Fuel!");
         }
         else if (hasExtraStars)
         {   
             gameManagerScript = FindFirstObjectByType<GameManagerScript>();
             gameManagerScript.SetStars(3);
             hasExtraStars = false;
-            Debug.Log("Rewarded with Extra Stars!");
+            //Debug.Log("Rewarded with Extra Stars!");
         }
     }
 }

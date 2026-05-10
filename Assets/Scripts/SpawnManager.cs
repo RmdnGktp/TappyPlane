@@ -46,7 +46,7 @@ public class SpawnManager : MonoBehaviour
         while (planeScript.isAlive)
         {   
             float delay = Mathf.Lerp(2f, minSpawnDelay, difficulty);
-            print (delay);
+            // print (delay);
             yield return new WaitForSeconds(delay);
             SpawnPattern();
         }

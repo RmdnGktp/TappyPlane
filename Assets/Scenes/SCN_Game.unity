@@ -5124,6 +5124,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562687710}
   m_CullTransparentMesh: 1
+--- !u!1 &578827510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 578827511}
+  - component: {fileID: 578827512}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &578827511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578827510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &578827512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578827510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ca505b3f4e2cd489f0e906c28a83b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestManager
+  questDatabase:
+  - {fileID: 11400000, guid: 708eb19b355e6f449a91911883ea0cf0, type: 2}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -7266,6 +7312,7 @@ MonoBehaviour:
   board: {fileID: 1623348135}
   buttons: {fileID: 265016990}
   gameManagerScript: {fileID: 251301856}
+  questManager: {fileID: 578827512}
 --- !u!1 &818366809
 GameObject:
   m_ObjectHideFlags: 0
@@ -7300,10 +7347,8 @@ MonoBehaviour:
   _testMode: 1
   _androidAdUnitId: Rewarded_Android
   _iOSAdUnitId: Rewarded_iOS
-  planeScript: {fileID: 1090941336}
   isRevived: 0
   hasExtraFuel: 0
-  gameManagerScript: {fileID: 251301856}
   hasExtraStars: 0
 --- !u!4 &818366811
 Transform:
@@ -15804,3 +15849,4 @@ SceneRoots:
   - {fileID: 282581661}
   - {fileID: 1952652050}
   - {fileID: 818366811}
+  - {fileID: 578827511}

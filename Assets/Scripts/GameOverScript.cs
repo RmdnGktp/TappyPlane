@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class GameOverScript : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameOverScript : MonoBehaviour
     [SerializeField] GameObject board;
     [SerializeField] GameObject buttons;
     [SerializeField] GameManagerScript gameManagerScript;
+    [SerializeField] QuestManager questManager;
 
     
     public void GameOver(float score)
@@ -57,6 +59,7 @@ public class GameOverScript : MonoBehaviour
         addMedals(score);
 
         gameManagerScript.UpdateDistanceQuest(Mathf.RoundToInt(score));
+        questManager.UpdateQuest(QuestType.TotalDistance, Mathf.RoundToInt(score));
    
     }
 
