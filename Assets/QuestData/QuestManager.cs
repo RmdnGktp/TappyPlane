@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class QuestManager : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class QuestManager : MonoBehaviour
     public List<Quest> activeQuests = new List<Quest>();
 
     List<int> completedQuestIndexes = new List<int>();
+
+    [SerializeField] TextMeshProUGUI questTracker;
 
     void Start()
     {
@@ -130,21 +134,26 @@ public class QuestManager : MonoBehaviour
                 quest.currentValue += amount;
                 Debug.Log(quest.data.questName + ": " + quest.currentValue);
 
+
                 if (quest.currentValue >= quest.data.targetValue)
                 {
                     CompleteQuest(quest);
                 }
                 else
-                {
+                {   
+                    UpdateQuestTracker(quest, quest.isCompleted);
                     SaveQuests();
                 }
             }
+
+            
         }
     }
 
     void CompleteQuest(Quest quest)
     {
         quest.isCompleted = true;
+        UpdateQuestTracker(quest, quest.isCompleted);
 
         int questIndex = GetQuestIndex(quest.data);
         if (questIndex >= 0 && !completedQuestIndexes.Contains(questIndex))
@@ -321,5 +330,47 @@ public class QuestManager : MonoBehaviour
         int stars = 0;
         stars += amount;
         Debug.Log("Reward: " + stars + " stars");
+    }
+
+    void UpdateQuestTracker (Quest quest, bool completed)
+    {
+        
+        if (completed)
+        {
+            questTracker.text = 
+                $"{quest.data.questName}\n" +
+                $"<color=green>Quest Completed!</color>";
+        }
+        else
+        {
+            questTracker.text = 
+                $"{quest.data.questName}\n" +
+                $"{quest.currentValue}/{quest.data.targetValue}";
+        }
+
+        StartCoroutine(FadeQuestTracker());
+    }
+
+    IEnumerator FadeQuestTracker()
+    {
+        // RESET
+        Color color = questTracker.color;
+        questTracker.color = new Color(color.r, color.g, color.b, 1f);
+
+        yield return new WaitForSeconds(2f);
+        
+        // FADE OUT
+        float alpha = 1f;
+        float fadeSpeed = 2f;
+
+        while (alpha > 0)
+        {
+            alpha -= Time.deltaTime * fadeSpeed;
+            questTracker.color = new Color(color.r, color.g, color.b, alpha);
+            yield return null;
+        }
+
+        // CLEANUP
+        questTracker.text = string.Empty;
     }
 }
