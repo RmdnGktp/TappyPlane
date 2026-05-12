@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 27950016}
   - component: {fileID: 27950015}
   m_Layer: 5
-  m_Name: PlayQuest
+  m_Name: Quest03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1145,7 +1145,7 @@ GameObject:
   - component: {fileID: 82725350}
   - component: {fileID: 82725349}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Awards01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5316,6 +5316,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c756f1723f66bb49876856280b5159b, type: 2}
   activeQuests: []
   questTracker: {fileID: 392393098}
+  QuestNameText:
+  - {fileID: 1310339641}
+  - {fileID: 768870327}
+  - {fileID: 726151088}
+  QuestRewardText:
+  - {fileID: 82725349}
+  - {fileID: 764679164}
+  - {fileID: 2049229439}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -6341,7 +6349,7 @@ GameObject:
   - component: {fileID: 726151089}
   - component: {fileID: 726151088}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Name03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6628,7 +6636,7 @@ GameObject:
   - component: {fileID: 764679165}
   - component: {fileID: 764679164}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Awards02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6948,7 +6956,7 @@ GameObject:
   - component: {fileID: 768870328}
   - component: {fileID: 768870327}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Name02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11093,7 +11101,7 @@ GameObject:
   - component: {fileID: 1257962121}
   - component: {fileID: 1257962120}
   m_Layer: 5
-  m_Name: EnemyQuest
+  m_Name: Quest02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11441,7 +11449,7 @@ GameObject:
   - component: {fileID: 1310339642}
   - component: {fileID: 1310339641}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Name01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11578,7 +11586,7 @@ GameObject:
   - component: {fileID: 1334505403}
   - component: {fileID: 1334505402}
   m_Layer: 5
-  m_Name: DistanceQuest
+  m_Name: Quest01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15151,7 +15159,7 @@ GameObject:
   - component: {fileID: 2049229440}
   - component: {fileID: 2049229439}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Awards03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
