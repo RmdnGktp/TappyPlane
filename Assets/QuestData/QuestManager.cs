@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour
 {
@@ -17,8 +18,17 @@ public class QuestManager : MonoBehaviour
     public List<Quest> activeQuests = new List<Quest>();
 
     List<int> completedQuestIndexes = new List<int>();
-
+    
+    [Header("Update Quests UI")]
     [SerializeField] TextMeshProUGUI questTracker;
+    [SerializeField] TextMeshProUGUI[] QuestNameText;
+    [SerializeField] TextMeshProUGUI[] QuestRewardText;
+    [SerializeField] Image[] QuestImage;
+    [SerializeField] Image[] RewardImage;
+    
+    [Header("Update Stars")]
+    int stars = 0;
+
 
     void Start()
     {
@@ -33,6 +43,8 @@ public class QuestManager : MonoBehaviour
         {
             ContinueToday();
         }
+
+        UpdateQuestUI();
     }
 
     void StartNewDay(string today)
@@ -165,7 +177,7 @@ public class QuestManager : MonoBehaviour
         AddStars(quest.data.reward);
 
         activeQuests.Remove(quest);
-        FillEmptyQuestSlots();
+        // FillEmptyQuestSlots();
         SaveQuests();
     }
 
@@ -325,9 +337,8 @@ public class QuestManager : MonoBehaviour
         return "QuestCompletedIndex" + slot;
     }
 
-    void AddStars(int amount)
+    public void AddStars(int amount)
     {
-        int stars = 0;
         stars += amount;
         Debug.Log("Reward: " + stars + " stars");
     }
@@ -372,5 +383,25 @@ public class QuestManager : MonoBehaviour
 
         // CLEANUP
         questTracker.text = string.Empty;
+    }
+
+    void UpdateQuestUI ()
+    {
+        for (int i = 0; i < QuestNameText.Length; i++)
+        {
+            if (i >= activeQuests.Count)
+            {
+                QuestNameText[i].text = string.Empty;
+                QuestRewardText[i].text = string.Empty;
+                QuestImage[i].enabled = false;
+                RewardImage[i].enabled = false;
+                continue;
+            }
+
+            Quest quest = activeQuests[i];
+            QuestNameText[i].text = quest.data.questName;
+            QuestRewardText[i].text = quest.data.reward.ToString();
+        }
+
     }
 }

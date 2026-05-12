@@ -141,6 +141,7 @@ public class GameManagerScript : MonoBehaviour
 
     void UpdateUI ()
     {
+        return;
         // Distance Quest
         distanceText.text = "Fly " + targetDistance.ToString() + " meters";
         distanceNewText.SetActive(isNewDistanceQuest);
