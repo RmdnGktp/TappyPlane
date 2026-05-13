@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class QuestManager : MonoBehaviour
 {
@@ -27,13 +28,22 @@ public class QuestManager : MonoBehaviour
     [SerializeField] Image[] RewardImage;
     
     [Header("Update Stars")]
-    int stars = 0;
+    int stars;
+    [SerializeField] TextMeshProUGUI starsText;
+    [SerializeField] TextMeshProUGUI starsOnShop;
+    [SerializeField] ShopManager shopManager;
 
+    void Awake()
+    {
+        stars = PlayerPrefs.GetInt ("stars", 0);
+        UpdateStarsUI(stars); 
+    }
 
     void Start()
     {
         string today = System.DateTime.Now.ToString("yyyyMMdd");
         string lastDate = PlayerPrefs.GetString(LastDateKey, "");
+
 
         if (today != lastDate)
         {
@@ -341,6 +351,9 @@ public class QuestManager : MonoBehaviour
     {
         stars += amount;
         Debug.Log("Reward: " + stars + " stars");
+        PlayerPrefs.SetInt("stars", stars);
+        PlayerPrefs.Save();
+        UpdateStarsUI(stars);
     }
 
     void UpdateQuestTracker (Quest quest, bool completed)
@@ -404,4 +417,23 @@ public class QuestManager : MonoBehaviour
         }
 
     }
+
+    void UpdateStarsUI(int value)
+    {
+        starsText.text = value.ToString();
+        starsOnShop.text = value.ToString();
+        shopManager.UpdateShopUI();
+    }
+
+     public int GetStars()
+    {
+        return stars;
+    }
+
+    [ContextMenu ("Reset")]
+    void Reset()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    } 
 }

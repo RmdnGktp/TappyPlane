@@ -17,10 +17,10 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] PlaneScript planeScript;
     [SerializeField] Button extraFuelButton; 
     [SerializeField] Button buyMoreButton;
-    [SerializeField] GameManagerScript gameManagerScript;
     [SerializeField] GameObject shopMenu;
     float fadeSpeed = 2f;
     float alpha;
+    [SerializeField] QuestManager questManager;
    
     void Start()
     {  
@@ -34,7 +34,7 @@ public class UIManagerScript : MonoBehaviour
         gameUI.SetActive(true);
         startGameScripts.SetActive(true);
         planeScript.Play();
-        gameManagerScript.ResetUI();
+        
     }
     
 
@@ -102,7 +102,6 @@ public class UIManagerScript : MonoBehaviour
         Debug.Log ("Playing Ads");
         AdManager.Instance.hasExtraStars = true;
         AdManager.Instance.ShowAd();
-        //gameManagerScript.SetStars(3);
         buyMoreButton.interactable = false;
         buyMoreButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
     }

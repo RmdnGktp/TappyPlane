@@ -20,7 +20,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     PlaneScript planeScript;
     public bool isRevived = false;
     public bool hasExtraFuel = false;
-    GameManagerScript gameManagerScript;
+    QuestManager questManager;
     public bool hasExtraStars = false;
 
     public static AdManager Instance;
@@ -159,8 +159,8 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
         }
         else if (hasExtraStars)
         {   
-            gameManagerScript = FindFirstObjectByType<GameManagerScript>();
-            gameManagerScript.SetStars(3);
+            questManager = FindFirstObjectByType<QuestManager>();
+            questManager.AddStars(3);
             hasExtraStars = false;
             //Debug.Log("Rewarded with Extra Stars!");
         }

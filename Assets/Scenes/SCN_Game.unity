@@ -273,7 +273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &18439598
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1013,7 +1013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &69009889
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1145,7 +1145,7 @@ GameObject:
   - component: {fileID: 82725350}
   - component: {fileID: 82725349}
   m_Layer: 5
-  m_Name: Awards01
+  m_Name: RewardText01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2357,63 +2357,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &251301854
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 251301855}
-  - component: {fileID: 251301856}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &251301855
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251301854}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 106.21618, y: 332.01828, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &251301856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251301854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a16f40289774e34f850ad498718ff13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManagerScript
-  distanceText: {fileID: 1310339641}
-  distanceNewText: {fileID: 69009888}
-  targetDistance: 500
-  awardsTextDQ: {fileID: 82725349}
-  enemyText: {fileID: 768870327}
-  enemyNewText: {fileID: 18439597}
-  targetEnemy: 5
-  gameText: {fileID: 726151088}
-  gameNewText: {fileID: 382173667}
-  targetPlayedGame: 3
-  awardsTextGQ: {fileID: 2049229439}
-  starsText: {fileID: 292041408}
-  starsOnShop: {fileID: 51196125}
 --- !u!1 &264232653
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,7 +3477,7 @@ MonoBehaviour:
   buyFuelMagnetText: {fileID: 1031736164}
   buyExtraLife: {fileID: 522131774}
   buyExtraLifeText: {fileID: 156349250}
-  gameManagerScript: {fileID: 251301856}
+  questManager: {fileID: 578827512}
   planeScript: {fileID: 1090941336}
   Magnet: {fileID: 1880089172}
   reviveButton: {fileID: 483128477}
@@ -3741,7 +3684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &382173668
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4074,8 +4017,8 @@ MonoBehaviour:
   planeScript: {fileID: 1090941336}
   extraFuelButton: {fileID: 1356136971}
   buyMoreButton: {fileID: 165597252}
-  gameManagerScript: {fileID: 251301856}
   shopMenu: {fileID: 86910283}
+  questManager: {fileID: 578827512}
 --- !u!4 &416277343
 Transform:
   m_ObjectHideFlags: 0
@@ -4148,7 +4091,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100%
+  m_text: 200%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 070a8fc138a520046bf3c8cb1e7618f2, type: 2}
   m_sharedMaterial: {fileID: 7955443261397776681, guid: 070a8fc138a520046bf3c8cb1e7618f2, type: 2}
@@ -4214,7 +4157,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -187.70355, w: -28.443085}
+  m_margin: {x: 0, y: 0, z: -297.18176, w: -28.443085}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5324,6 +5267,17 @@ MonoBehaviour:
   - {fileID: 82725349}
   - {fileID: 764679164}
   - {fileID: 2049229439}
+  QuestImage:
+  - {fileID: 1334505402}
+  - {fileID: 1257962120}
+  - {fileID: 27950015}
+  RewardImage:
+  - {fileID: 894227772}
+  - {fileID: 1910492050}
+  - {fileID: 844080605}
+  starsText: {fileID: 292041408}
+  starsOnShop: {fileID: 51196125}
+  shopManager: {fileID: 316275175}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -6636,7 +6590,7 @@ GameObject:
   - component: {fileID: 764679165}
   - component: {fileID: 764679164}
   m_Layer: 5
-  m_Name: Awards02
+  m_Name: RewardText02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7465,7 +7419,6 @@ MonoBehaviour:
   scoreText: {fileID: 1198944940}
   board: {fileID: 1623348135}
   buttons: {fileID: 265016990}
-  gameManagerScript: {fileID: 251301856}
   questManager: {fileID: 578827512}
 --- !u!1 &818366809
 GameObject:
@@ -7531,7 +7484,7 @@ GameObject:
   - component: {fileID: 844080606}
   - component: {fileID: 844080605}
   m_Layer: 5
-  m_Name: Awards
+  m_Name: Reward03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7819,7 +7772,7 @@ GameObject:
   - component: {fileID: 894227773}
   - component: {fileID: 894227772}
   m_Layer: 5
-  m_Name: Awards
+  m_Name: Reward01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14458,7 +14411,7 @@ GameObject:
   - component: {fileID: 1910492051}
   - component: {fileID: 1910492050}
   m_Layer: 5
-  m_Name: Awards
+  m_Name: Reward02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15159,7 +15112,7 @@ GameObject:
   - component: {fileID: 2049229440}
   - component: {fileID: 2049229439}
   m_Layer: 5
-  m_Name: Awards03
+  m_Name: RewardText03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15928,7 +15881,7 @@ PrefabInstance:
     - target: {fileID: 203795554727548561, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: gameManagerScript
       value: 
-      objectReference: {fileID: 251301856}
+      objectReference: {fileID: 0}
     - target: {fileID: 1037270834388035499, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: m_Name
       value: Plane
@@ -16002,7 +15955,6 @@ SceneRoots:
   - {fileID: 48016202}
   - {fileID: 802193961}
   - {fileID: 416277343}
-  - {fileID: 251301855}
   - {fileID: 316275176}
   - {fileID: 282581661}
   - {fileID: 1952652050}
