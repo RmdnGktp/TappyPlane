@@ -26,7 +26,7 @@ public class ShopManager : MonoBehaviour
     int extraLife = 1;
 
     [Header("GENERAL")]
-    [SerializeField] GameManagerScript gameManagerScript;
+    [SerializeField] QuestManager questManager;
     [SerializeField] PlaneScript planeScript;
     [SerializeField] GameObject Magnet;
     int stars;
@@ -52,7 +52,7 @@ public class ShopManager : MonoBehaviour
     public void BuyFuelBoost()
     {   
         isFuelBoostActivated = true;
-        gameManagerScript.SetStars(-3);
+        questManager.AddStars(-3);
         planeScript.setMaxFuel(50);
         UpdateButton(buyFuelBoost, buyFuelBoostText);
     }
@@ -60,14 +60,14 @@ public class ShopManager : MonoBehaviour
     public void BuyShield()
     {   
         isShieldActivated = true;
-        gameManagerScript.SetStars(-3);
+        questManager.AddStars(-3);
         planeScript.ActivateShield();
         UpdateButton(buyShield, buyShieldText);
     }
     public void BuyFuelMagnet()
     {   
         isFuelMagnetActivated = true;
-        gameManagerScript.SetStars(-3);
+        questManager.AddStars(-3);
         UpdateButton(buyFuelMagnet, buyFuelMagnetText);
         Magnet.SetActive(true);
     }
@@ -77,7 +77,7 @@ public class ShopManager : MonoBehaviour
         isExtraLifeActivated = true;
         SetBool("isExtraLifeActivated", true);
         UpdateReviveButton();
-        gameManagerScript.SetStars(-6);
+        questManager.AddStars(-6);
         UpdateButton(buyExtraLife, buyExtraLifeText);
         SetExtraLife (1);
 
@@ -104,7 +104,8 @@ public class ShopManager : MonoBehaviour
 
     public void UpdateShopUI()
     {
-        stars = gameManagerScript.GetValue("stars", 0);
+        int stars = questManager.GetStars();
+        print(stars);
 
         if (stars >= 6)
         {   

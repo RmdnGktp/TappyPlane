@@ -32,7 +32,6 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] Image flashImage;
 
     [SerializeField] CinemaschineShake cinemaschineShake;
-    [SerializeField] GameManagerScript gameManagerScript;
     [SerializeField] bool isShieldOn;
     [SerializeField] GameObject Shield;
     CapsuleCollider2D collectCollider;
@@ -145,7 +144,6 @@ public class PlaneScript : MonoBehaviour
             cinemaschineShake.ShakeCamera(2f, 0.1f);
         }
     
-        gameManagerScript.UpdateEnemyQuest(1);
         questManager.UpdateQuest(QuestType.AvoidEnemies,1);
     }
 
@@ -187,7 +185,6 @@ public class PlaneScript : MonoBehaviour
         gameObject.GetComponent<Animator>().enabled = false;
         GameOverBoard.SetActive(true);
         GameOverBoard.GetComponent<GameOverScript>().GameOver(distance); 
-        gameManagerScript.UpdateGameQuest(1);
         questManager.UpdateQuest(QuestType.PlayGames, 1);
         Shield.SetActive(false);
     }
