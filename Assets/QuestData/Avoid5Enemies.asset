@@ -16,5 +16,5 @@ MonoBehaviour:
   questType: 2
   progressType: 1
   targetValue: 5
-  reward: 1
+  reward: 3
   isDaily: 1

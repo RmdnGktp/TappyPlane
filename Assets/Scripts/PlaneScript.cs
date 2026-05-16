@@ -22,7 +22,7 @@ public class PlaneScript : MonoBehaviour
     float distance = 0f;
     public bool isAlive = true;
     public bool isStarted = false;
-    bool isPlayPressed = false;
+    private bool isPlayPressed = false;
     [SerializeField] SpawnManager spawnManager;
     [SerializeField] GameObject startScripts;
     [SerializeField] GameObject board;
@@ -63,32 +63,8 @@ public class PlaneScript : MonoBehaviour
         // fuel managment
         fuel -= Time.deltaTime * fuelConsumeSpeed;
         fuel = Mathf.Clamp (fuel, 0f,maxFuel);
-        fuelText.text = Mathf.RoundToInt(fuel) + "%";
-
-        if (fuel == 0f)
-        {
-            GameOver();
-        }
-        else if (fuel <= 30)
-        {
-            fuelText.color = new Color (245f/255f, 105f/255f, 0f/255f);
-            var main = flyingParticals.main;
-            main.startColor = new Color (61f/255f, 61f/255f, 61f/255f);
-            
-        }
-        else if (fuel <= 60)
-        {
-            fuelText.color = new Color (253f/255f, 241f/255f, 0f/255f);
-            var main = flyingParticals.main;
-            main.startColor = new Color (138f/255f, 139f/255f, 152f/255f);
-        }
-        else
-        {
-            fuelText.color = new Color (4f/255f, 226f/255f, 67f/255f);
-            var main = flyingParticals.main;
-            main.startColor = new Color (208f/255f, 211f/255f, 229f/255f);
-        }
-
+        UpdateFuelText();
+        
         // distance managment
         distance += Time.deltaTime * 20f; 
         distanceText.text = Mathf.RoundToInt(distance) + "m";
@@ -117,7 +93,6 @@ public class PlaneScript : MonoBehaviour
             questManager.UpdateQuest(QuestType.CollectFuel, 1);
             Destroy(other.gameObject);
         }
-
         else if (other.CompareTag ("Bat"))
         {
             CrashEnemy(-5);
@@ -228,6 +203,8 @@ public class PlaneScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0f);
         isAlive = true;
+        fuel = 100f;
+        UpdateFuelText();
         transform.position = new Vector3(-1.5f, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
@@ -251,6 +228,35 @@ public class PlaneScript : MonoBehaviour
         GameOverBoard.SetActive(false);
 
         yield return null;
+    }
+
+    void UpdateFuelText ()
+    {
+        fuelText.text = Mathf.RoundToInt(fuel) + "%";
+
+        if (fuel == 0f)
+        {
+            GameOver();
+        }
+        else if (fuel <= 30)
+        {
+            fuelText.color = new Color (245f/255f, 105f/255f, 0f/255f);
+            var main = flyingParticals.main;
+            main.startColor = new Color (61f/255f, 61f/255f, 61f/255f);
+            
+        }
+        else if (fuel <= 60)
+        {
+            fuelText.color = new Color (253f/255f, 241f/255f, 0f/255f);
+            var main = flyingParticals.main;
+            main.startColor = new Color (138f/255f, 139f/255f, 152f/255f);
+        }
+        else
+        {
+            fuelText.color = new Color (4f/255f, 226f/255f, 67f/255f);
+            var main = flyingParticals.main;
+            main.startColor = new Color (208f/255f, 211f/255f, 229f/255f);
+        }
     }
     
 }
