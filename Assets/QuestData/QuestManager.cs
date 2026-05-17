@@ -29,7 +29,7 @@ public class QuestManager : MonoBehaviour
     
     [Header("Update Stars")]
     int stars;
-    [SerializeField] TextMeshProUGUI starsText;
+    [SerializeField] TextMeshProUGUI starsOnQuestLog;
     [SerializeField] TextMeshProUGUI starsOnShop;
     [SerializeField] ShopManager shopManager;
 
@@ -420,7 +420,7 @@ public class QuestManager : MonoBehaviour
 
     void UpdateStarsUI(int value)
     {
-        starsText.text = value.ToString();
+        starsOnQuestLog.text = value.ToString();
         starsOnShop.text = value.ToString();
         shopManager.UpdateShopUI();
     }
