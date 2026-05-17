@@ -14,6 +14,7 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] GameObject tappyPlaneText;
     [SerializeField] GameObject gameUI;
     [SerializeField] GameObject startGameScripts;
+    [SerializeField] GameObject questLogUI;
     [SerializeField] PlaneScript planeScript;
     [SerializeField] Button extraFuelButton; 
     [SerializeField] Button buyMoreButton;
@@ -21,6 +22,9 @@ public class UIManagerScript : MonoBehaviour
     float fadeSpeed = 2f;
     float alpha;
     [SerializeField] QuestManager questManager;
+    [SerializeField] GameObject plane;
+    [SerializeField] GameObject menuUI;
+    [SerializeField] Button homeButton; 
    
     void Start()
     {  
@@ -34,6 +38,7 @@ public class UIManagerScript : MonoBehaviour
         gameUI.SetActive(true);
         startGameScripts.SetActive(true);
         planeScript.Play();
+        menuUI.SetActive(false);
         
     }
     
@@ -88,13 +93,44 @@ public class UIManagerScript : MonoBehaviour
     public void OpenShop()
     {
         shopMenu.SetActive(true);
-        blackScreen.color = new Color (0, 0, 0, 0.7f);
+        blackScreen.color = new Color (0, 0, 0, 0.5f);
+
+        startGameUI.SetActive(false);
+        tappyPlaneText.SetActive(false);
+        plane.SetActive(false);
+        questLogUI.SetActive(false);
+
+        ColorBlock cb = homeButton.colors;
+        cb.normalColor = new Color (0, 0, 0, 100f/255f);
+        homeButton.colors = cb;
+
     }
 
-    public void CloseShop()
+    public void ReturnHome()
     {
         shopMenu.SetActive(false);
+        questLogUI.SetActive(false);
         blackScreen.color = new Color (0, 0, 0, 0);
+        startGameUI.SetActive(true);
+        tappyPlaneText.SetActive(true);
+        plane.SetActive(true);
+        
+    }
+
+    public void OpenQuestLog()
+    {
+        questLogUI.SetActive(true);
+        blackScreen.color = new Color (0, 0, 0, 0.5f);
+
+        startGameUI.SetActive(false);
+        tappyPlaneText.SetActive(false);
+        plane.SetActive(false);
+        shopMenu.SetActive(false);
+
+        ColorBlock cb = homeButton.colors;
+        cb.normalColor = new Color (0, 0, 0, 100f/255f);
+        homeButton.colors = cb;
+
     }
 
     public void BuyMore()
