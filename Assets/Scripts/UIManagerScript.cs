@@ -101,7 +101,8 @@ public class UIManagerScript : MonoBehaviour
         questLogUI.SetActive(false);
 
         ColorBlock cb = homeButton.colors;
-        cb.normalColor = new Color (0, 0, 0, 100f/255f);
+        cb.normalColor = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f);
+        //cb.normalColor = new Color (0, 0, 0, 100f/255f);
         homeButton.colors = cb;
 
     }
@@ -128,7 +129,8 @@ public class UIManagerScript : MonoBehaviour
         shopMenu.SetActive(false);
 
         ColorBlock cb = homeButton.colors;
-        cb.normalColor = new Color (0, 0, 0, 100f/255f);
+        cb.normalColor = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f);
+        //cb.normalColor = new Color (0, 0, 0, 100f/255f);
         homeButton.colors = cb;
 
     }
