@@ -59,7 +59,11 @@ public class GameOverScript : MonoBehaviour
 
         questManager.UpdateQuest(QuestType.TotalDistance, Mathf.RoundToInt(score));
         questManager.UpdateQuest(QuestType.ReachDistance, Mathf.RoundToInt(score));
-   
+
+        if (isNewRecord)
+        {
+            questManager.UpdateQuest(QuestType.AchieveHighScore, 1);
+        }
     }
 
     void addMedals (float value)

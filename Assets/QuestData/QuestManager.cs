@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 
 public class QuestManager : MonoBehaviour
 {
-    const int MaxActiveQuests = 3;
+    const int MaxActiveQuests = 10;
 
     const string LastDateKey = "QuestLastDate";
     const string CompletedQuestCountKey = "QuestCompletedCount";
@@ -186,8 +186,9 @@ public class QuestManager : MonoBehaviour
         Debug.Log("Quest Complete: " + quest.data.questName);
         AddStars(quest.data.reward);
 
-        activeQuests.Remove(quest);
+        //activeQuests.Remove(quest);
         // FillEmptyQuestSlots();
+        UpdateQuestUI();
         SaveQuests();
     }
 
@@ -381,11 +382,11 @@ public class QuestManager : MonoBehaviour
         Color color = questTracker.color;
         questTracker.color = new Color(color.r, color.g, color.b, 1f);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         
         // FADE OUT
         float alpha = 1f;
-        float fadeSpeed = 2f;
+        float fadeSpeed = 1f;
 
         while (alpha > 0)
         {
@@ -404,10 +405,12 @@ public class QuestManager : MonoBehaviour
         {
             if (i >= activeQuests.Count)
             {
-                QuestNameText[i].text = string.Empty;
-                QuestRewardText[i].text = string.Empty;
-                QuestImage[i].enabled = false;
-                RewardImage[i].enabled = false;
+                QuestNameText[i].text = "Completed!";
+                //QuestRewardText[i].text = string.Empty;
+                QuestImage[i].color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f);
+                //RewardImage[i].enabled = false;
+                print ("QuestUI is Up to date");
+                print (i);
                 continue;
             }
 

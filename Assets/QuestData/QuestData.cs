@@ -7,7 +7,12 @@ public enum QuestType
     AvoidEnemies,
     PlayGames,
     CollectFuel,
-    AchieveHighScore
+    AchieveHighScore, 
+    UseShield,
+    UseFuelMagnet,
+    UseExtraLife,
+    UseFuelBoost,
+
 }
 
 public enum QuestProgressType

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a8b27b2c7f0e774ea8e1b99872913c0, type: 3}
-  m_Name: Fly1500m
+  m_Name: PlayGames
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questName: Fly 1500m total
-  questType: 0
+  questName: Play 3 Games
+  questType: 3
   progressType: 1
-  targetValue: 1500
+  targetValue: 3
   reward: 3
   isDaily: 1
