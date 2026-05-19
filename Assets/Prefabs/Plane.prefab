@@ -231,13 +231,14 @@ MonoBehaviour:
   flapStrength: 3
   rotationStrength: 10
   fuelConsumeSpeed: 4
-  fuelToAdd: 30
+  fuelToAdd: 25
   fuelToRemove: 10
   fuelText: {fileID: 0}
   distanceText: {fileID: 0}
   GameOverBoard: {fileID: 0}
   isAlive: 1
   isStarted: 0
+  isPlayPressed: 0
   spawnManager: {fileID: 0}
   startScripts: {fileID: 0}
   board: {fileID: 0}
@@ -246,9 +247,9 @@ MonoBehaviour:
   flyingParticals: {fileID: 6775868822322445511}
   flashImage: {fileID: 0}
   cinemaschineShake: {fileID: 0}
-  gameManagerScript: {fileID: 0}
   isShieldOn: 0
   Shield: {fileID: 6869850141207947958}
+  questManager: {fileID: 0}
 --- !u!1 &1483065127644851185
 GameObject:
   m_ObjectHideFlags: 0
@@ -10065,7 +10066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5501586676328882816
 Transform:
   m_ObjectHideFlags: 0
@@ -10116,4 +10117,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.5
+  m_Radius: 2

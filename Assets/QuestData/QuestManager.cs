@@ -3,22 +3,18 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class QuestManager : MonoBehaviour
 {
     const int MaxActiveQuests = 10;
 
     const string LastDateKey = "QuestLastDate";
-    const string CompletedQuestCountKey = "QuestCompletedCount";
 
     [Header("All Available Quests")]
     public List<QuestData> questDatabase;
 
     [Header("Active Quests")]
     public List<Quest> activeQuests = new List<Quest>();
-
-    List<int> completedQuestIndexes = new List<int>();
     
     [Header("Update Quests UI")]
     [SerializeField] TextMeshProUGUI questTracker;
@@ -60,11 +56,9 @@ public class QuestManager : MonoBehaviour
     void StartNewDay(string today)
     {
         activeQuests.Clear();
-        completedQuestIndexes.Clear();
 
         PlayerPrefs.SetString(LastDateKey, today);
         ClearSavedActiveQuests();
-        ClearSavedCompletedQuests();
 
         FillEmptyQuestSlots();
         SaveQuests();
@@ -73,9 +67,7 @@ public class QuestManager : MonoBehaviour
     void ContinueToday()
     {
         activeQuests.Clear();
-        completedQuestIndexes.Clear();
 
-        LoadCompletedQuests();
         LoadActiveQuests();
 
         FillEmptyQuestSlots();
@@ -86,7 +78,7 @@ public class QuestManager : MonoBehaviour
     {
         while (activeQuests.Count < MaxActiveQuests)
         {
-            QuestData randomQuestData = GetRandomAvailableQuest();
+            QuestData randomQuestData = GetRandomQuest();
 
             if (randomQuestData == null)
             {
@@ -97,7 +89,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    QuestData GetRandomAvailableQuest()
+    QuestData GetRandomQuest()
     {
         List<QuestData> availableQuests = new List<QuestData>();
 
@@ -108,7 +100,7 @@ public class QuestManager : MonoBehaviour
                 continue;
             }
 
-            if (IsQuestActive(data) || IsQuestCompletedToday(data))
+            if (IsQuestActive(data))
             {
                 continue;
             }
@@ -177,17 +169,9 @@ public class QuestManager : MonoBehaviour
         quest.isCompleted = true;
         UpdateQuestTracker(quest, quest.isCompleted);
 
-        int questIndex = GetQuestIndex(quest.data);
-        if (questIndex >= 0 && !completedQuestIndexes.Contains(questIndex))
-        {
-            completedQuestIndexes.Add(questIndex);
-        }
-
         Debug.Log("Quest Complete: " + quest.data.questName);
         AddStars(quest.data.reward);
 
-        //activeQuests.Remove(quest);
-        // FillEmptyQuestSlots();
         UpdateQuestUI();
         SaveQuests();
     }
@@ -212,12 +196,6 @@ public class QuestManager : MonoBehaviour
         return false;
     }
 
-    bool IsQuestCompletedToday(QuestData data)
-    {
-        int questIndex = GetQuestIndex(data);
-        return completedQuestIndexes.Contains(questIndex);
-    }
-
     int GetQuestIndex(QuestData data)
     {
         for (int i = 0; i < questDatabase.Count; i++)
@@ -234,7 +212,6 @@ public class QuestManager : MonoBehaviour
     void SaveQuests()
     {
         SaveActiveQuests();
-        SaveCompletedQuests();
         PlayerPrefs.Save();
     }
 
@@ -246,6 +223,7 @@ public class QuestManager : MonoBehaviour
             {
                 PlayerPrefs.DeleteKey(GetActiveQuestIndexKey(i));
                 PlayerPrefs.DeleteKey(GetActiveQuestValueKey(i));
+                PlayerPrefs.DeleteKey(GetActiveQuestCompletedKey(i));
                 continue;
             }
 
@@ -254,6 +232,7 @@ public class QuestManager : MonoBehaviour
 
             PlayerPrefs.SetInt(GetActiveQuestIndexKey(i), questIndex);
             PlayerPrefs.SetInt(GetActiveQuestValueKey(i), quest.currentValue);
+            PlayerPrefs.SetInt(GetActiveQuestCompletedKey(i), quest.isCompleted ? 1 : 0);
         }
     }
 
@@ -268,6 +247,7 @@ public class QuestManager : MonoBehaviour
 
             int questIndex = PlayerPrefs.GetInt(GetActiveQuestIndexKey(i));
             int currentValue = PlayerPrefs.GetInt(GetActiveQuestValueKey(i), 0);
+            bool isCompleted = PlayerPrefs.GetInt(GetActiveQuestCompletedKey(i), 0) == 1;
 
             if (questIndex < 0 || questIndex >= questDatabase.Count)
             {
@@ -276,39 +256,15 @@ public class QuestManager : MonoBehaviour
 
             QuestData data = questDatabase[questIndex];
 
-            if (data == null || IsQuestActive(data) || IsQuestCompletedToday(data))
+            if (data == null || IsQuestActive(data))
             {
                 continue;
             }
 
             Quest quest = CreateQuest(data);
             quest.currentValue = currentValue;
+            quest.isCompleted = isCompleted;
             activeQuests.Add(quest);
-        }
-    }
-
-    void SaveCompletedQuests()
-    {
-        PlayerPrefs.SetInt(CompletedQuestCountKey, completedQuestIndexes.Count);
-
-        for (int i = 0; i < completedQuestIndexes.Count; i++)
-        {
-            PlayerPrefs.SetInt(GetCompletedQuestIndexKey(i), completedQuestIndexes[i]);
-        }
-    }
-
-    void LoadCompletedQuests()
-    {
-        int completedQuestCount = PlayerPrefs.GetInt(CompletedQuestCountKey, 0);
-
-        for (int i = 0; i < completedQuestCount; i++)
-        {
-            int questIndex = PlayerPrefs.GetInt(GetCompletedQuestIndexKey(i), -1);
-
-            if (questIndex >= 0 && !completedQuestIndexes.Contains(questIndex))
-            {
-                completedQuestIndexes.Add(questIndex);
-            }
         }
     }
 
@@ -318,19 +274,8 @@ public class QuestManager : MonoBehaviour
         {
             PlayerPrefs.DeleteKey(GetActiveQuestIndexKey(i));
             PlayerPrefs.DeleteKey(GetActiveQuestValueKey(i));
+            PlayerPrefs.DeleteKey(GetActiveQuestCompletedKey(i));
         }
-    }
-
-    void ClearSavedCompletedQuests()
-    {
-        int completedQuestCount = PlayerPrefs.GetInt(CompletedQuestCountKey, 0);
-
-        for (int i = 0; i < completedQuestCount; i++)
-        {
-            PlayerPrefs.DeleteKey(GetCompletedQuestIndexKey(i));
-        }
-
-        PlayerPrefs.DeleteKey(CompletedQuestCountKey);
     }
 
     string GetActiveQuestIndexKey(int slot)
@@ -343,9 +288,9 @@ public class QuestManager : MonoBehaviour
         return "QuestActiveValue" + slot;
     }
 
-    string GetCompletedQuestIndexKey(int slot)
+    string GetActiveQuestCompletedKey(int slot)
     {
-        return "QuestCompletedIndex" + slot;
+        return "QuestActiveCompleted" + slot;
     }
 
     public void AddStars(int amount)
@@ -405,20 +350,44 @@ public class QuestManager : MonoBehaviour
         {
             if (i >= activeQuests.Count)
             {
-                QuestNameText[i].text = "Completed!";
-                //QuestRewardText[i].text = string.Empty;
-                QuestImage[i].color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f);
-                //RewardImage[i].enabled = false;
-                print ("QuestUI is Up to date");
-                print (i);
+                QuestNameText[i].text = string.Empty;
+                SetQuestSlotCompletedColor(i, false);
                 continue;
             }
 
             Quest quest = activeQuests[i];
-            QuestNameText[i].text = quest.data.questName;
+
+            if (quest.isCompleted)
+            {
+                QuestNameText[i].text = "Completed!";
+                SetQuestSlotCompletedColor(i, true);
+            }
+            else
+            {
+                QuestNameText[i].text = quest.data.questName;
+                SetQuestSlotCompletedColor(i, false);
+            }
+
             QuestRewardText[i].text = quest.data.reward.ToString();
         }
 
+    }
+
+    void SetQuestSlotCompletedColor(int index, bool completed)
+    {
+        if (index >= QuestImage.Length)
+        {
+            return;
+        }
+
+        if (completed)
+        {
+            QuestImage[index].color = new Color(70f/255f, 171f/255f, 27f/255f, 1f);
+        }
+        else
+        {
+            QuestImage[index].color = new Color(1f, 204f/255f, 0f, 1f);
+        }
     }
 
     void UpdateStarsUI(int value)

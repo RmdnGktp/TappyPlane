@@ -8,6 +8,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     [SerializeField] private string _androidGameId;
     [SerializeField] private string _iOSGameId;
     [SerializeField] private bool _testMode;
+    [SerializeField] private bool _enableLogs = true;
     private string _gameId;
 
     [Header ("REWARDED ADS")]
@@ -15,6 +16,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     [SerializeField] private string _iOSAdUnitId = "Rewarded_iOS";
     private string _adUnitId = null;
     private bool adLoaded = false;
+    private bool isLoading = false;
 
     [Header ("REWARDS")]
     PlaneScript planeScript;
@@ -54,16 +56,33 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
         _adUnitId = _androidAdUnitId; //Only for testing the functionality in the Editor
 #endif
 
-        if (!Advertisement.isInitialized && Advertisement.isSupported)
+        if (!Advertisement.isSupported)
         {
-            Advertisement.Initialize(_gameId, _testMode, this);
+            Log("Unity Ads is not supported on this device.");
+            return;
         }
+
+        if (string.IsNullOrEmpty(_gameId) || string.IsNullOrEmpty(_adUnitId))
+        {
+            Log("Unity Ads Game ID or Ad Unit ID is empty.");
+            return;
+        }
+
+        Log("Initializing Unity Ads. Game ID: " + _gameId + " Ad Unit ID: " + _adUnitId + " Test Mode: " + _testMode);
+
+        if (Advertisement.isInitialized)
+        {
+            LoadAd();
+            return;
+        }
+
+        Advertisement.Initialize(_gameId, _testMode, this);
     }
 
     // IUnityAdsInitializationListener Interfaces ....................................................................
     public void OnInitializationComplete()
     {
-        //Debug.Log("Unity Ads initialization complete.");
+        Log("Unity Ads initialization complete.");
         LoadAd();
     }
 
@@ -77,8 +96,19 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     // Call this public method when you want to get an ad ready to show.
     public void LoadAd() // Code Manuel Written, it is not an interface
     {
-        // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-        //Debug.Log("Loading Ad: " + _adUnitId);
+        if (!Advertisement.isInitialized)
+        {
+            Log("Unity Ads is not initialized yet. LoadAd skipped.");
+            return;
+        }
+
+        if (isLoading || adLoaded)
+        {
+            return;
+        }
+
+        isLoading = true;
+        Log("Loading Ad: " + _adUnitId);
         Advertisement.Load(_adUnitId, this);
     }
 
@@ -86,13 +116,22 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     // IUnityAdsLoadListener Interfaces .............................................................................
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
-        //Debug.Log("Ad Loaded: " + adUnitId);
+        if (!adUnitId.Equals(_adUnitId))
+        {
+            return;
+        }
+
+        Log("Ad Loaded: " + adUnitId);
+        isLoading = false;
         adLoaded = true;
     }
 
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
     {
+        isLoading = false;
+        adLoaded = false;
         Debug.Log($"Error loading Ad Unit {adUnitId}: {error.ToString()} - {message}");
+        Invoke(nameof(LoadAd), 5f);
     }
     #endregion
 
@@ -101,15 +140,23 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     //  Implement a method to execute when the user clicks the button:
     public void ShowAd() // Code Manuel Written, it is not an interface
     {   
+        if (!Advertisement.isInitialized)
+        {
+            Log("Ad is not initialized yet!");
+            InitializeAds();
+            return;
+        }
+
         if (adLoaded)
         {
             adLoaded = false;
-            // Show the ad:
+            Log("Showing Ad: " + _adUnitId);
             Advertisement.Show(_adUnitId, this);
         }
         else
         {
             Debug.Log("Ad not loaded yet!");
+            LoadAd();
         } 
     }
 
@@ -121,18 +168,21 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
             //Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
             GrantAReward();
-            LoadAd();
         }
+
+        LoadAd();
     }
 
     public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message)
     {
+        adLoaded = false;
         Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
+        Invoke(nameof(LoadAd), 5f);
     }
 
     public void OnUnityAdsShowStart(string adUnitId)
     {
-        // No Info for now
+        Log("Ad started: " + adUnitId);
     }
 
     public void OnUnityAdsShowClick(string adUnitId)
@@ -146,23 +196,43 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
         if (isRevived)
         {   
             planeScript = FindFirstObjectByType<PlaneScript>();
-            planeScript.Revive();
+            if (planeScript != null)
+            {
+                planeScript.Revive();
+            }
+
             isRevived = false;
             //Debug.Log("Rewarded with Revive!");
         }
         else if (hasExtraFuel)
         {   
             planeScript = FindFirstObjectByType<PlaneScript>();
-            planeScript.setMaxFuel(50);
+            if (planeScript != null)
+            {
+                planeScript.setMaxFuel(50);
+            }
+
             hasExtraFuel = false;
             //Debug.Log("Rewarded with Extra Fuel!");
         }
         else if (hasExtraStars)
         {   
             questManager = FindFirstObjectByType<QuestManager>();
-            questManager.AddStars(3);
+            if (questManager != null)
+            {
+                questManager.AddStars(6);
+            }
+
             hasExtraStars = false;
             //Debug.Log("Rewarded with Extra Stars!");
+        }
+    }
+
+    private void Log(string message)
+    {
+        if (_enableLogs)
+        {
+            Debug.Log("[AdManager] " + message);
         }
     }
 }

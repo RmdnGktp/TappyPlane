@@ -11,8 +11,7 @@ public enum QuestType
     UseShield,
     UseFuelMagnet,
     UseExtraLife,
-    UseFuelBoost,
-
+    UseFuelBoost
 }
 
 public enum QuestProgressType
