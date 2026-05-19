@@ -7,29 +7,29 @@ public class ShopManager : MonoBehaviour
     [Header("FUEL BOOST")]
     [SerializeField] Button buyFuelBoost;
     [SerializeField] TextMeshProUGUI buyFuelBoostText;
-    bool isFuelBoostActivated;
+    [SerializeField] bool isFuelBoostActivated;
 
     [Header("SHIELD")]
     [SerializeField] Button buyShield;
     [SerializeField] TextMeshProUGUI buyShieldText;
-    bool isShieldActivated;
+    [SerializeField] bool isShieldActivated;
 
     [Header ("FUEL MAGNET")]
     [SerializeField] Button buyFuelMagnet;
     [SerializeField] TextMeshProUGUI buyFuelMagnetText;
-    bool isFuelMagnetActivated;
+    [SerializeField] bool isFuelMagnetActivated;
 
     [Header ("EXTRA LIFE")]
     [SerializeField] Button buyExtraLife;
     [SerializeField] TextMeshProUGUI buyExtraLifeText;
-    bool isExtraLifeActivated = false;
+    [SerializeField] bool isExtraLifeActivated = false;
     int extraLife = 1;
 
     [Header("GENERAL")]
     [SerializeField] QuestManager questManager;
     [SerializeField] PlaneScript planeScript;
     [SerializeField] GameObject Magnet;
-    int stars;
+    private int stars;
 
     [Header("REVIVE")]
     [SerializeField] Button reviveButton;
@@ -38,7 +38,7 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
-        UpdateShopUI();   
+        //UpdateShopUI();   
         extraLife = PlayerPrefs.GetInt("extraLife", 1);
         isExtraLifeActivated = GetBool ("isExtraLifeActivated");
 
@@ -110,10 +110,14 @@ public class ShopManager : MonoBehaviour
     public void UpdateShopUI()
     {
         int stars = questManager.GetStars();
+        print("updateShopUi: " + stars);
 
         if (stars >= 6)
         {   
             ActivateButton(buyExtraLife, isExtraLifeActivated);
+            ActivateButton(buyFuelBoost, isFuelBoostActivated);
+            ActivateButton(buyShield, isShieldActivated);
+            ActivateButton(buyFuelMagnet, isFuelMagnetActivated);
         }
         else if (stars >= 3)
         {   

@@ -22,7 +22,7 @@ public class PlaneScript : MonoBehaviour
     float distance = 0f;
     public bool isAlive = true;
     public bool isStarted = false;
-    private bool isPlayPressed = false;
+    [SerializeField] bool isPlayPressed = false;
     [SerializeField] SpawnManager spawnManager;
     [SerializeField] GameObject startScripts;
     [SerializeField] GameObject board;
