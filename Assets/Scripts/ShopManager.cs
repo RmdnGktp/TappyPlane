@@ -35,6 +35,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Button reviveButton;
     [SerializeField] TextMeshProUGUI reviveButtonText;
 
+
     void Start()
     {
         UpdateShopUI();   
@@ -53,6 +54,7 @@ public class ShopManager : MonoBehaviour
     {   
         isFuelBoostActivated = true;
         questManager.AddStars(-3);
+        questManager.UpdateQuest(QuestType.UseFuelBoost, 1);
         planeScript.setMaxFuel(50);
         UpdateButton(buyFuelBoost, buyFuelBoostText);
     }
@@ -61,6 +63,7 @@ public class ShopManager : MonoBehaviour
     {   
         isShieldActivated = true;
         questManager.AddStars(-3);
+        questManager.UpdateQuest(QuestType.UseShield, 1);
         planeScript.ActivateShield();
         UpdateButton(buyShield, buyShieldText);
     }
@@ -68,6 +71,7 @@ public class ShopManager : MonoBehaviour
     {   
         isFuelMagnetActivated = true;
         questManager.AddStars(-3);
+        questManager.UpdateQuest(QuestType.UseFuelMagnet, 1);
         UpdateButton(buyFuelMagnet, buyFuelMagnetText);
         Magnet.SetActive(true);
     }
@@ -78,6 +82,7 @@ public class ShopManager : MonoBehaviour
         SetBool("isExtraLifeActivated", true);
         UpdateReviveButton();
         questManager.AddStars(-6);
+        questManager.UpdateQuest(QuestType.UseExtraLife, 1);
         UpdateButton(buyExtraLife, buyExtraLifeText);
         SetExtraLife (1);
 
@@ -105,7 +110,6 @@ public class ShopManager : MonoBehaviour
     public void UpdateShopUI()
     {
         int stars = questManager.GetStars();
-        print(stars);
 
         if (stars >= 6)
         {   
