@@ -25,6 +25,8 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] GameObject plane;
     [SerializeField] GameObject menuUI;
     [SerializeField] Button homeButton; 
+    [SerializeField] Button questButton; 
+    [SerializeField] Button shopButton; 
    
     void Start()
     {  
@@ -100,11 +102,9 @@ public class UIManagerScript : MonoBehaviour
         plane.SetActive(false);
         questLogUI.SetActive(false);
 
-        ColorBlock cb = homeButton.colors;
-        cb.normalColor = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f);
-        //cb.normalColor = new Color (0, 0, 0, 100f/255f);
-        homeButton.colors = cb;
-
+        shopButton.GetComponent<Image>().color = new Color (192f/255f, 59f/255f, 59f/255f, 255f/255f); // red
+        homeButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
+        questButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
     }
 
     public void ReturnHome()
@@ -115,7 +115,10 @@ public class UIManagerScript : MonoBehaviour
         startGameUI.SetActive(true);
         tappyPlaneText.SetActive(true);
         plane.SetActive(true);
-        
+
+        homeButton.GetComponent<Image>().color = new Color (192f/255f, 59f/255f, 59f/255f, 255f/255f); // red
+        shopButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
+        questButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
     }
 
     public void OpenQuestLog()
@@ -128,11 +131,9 @@ public class UIManagerScript : MonoBehaviour
         plane.SetActive(false);
         shopMenu.SetActive(false);
 
-        ColorBlock cb = homeButton.colors;
-        cb.normalColor = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f);
-        //cb.normalColor = new Color (0, 0, 0, 100f/255f);
-        homeButton.colors = cb;
-
+        questButton.GetComponent<Image>().color = new Color (192f/255f, 59f/255f, 59f/255f, 255f/255f); // red
+        shopButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
+        homeButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
     }
 
     public void BuyMore()
