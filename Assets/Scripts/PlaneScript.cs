@@ -119,7 +119,6 @@ public class PlaneScript : MonoBehaviour
             cinemaschineShake.ShakeCamera(2f, 0.1f);
         }
     
-        questManager.UpdateQuest(QuestType.AvoidEnemies,1);
     }
 
     public void addFuel (float value)

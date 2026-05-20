@@ -22,6 +22,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] QuestRewardText;
     [SerializeField] Image[] QuestImage;
     [SerializeField] TextMeshProUGUI[] QuestProgressText;
+    private float highScore;
     
     [Header("Update Stars")]
     int stars;
@@ -33,6 +34,7 @@ public class QuestManager : MonoBehaviour
     {
         stars = PlayerPrefs.GetInt ("stars", 0);
         UpdateStarsUI(stars); 
+        highScore = PlayerPrefs.GetFloat("maxDistance", 0);
     }
 
     void Start()
@@ -103,6 +105,20 @@ public class QuestManager : MonoBehaviour
             if (IsQuestActive(data))
             {
                 continue;
+            }
+
+            if (data.questType == QuestType.AchieveHighScore)
+            {   
+                if (highScore == 0)
+                {   
+                    print ("No highscore quest!");
+                    continue;
+                }
+                else
+                {
+                    data.targetValue = Mathf.RoundToInt(highScore); 
+                    print(data.targetValue);
+                }
             }
 
             availableQuests.Add(data);
@@ -327,11 +343,11 @@ public class QuestManager : MonoBehaviour
         Color color = questTracker.color;
         questTracker.color = new Color(color.r, color.g, color.b, 1f);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         
         // FADE OUT
         float alpha = 1f;
-        float fadeSpeed = 1f;
+        float fadeSpeed = 0.5f;
 
         while (alpha > 0)
         {

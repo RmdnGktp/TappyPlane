@@ -7,10 +7,16 @@ public class EnemyScript : MonoBehaviour
     float deathZone = -5f;
     Vector3 startPos;
 
+    private bool dodged = false;
+    private Transform plane;
+    private QuestManager questManager;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
+        plane = GameObject.FindGameObjectWithTag("Player").transform;
+        questManager = FindFirstObjectByType<QuestManager>();
     }
 
     void Update()
@@ -25,6 +31,19 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject);
         }
 
+        UpdateDodgeEnemyQuest();
+
+    }
+
+
+
+    void  UpdateDodgeEnemyQuest()
+    {
+        if (!dodged && transform.position.x < plane.position.x)
+        {
+            dodged = true;
+            questManager.UpdateQuest(QuestType.AvoidEnemies,1);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -33,7 +52,7 @@ public class EnemyScript : MonoBehaviour
         if (other.gameObject.layer == layerIndex)
         {
             // Destroy(gameObject);
-            transform.position = new Vector3 (transform.position.x -1, transform.position.y, transform.position.z);
+            // transform.position = new Vector3 (transform.position.x -1, transform.position.y, transform.position.z);
             Debug.Log ("Enemy destroyed!");
         }
     }
