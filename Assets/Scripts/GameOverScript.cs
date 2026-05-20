@@ -17,7 +17,6 @@ public class GameOverScript : MonoBehaviour
     [SerializeField] GameObject buttons;
     [SerializeField] QuestManager questManager;
 
-    
     public void GameOver(float score)
     {   
         StartCoroutine (GameOverAnimation(score));

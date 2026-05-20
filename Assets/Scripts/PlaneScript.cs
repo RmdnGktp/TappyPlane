@@ -36,11 +36,13 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] GameObject Shield;
     CapsuleCollider2D collectCollider;
     [SerializeField] QuestManager questManager;
+    AudioManager audioManager;
 
     void Start()
     {    
         rb = GetComponent<Rigidbody2D>();
         collectCollider = GetComponent<CapsuleCollider2D>();
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     public void setMaxFuel(float value)
@@ -76,13 +78,18 @@ public class PlaneScript : MonoBehaviour
 
         if (value.isPressed && isAlive && isStarted)
         {
-          rb.linearVelocity =  Vector2.up * flapStrength;
+            audioManager.PlayFlapSFX();
+            rb.linearVelocity =  Vector2.up * flapStrength;
+          
         }
         else if (value.isPressed && isAlive && !isStarted)
         {
             StartGame();
+            audioManager.PlayFlapSFX();
             rb.linearVelocity =  Vector2.up * flapStrength;
         }
+
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -91,6 +98,7 @@ public class PlaneScript : MonoBehaviour
         {
             addFuel(fuelToAdd);
             questManager.UpdateQuest(QuestType.CollectFuel, 1);
+            audioManager.PlayCollectFuelSFX();
             Destroy(other.gameObject);
         }
         else if (other.CompareTag ("Bat"))
@@ -117,6 +125,7 @@ public class PlaneScript : MonoBehaviour
         {
             addFuel(-fuelToRemove + value);
             cinemaschineShake.ShakeCamera(2f, 0.1f);
+            audioManager.PlayEnemyHitSFX();
         }
     
     }
@@ -146,7 +155,12 @@ public class PlaneScript : MonoBehaviour
             explosion.Play();
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             cinemaschineShake.ShakeCamera(5f, 0.2f);
+            audioManager.PlayExplosionSFX();
         } 
+        else
+        {
+            audioManager.PlayImpactSFX();
+        }
 
         if (!isAlive) return;
         GameOver();
@@ -234,7 +248,8 @@ public class PlaneScript : MonoBehaviour
         fuelText.text = Mathf.RoundToInt(fuel) + "%";
 
         if (fuel == 0f)
-        {
+        {   
+            audioManager.PlayFallingSFX();
             GameOver();
         }
         else if (fuel <= 30)

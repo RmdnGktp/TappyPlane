@@ -29,6 +29,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI starsOnQuestLog;
     [SerializeField] TextMeshProUGUI starsOnShop;
     [SerializeField] ShopManager shopManager;
+    private AudioManager audioManager;
 
     void Awake()
     {
@@ -38,11 +39,11 @@ public class QuestManager : MonoBehaviour
     }
 
     void Start()
-    {
+    {   
+        audioManager = FindFirstObjectByType<AudioManager>();
         string today = System.DateTime.Now.ToString("yyyyMMdd");
         string lastDate = PlayerPrefs.GetString(LastDateKey, "");
-
-
+        
         if (today != lastDate)
         {
             StartNewDay(today);
@@ -176,7 +177,6 @@ public class QuestManager : MonoBehaviour
                 }
             }
 
-            
         }
     }
 
@@ -184,6 +184,7 @@ public class QuestManager : MonoBehaviour
     {
         quest.isCompleted = true;
         UpdateQuestTracker(quest, quest.isCompleted);
+        audioManager.PlayQuestCompletedSFX();
 
         Debug.Log("Quest Complete: " + quest.data.questName);
         AddStars(quest.data.reward);
