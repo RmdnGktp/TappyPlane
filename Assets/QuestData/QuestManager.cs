@@ -21,7 +21,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] QuestNameText;
     [SerializeField] TextMeshProUGUI[] QuestRewardText;
     [SerializeField] Image[] QuestImage;
-    [SerializeField] Image[] RewardImage;
+    [SerializeField] TextMeshProUGUI[] QuestProgressText;
     
     [Header("Update Stars")]
     int stars;
@@ -359,15 +359,16 @@ public class QuestManager : MonoBehaviour
 
             if (quest.isCompleted)
             {
-                QuestNameText[i].text = "Completed!";
+                QuestProgressText[i].text = "Completed!";
                 SetQuestSlotCompletedColor(i, true);
             }
             else
             {
-                QuestNameText[i].text = quest.data.questName;
+                QuestProgressText[i].text = $"> {quest.currentValue}/{quest.data.targetValue}";
                 SetQuestSlotCompletedColor(i, false);
             }
 
+            QuestNameText[i].text = quest.data.questName;
             QuestRewardText[i].text = quest.data.reward.ToString();
         }
 
