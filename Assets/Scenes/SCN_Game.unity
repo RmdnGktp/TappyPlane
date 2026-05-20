@@ -837,9 +837,9 @@ Transform:
   m_GameObject: {fileID: 50698608}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -1.1, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 940120616}
   - {fileID: 944520771}
@@ -3727,7 +3727,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 392393097}
   - {fileID: 94442461}
   - {fileID: 498361351}
   - {fileID: 811417851}
@@ -3736,6 +3735,7 @@ RectTransform:
   - {fileID: 86910284}
   - {fileID: 1410773316}
   - {fileID: 1825890895}
+  - {fileID: 392393097}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5156,8 +5156,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 282581661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.76}
-  m_AnchorMax: {x: 1, y: 0.84}
+  m_AnchorMin: {x: 0, y: 0.77477515}
+  m_AnchorMax: {x: 1, y: 0.842564}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
@@ -6880,6 +6880,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7248c91e146855841b7ef03f06412892, type: 2}
   - {fileID: 11400000, guid: 043073ad88390e64a81e53f3736f781f, type: 2}
   - {fileID: 11400000, guid: bca0f3134dfac8e4cbd2b179e8ae5652, type: 2}
+  - {fileID: 11400000, guid: b8dcdc23d646b44498ec5bf140f122fc, type: 2}
+  - {fileID: 11400000, guid: e0d1d1929cf1c9f4e8a2d93728965432, type: 2}
+  - {fileID: 11400000, guid: 63381367d57ce2c4e97f3fb76325944d, type: 2}
   activeQuests: []
   questTracker: {fileID: 392393098}
   QuestNameText:
