@@ -11,7 +11,10 @@ public enum QuestType
     UseShield,
     UseFuelMagnet,
     UseExtraLife,
-    UseFuelBoost
+    UseFuelBoost,
+    EarnBronzeMedal,
+    EarnSilberMedal,
+    EarnGoldMedal
 }
 
 public enum QuestProgressType

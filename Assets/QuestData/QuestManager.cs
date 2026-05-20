@@ -21,26 +21,29 @@ public class QuestManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] QuestNameText;
     [SerializeField] TextMeshProUGUI[] QuestRewardText;
     [SerializeField] Image[] QuestImage;
-    [SerializeField] Image[] RewardImage;
+    [SerializeField] TextMeshProUGUI[] QuestProgressText;
+    private float highScore;
     
     [Header("Update Stars")]
     int stars;
     [SerializeField] TextMeshProUGUI starsOnQuestLog;
     [SerializeField] TextMeshProUGUI starsOnShop;
     [SerializeField] ShopManager shopManager;
+    private AudioManager audioManager;
 
     void Awake()
     {
         stars = PlayerPrefs.GetInt ("stars", 0);
         UpdateStarsUI(stars); 
+        highScore = PlayerPrefs.GetFloat("maxDistance", 0);
     }
 
     void Start()
-    {
+    {   
+        audioManager = FindFirstObjectByType<AudioManager>();
         string today = System.DateTime.Now.ToString("yyyyMMdd");
         string lastDate = PlayerPrefs.GetString(LastDateKey, "");
-
-
+        
         if (today != lastDate)
         {
             StartNewDay(today);
@@ -105,6 +108,20 @@ public class QuestManager : MonoBehaviour
                 continue;
             }
 
+            if (data.questType == QuestType.AchieveHighScore)
+            {   
+                if (highScore == 0)
+                {   
+                    print ("No highscore quest!");
+                    continue;
+                }
+                else
+                {
+                    data.targetValue = Mathf.RoundToInt(highScore); 
+                    print(data.targetValue);
+                }
+            }
+
             availableQuests.Add(data);
         }
 
@@ -160,7 +177,6 @@ public class QuestManager : MonoBehaviour
                 }
             }
 
-            
         }
     }
 
@@ -168,6 +184,7 @@ public class QuestManager : MonoBehaviour
     {
         quest.isCompleted = true;
         UpdateQuestTracker(quest, quest.isCompleted);
+        audioManager.PlayQuestCompletedSFX();
 
         Debug.Log("Quest Complete: " + quest.data.questName);
         AddStars(quest.data.reward);
@@ -327,11 +344,11 @@ public class QuestManager : MonoBehaviour
         Color color = questTracker.color;
         questTracker.color = new Color(color.r, color.g, color.b, 1f);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         
         // FADE OUT
         float alpha = 1f;
-        float fadeSpeed = 1f;
+        float fadeSpeed = 0.5f;
 
         while (alpha > 0)
         {
@@ -359,15 +376,16 @@ public class QuestManager : MonoBehaviour
 
             if (quest.isCompleted)
             {
-                QuestNameText[i].text = "Completed!";
+                QuestProgressText[i].text = "Completed!";
                 SetQuestSlotCompletedColor(i, true);
             }
             else
             {
-                QuestNameText[i].text = quest.data.questName;
+                QuestProgressText[i].text = $"> {quest.currentValue}/{quest.data.targetValue}";
                 SetQuestSlotCompletedColor(i, false);
             }
 
+            QuestNameText[i].text = quest.data.questName;
             QuestRewardText[i].text = quest.data.reward.ToString();
         }
 

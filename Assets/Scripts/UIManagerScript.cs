@@ -27,9 +27,11 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] Button homeButton; 
     [SerializeField] Button questButton; 
     [SerializeField] Button shopButton; 
+    private AudioManager audioManager;
    
     void Start()
     {  
+        audioManager = FindFirstObjectByType<AudioManager>();
         StartCoroutine(FadeIn()); 
     }
 
@@ -44,7 +46,6 @@ public class UIManagerScript : MonoBehaviour
         
     }
     
-
     public void Restart ()
     {
         StartCoroutine(LoadGame(0));
@@ -67,6 +68,7 @@ public class UIManagerScript : MonoBehaviour
             yield return null;
         }
         
+        audioManager.PlaySwooshSFX();
         SceneManager.LoadScene (value);
         yield return null;
     }

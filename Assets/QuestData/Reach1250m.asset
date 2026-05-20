@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a8b27b2c7f0e774ea8e1b99872913c0, type: 3}
-  m_Name: Reach1500m
+  m_Name: Reach1250m
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questName: Reach 1500m
+  questName: Reach 1250m
   questType: 1
   progressType: 0
-  targetValue: 1500
-  reward: 5
+  targetValue: 1250
+  reward: 4
   isDaily: 1

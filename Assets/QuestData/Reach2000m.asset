@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a8b27b2c7f0e774ea8e1b99872913c0, type: 3}
-  m_Name: DodgeEnemy
+  m_Name: Reach2000m
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questName: Dodge 5 Enemies
-  questType: 2
-  progressType: 1
-  targetValue: 5
-  reward: 3
+  questName: Reach 2000m
+  questType: 1
+  progressType: 0
+  targetValue: 2000
+  reward: 6
   isDaily: 1

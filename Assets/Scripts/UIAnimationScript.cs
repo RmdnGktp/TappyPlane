@@ -7,18 +7,21 @@ public class UIAnimationScript : MonoBehaviour
     float currentY;
     [SerializeField] float startY;
     [SerializeField] float speed;
+    AudioManager audioManager;
 
     void Start()
     {
         rect = GetComponent<RectTransform>();
         currentY = rect.anchoredPosition.y;
         RestartUIPosiotion();
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     [ContextMenu ("GameOver")]
     public void GameOver()
     {
         StartCoroutine(MoveUI());
+        audioManager.PlaySwooshSFX();
     }
     
     IEnumerator MoveUI()
