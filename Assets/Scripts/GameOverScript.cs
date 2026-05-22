@@ -71,19 +71,19 @@ public class GameOverScript : MonoBehaviour
         {
             Medal.GetComponent<Image>().sprite = Medals [2];
             Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
-            questManager.UpdateQuest(QuestType.EarnGoldMedal, 2500);
+            questManager.UpdateQuest(QuestType.ReachDistance, 2500);
         }
         else if (value >= 1500f)
         {
             Medal.GetComponent<Image>().sprite = Medals [1];
             Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
-            questManager.UpdateQuest(QuestType.EarnSilberMedal, 1500);
+            questManager.UpdateQuest(QuestType.ReachDistance, 1500);
         }
         else if (value >= 1000f)
         {
             Medal.GetComponent<Image>().sprite = Medals [0];
             Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
-            questManager.UpdateQuest(QuestType.EarnBronzeMedal, 1000);
+            questManager.UpdateQuest(QuestType.ReachDistance, 1000);
         }
     }
 

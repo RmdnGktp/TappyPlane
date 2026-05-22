@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8b27b2c7f0e774ea8e1b99872913c0, type: 3}
   m_Name: FlyDistance
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questName: Fly 2500m
+  questName: Fly 5000m
   questType: 0
   progressType: 1
-  targetValue: 2500
+  targetValue: 5000
   reward: 6
   isDaily: 1

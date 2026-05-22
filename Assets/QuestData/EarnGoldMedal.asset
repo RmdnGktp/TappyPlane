@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EarnGoldMedal
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questName: Earn Gold Medal
-  questType: 12
+  questType: 1
   progressType: 0
-  targetValue: 1
+  targetValue: 2500
   reward: 9
   isDaily: 1
