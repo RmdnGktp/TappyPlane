@@ -216,7 +216,12 @@ public class PlaneScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0f);
         isAlive = true;
-        fuel = 100f;
+        
+        if (fuel < 100f)
+        {
+            fuel = 100f;
+        }
+        
         UpdateFuelText();
         transform.position = new Vector3(-1.5f, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);

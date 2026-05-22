@@ -67,23 +67,23 @@ public class GameOverScript : MonoBehaviour
 
     void addMedals (float value)
     {
-        if (value > 2500f)
+        if (value >= 2500f)
         {
             Medal.GetComponent<Image>().sprite = Medals [2];
             Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
-            questManager.UpdateQuest(QuestType.EarnGoldMedal, 1);
+            questManager.UpdateQuest(QuestType.EarnGoldMedal, 2500);
         }
-        else if (value > 1500f)
+        else if (value >= 1500f)
         {
             Medal.GetComponent<Image>().sprite = Medals [1];
             Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
-            questManager.UpdateQuest(QuestType.EarnSilberMedal, 1);
+            questManager.UpdateQuest(QuestType.EarnSilberMedal, 1500);
         }
-        else if (value > 1000f)
+        else if (value >= 1000f)
         {
             Medal.GetComponent<Image>().sprite = Medals [0];
             Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
-            questManager.UpdateQuest(QuestType.EarnBronzeMedal, 1);
+            questManager.UpdateQuest(QuestType.EarnBronzeMedal, 1000);
         }
     }
 
