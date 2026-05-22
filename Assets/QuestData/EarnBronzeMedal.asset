@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EarnBronzeMedal
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questName: Earn Bronze Medal
-  questType: 10
+  questType: 1
   progressType: 0
-  targetValue: 1
+  targetValue: 1000
   reward: 3
   isDaily: 1

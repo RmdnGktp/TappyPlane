@@ -70,8 +70,4 @@ public class AudioManager : MonoBehaviour
     {
         myAudioSource.PlayOneShot(audioClips[7]);
     }
-
-
-
-
 }

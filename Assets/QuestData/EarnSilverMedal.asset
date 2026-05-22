@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EarnSilverMedal
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questName: Earn Silver Medal
-  questType: 11
+  questType: 1
   progressType: 0
-  targetValue: 1
+  targetValue: 1500
   reward: 6
   isDaily: 1
