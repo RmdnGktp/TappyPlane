@@ -31,7 +31,10 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] ParticleSystem flyingParticals;
     [SerializeField] Image flashImage;
 
-    [SerializeField] CinemaschineShake cinemaschineShake;
+    //[SerializeField] CinemaschineShake cinemaschineShake;
+    [SerializeField] CinemachineImpulseSource explosionImpulse;
+    [SerializeField] CinemachineImpulseSource damageImpulse;
+    
     [SerializeField] bool isShieldOn;
     [SerializeField] GameObject Shield;
     CapsuleCollider2D collectCollider;
@@ -101,19 +104,9 @@ public class PlaneScript : MonoBehaviour
             audioManager.PlayCollectFuelSFX();
             Destroy(other.gameObject);
         }
-        else if (other.CompareTag ("Bat"))
+        else if (other.CompareTag ("Enemy"))
         {
-            CrashEnemy(-5);
-            Destroy(other.gameObject);
-        }
-        else if (other.CompareTag ("Bee"))
-        {
-            CrashEnemy(0);
-            Destroy(other.gameObject);
-        }
-        else if (other.CompareTag ("Fly"))
-        {   
-            CrashEnemy(5);
+            CrashEnemy(fuelToRemove);
             Destroy(other.gameObject);
         }
         
@@ -123,8 +116,8 @@ public class PlaneScript : MonoBehaviour
     {
         if (!isShieldOn)
         {
-            addFuel(-fuelToRemove + value);
-            cinemaschineShake.ShakeCamera(2f, 0.1f);
+            addFuel(-value);
+            damageImpulse.GenerateImpulse();
             audioManager.PlayEnemyHitSFX();
         }
     
@@ -154,7 +147,7 @@ public class PlaneScript : MonoBehaviour
         {
             explosion.Play();
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            cinemaschineShake.ShakeCamera(5f, 0.2f);
+            explosionImpulse.GenerateImpulse();
             audioManager.PlayExplosionSFX();
         } 
         else
