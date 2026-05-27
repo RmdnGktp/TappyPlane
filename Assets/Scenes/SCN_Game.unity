@@ -5646,7 +5646,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -8075,9 +8075,10 @@ GameObject:
   - component: {fileID: 768862828}
   - component: {fileID: 768862832}
   - component: {fileID: 768862831}
-  - component: {fileID: 768862833}
   - component: {fileID: 768862834}
+  - component: {fileID: 768862833}
   - component: {fileID: 768862835}
+  - component: {fileID: 768862836}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -8201,7 +8202,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768862827}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
   m_Name: 
@@ -8223,6 +8224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3994de5ea0f5464ca611bee2791f0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CinemaschineShake
+  cinemachineCamera: {fileID: 0}
+  shakeTimer: 0
+  shakeTimeTotal: 0
+  startingIntensity: 0
 --- !u!114 &768862835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8246,6 +8251,30 @@ MonoBehaviour:
     Weight: 1
     Radius: 0
   m_LegacyTargets: []
+--- !u!114 &768862836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768862827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseListener
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 1
+  UseCameraSpace: 1
+  SignalCombinationMode: 0
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &773475904
 GameObject:
   m_ObjectHideFlags: 0
@@ -12041,6 +12070,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176353172}
   m_CullTransparentMesh: 1
+--- !u!1 &1180723052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180723054}
+  - component: {fileID: 1180723053}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1180723053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180723052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: fa8ab95c13c91f141b180fc6b4341301, type: 2}
+--- !u!4 &1180723054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180723052}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.51588994, y: -0.99252665, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1190947305
 GameObject:
   m_ObjectHideFlags: 0
@@ -14398,7 +14476,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20267,6 +20345,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 668849354}
     - target: {fileID: 203795554727548561, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
+      propertyPath: fuelToRemove
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 203795554727548561, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: questManager
       value: 
       objectReference: {fileID: 578827512}
@@ -20282,17 +20364,9 @@ PrefabInstance:
       propertyPath: GameOverBoard
       value: 
       objectReference: {fileID: 811417850}
-    - target: {fileID: 203795554727548561, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
-      propertyPath: cinemaschineShake
-      value: 
-      objectReference: {fileID: 768862834}
     - target: {fileID: 1037270834388035499, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: m_Name
       value: Plane
-      objectReference: {fileID: 0}
-    - target: {fileID: 1037270834388035499, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2269792365230313925, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20334,13 +20408,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5933712789743177399, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
-      propertyPath: m_DefaultActionMap
-      value: df70fa95-8a34-4494-b137-73ab6b9c7d37
+    - target: {fileID: 5141049659403184848, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
+      propertyPath: DefaultVelocity.x
+      value: 0.08
       objectReference: {fileID: 0}
-    - target: {fileID: 5933712789743177399, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
-      propertyPath: m_DefaultControlScheme
-      value: 
+    - target: {fileID: 5141049659403184848, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
+      propertyPath: DefaultVelocity.y
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20365,3 +20439,4 @@ SceneRoots:
   - {fileID: 578827511}
   - {fileID: 818366811}
   - {fileID: 122254039}
+  - {fileID: 1180723054}
