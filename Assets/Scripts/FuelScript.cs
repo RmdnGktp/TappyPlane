@@ -10,13 +10,14 @@ public class FuelScript : MonoBehaviour
     Transform player;
     float magnetSpeed = 1.5f;
     bool isInMagnetRange;
-
+    Vector3 startPos;
     
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        startPos = transform.position;
     }
 
     void Update()
@@ -31,6 +32,11 @@ public class FuelScript : MonoBehaviour
         if (isInMagnetRange)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, magnetSpeed * Time.deltaTime);
+        }
+        else
+        {
+            float newY = startPos.y + Mathf.Sin(Time.time * 2f) * 0.5f;
+            transform.position = new Vector3 (transform.position.x, newY, transform.position.z);
         }
 
         //Destroy
