@@ -5,7 +5,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject[] objects; // 0: top, 1: bottom, 2: fuel, 3: Bat, 4:Bee, 5:Fly
     [SerializeField] float minSpawnDelay; // default 1.5f
-    float yDifference = 1.6f;
+    [SerializeField] float yDifference = 1.6f;
     [SerializeField] float xDifference = 1f;
     [SerializeField] float fuelMaxXDifference = 2.0f;
     [SerializeField] float fuelMinXDifference = 1.5f;
@@ -85,8 +85,8 @@ public class SpawnManager : MonoBehaviour
 
         float x = Random.Range(-xDifference, xDifference);
 
-        Instantiate(objects[0], new Vector3(transform.position.x + x, topY, 0), Quaternion.identity, gameObject.transform);
-        Instantiate(objects[1], new Vector3(transform.position.x, bottomY, 0), Quaternion.identity, gameObject.transform);
+        Instantiate(objects[0], new Vector3(transform.position.x + x, topY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
+        Instantiate(objects[0], new Vector3(transform.position.x, bottomY, 0), Quaternion.identity, gameObject.transform);
 
 
         // Spawn Fuel or Enemy ----------------------------------------------------------------------------------------------------
@@ -116,7 +116,7 @@ public class SpawnManager : MonoBehaviour
         float x = Mathf.Lerp (fuelMinXDifference, fuelMaxXDifference, difficulty);
 
         int value = Random.Range(3, 6);
-        Instantiate(objects[value], new Vector3(transform.position.x + x, y, 0), Quaternion.identity, gameObject.transform);
+        Instantiate(objects[value], new Vector3(transform.position.x + x, y, 0), Quaternion.Euler(0, 0, 45), gameObject.transform);
     }
 
     public void ReviveDeleteAllChilds()
