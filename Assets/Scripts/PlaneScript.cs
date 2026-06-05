@@ -28,7 +28,7 @@ public class PlaneScript : MonoBehaviour
     [SerializeField] GameObject board;
     [SerializeField] GameObject buttons;
     [SerializeField] ParticleSystem explosion;
-    [SerializeField] ParticleSystem flyingParticals;
+    [SerializeField] ParticleSystem flyingParticle;
     [SerializeField] Image flashImage;
 
     //[SerializeField] CinemaschineShake cinemaschineShake;
@@ -40,6 +40,8 @@ public class PlaneScript : MonoBehaviour
     PolygonCollider2D collectCollider;
     [SerializeField] QuestManager questManager;
     AudioManager audioManager;
+    [SerializeField] GameObject playerSprite;
+    [SerializeField] ParticleSystem backgroundParticle;
 
     void Start()
     {    
@@ -61,8 +63,8 @@ public class PlaneScript : MonoBehaviour
        
         // rotation
         float angle = rb.linearVelocity.y * rotationStrength;
-        angle = Mathf.Clamp(angle, -30f, 30f);
-        float t = Time.deltaTime * 10f;
+        angle = Mathf.Clamp(angle, -90f, 30f);
+        float t = Time.deltaTime * 20f;
         rb.rotation = Mathf.SmoothStep(rb.rotation, angle, t);
 
         // fuel managment
@@ -146,7 +148,8 @@ public class PlaneScript : MonoBehaviour
         if (collision.gameObject.CompareTag ("Ground"))
         {
             explosion.Play();
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            //gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            playerSprite.SetActive(false);
             explosionImpulse.GenerateImpulse();
             audioManager.PlayExplosionSFX();
         } 
@@ -162,7 +165,8 @@ public class PlaneScript : MonoBehaviour
     void GameOver ()
     {   
         isAlive = false;
-        flyingParticals.Stop();
+        flyingParticle.Stop();
+        backgroundParticle.Pause();
         gameObject.GetComponent<Animator>().enabled = false;
         GameOverBoard.SetActive(true);
         GameOverBoard.GetComponent<GameOverScript>().GameOver(distance); 
@@ -219,7 +223,8 @@ public class PlaneScript : MonoBehaviour
         transform.position = new Vector3(-1.5f, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
-        flyingParticals.Play();
+        flyingParticle.Play();
+        backgroundParticle.Play();
         gameObject.GetComponent<Animator>().enabled = true;
         isStarted = false;
         rb.simulated = false;
@@ -234,7 +239,8 @@ public class PlaneScript : MonoBehaviour
         }
         
         spawnManager.ReviveDeleteAllChilds();
-        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        //gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        playerSprite.SetActive(true);
         GameOverBoard.GetComponent<GameOverScript>().ReviveUIReset(); 
         GameOverBoard.SetActive(false);
 
@@ -253,20 +259,20 @@ public class PlaneScript : MonoBehaviour
         else if (fuel <= 30)
         {
             fuelText.color = new Color (245f/255f, 105f/255f, 0f/255f);
-            var main = flyingParticals.main;
+            var main = flyingParticle.main;
             main.startColor = new Color (61f/255f, 61f/255f, 61f/255f);
             
         }
         else if (fuel <= 60)
         {
             fuelText.color = new Color (253f/255f, 241f/255f, 0f/255f);
-            var main = flyingParticals.main;
+            var main = flyingParticle.main;
             main.startColor = new Color (138f/255f, 139f/255f, 152f/255f);
         }
         else
         {
             fuelText.color = new Color (4f/255f, 226f/255f, 67f/255f);
-            var main = flyingParticals.main;
+            var main = flyingParticle.main;
             main.startColor = new Color (208f/255f, 211f/255f, 229f/255f);
         }
     }
