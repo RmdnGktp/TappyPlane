@@ -37,14 +37,14 @@ public class PlaneScript : MonoBehaviour
     
     [SerializeField] bool isShieldOn;
     [SerializeField] GameObject Shield;
-    CapsuleCollider2D collectCollider;
+    PolygonCollider2D collectCollider;
     [SerializeField] QuestManager questManager;
     AudioManager audioManager;
 
     void Start()
     {    
         rb = GetComponent<Rigidbody2D>();
-        collectCollider = GetComponent<CapsuleCollider2D>();
+        collectCollider = GetComponent<PolygonCollider2D>();
         audioManager = FindFirstObjectByType<AudioManager>();
     }
 
