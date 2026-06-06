@@ -116,7 +116,7 @@ public class SpawnManager : MonoBehaviour
         float x = Mathf.Lerp (fuelMinXDifference, fuelMaxXDifference, difficulty);
 
         int value = Random.Range(3, 6);
-        Instantiate(objects[value], new Vector3(transform.position.x + x, y, 0), Quaternion.Euler(0, 0, 45), gameObject.transform);
+        Instantiate(objects[value], new Vector3(transform.position.x + x, y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
     }
 
     public void ReviveDeleteAllChilds()
