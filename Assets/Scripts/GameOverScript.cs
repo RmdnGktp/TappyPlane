@@ -101,7 +101,7 @@ public class GameOverScript : MonoBehaviour
         scoreText.text = 0 + "m";
         bestScoreText.text = 0 + "m";
         Medal.GetComponent<Image>().sprite = Medals [1];
-        Medal.GetComponent<Image>().color = new Color (0f/255f, 0f/255f, 0f/255f, 62f/225f);
+        Medal.GetComponent<Image>().color = new Color (0f/255f, 0f/255f, 0f/255f, 255f/255f);
         newText.SetActive(false);
     }
 }
