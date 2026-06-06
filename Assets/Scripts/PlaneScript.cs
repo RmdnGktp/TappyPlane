@@ -64,7 +64,7 @@ public class PlaneScript : MonoBehaviour
         // rotation
         float angle = rb.linearVelocity.y * rotationStrength;
         angle = Mathf.Clamp(angle, -90f, 30f);
-        float t = Time.deltaTime * 20f;
+        float t = Time.deltaTime * 15f;
         rb.rotation = Mathf.SmoothStep(rb.rotation, angle, t);
 
         // fuel managment
@@ -85,6 +85,7 @@ public class PlaneScript : MonoBehaviour
         {
             audioManager.PlayFlapSFX();
             rb.linearVelocity =  Vector2.up * flapStrength;
+            //transform.rotation = Quaternion.Euler(0, 0, 30f);
           
         }
         else if (value.isPressed && isAlive && !isStarted)

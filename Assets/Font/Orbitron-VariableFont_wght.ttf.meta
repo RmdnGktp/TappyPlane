@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8dc675c68b0cf8d498c291c85734b58d
+guid: cdf57e3e4eb25854a820eb9f60059665
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Super Squad
+  - Orbitron
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
