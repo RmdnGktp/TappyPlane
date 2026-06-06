@@ -164,7 +164,8 @@ public class ShopManager : MonoBehaviour
             isExtraLifeActivated = false;
             SetBool("isExtraLifeActivated", false);
             reviveButton.interactable = false;
-            reviveButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
+            //reviveButton.GetComponent<Image>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f);
+            //reviveButton.GetComponent<Outline>().enabled = true;
             Invoke (nameof(UpdateReviveButton), 0.5f);
             // UpdateReviveButton();
         }
@@ -175,6 +176,7 @@ public class ShopManager : MonoBehaviour
             AdManager.Instance.ShowAd();
             reviveButton.interactable = false;
             reviveButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
+            reviveButton.GetComponent<Outline>().enabled = false;
             //planeScript.Revive(); 
         }
         else
@@ -193,7 +195,8 @@ public class ShopManager : MonoBehaviour
         {   
             reviveButtonText.text = "Revive";
             reviveButton.interactable = true;
-            reviveButton.GetComponent<Image>().color = new Color (78f/225f, 186f/255f, 26f/255f, 255f/255f);
+            reviveButton.GetComponent<Image>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f);
+            reviveButton.GetComponent<Outline>().enabled = true;
         }
     }
 

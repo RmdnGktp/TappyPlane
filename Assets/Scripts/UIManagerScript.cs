@@ -37,7 +37,7 @@ public class UIManagerScript : MonoBehaviour
 
     public void StartGame()
     {
-        Invoke("StartingTheGame", 0.1f);   
+        Invoke("StartingTheGame", 0.2f);   
     }
 
     private void StartingTheGame ()
@@ -96,6 +96,7 @@ public class UIManagerScript : MonoBehaviour
         //planeScript.setMaxFuel(50);
         extraFuelButton.interactable = false;
         extraFuelButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
+        extraFuelButton.GetComponent<Outline>().enabled = false;
     }
 
     public void OpenShop()
