@@ -404,7 +404,7 @@ public class QuestManager : MonoBehaviour
         }
         else
         {
-            QuestImage[index].color = new Color(1f, 204f/255f, 0f, 1f);
+            QuestImage[index].color = new Color(5f/225f, 5f/255f, 5f/255f, 255f/255f);
         }
     }
 

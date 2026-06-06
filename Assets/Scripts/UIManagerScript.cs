@@ -104,9 +104,12 @@ public class UIManagerScript : MonoBehaviour
         plane.SetActive(false);
         questLogUI.SetActive(false);
 
-        shopButton.GetComponent<Image>().color = new Color (192f/255f, 59f/255f, 59f/255f, 255f/255f); // red
-        homeButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
-        questButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
+        shopButton.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f, 255f/255f); // white
+        shopButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f); // black
+        homeButton.GetComponent<Image>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f); // black
+        homeButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color (255f/255f, 255f/255f, 255f/255f, 255f/255f); // white
+        questButton.GetComponent<Image>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f); // black
+        questButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color (1f, 1f, 1f, 1f); // white
     }
 
     public void ReturnHome()
@@ -118,9 +121,12 @@ public class UIManagerScript : MonoBehaviour
         tappyPlaneText.SetActive(true);
         plane.SetActive(true);
 
-        homeButton.GetComponent<Image>().color = new Color (192f/255f, 59f/255f, 59f/255f, 255f/255f); // red
-        shopButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
-        questButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
+        homeButton.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f, 255f/255f); // white
+        homeButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f); // black
+        shopButton.GetComponent<Image>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f); // black
+        shopButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color (1f, 1f, 1f, 1f); // white
+        questButton.GetComponent<Image>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f); // black
+        questButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color (1f, 1f, 1f, 1f); // white
     }
 
     public void OpenQuestLog()
@@ -133,9 +139,12 @@ public class UIManagerScript : MonoBehaviour
         plane.SetActive(false);
         shopMenu.SetActive(false);
 
-        questButton.GetComponent<Image>().color = new Color (192f/255f, 59f/255f, 59f/255f, 255f/255f); // red
-        shopButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
-        homeButton.GetComponent<Image>().color = new Color (70f/255f, 171f/255f, 27f/255f, 255f/255f); // green
+        questButton.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f, 255f/255f); // white
+        questButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f); // black
+        shopButton.GetComponent<Image>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f); // black
+        shopButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color (1f, 1f, 1f, 1f); // white
+        homeButton.GetComponent<Image>().color = new Color (5f/255f, 5f/255f, 5f/255f, 255f/255f); // black
+        homeButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color (1f, 1f, 1f, 1f); // white
     }
 
     public void BuyMore()
