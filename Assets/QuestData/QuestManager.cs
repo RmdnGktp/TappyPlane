@@ -400,11 +400,15 @@ public class QuestManager : MonoBehaviour
 
         if (completed)
         {
-            QuestImage[index].color = new Color(70f/255f, 171f/255f, 27f/255f, 1f);
+            QuestImage[index].color = new Color(1f, 1f, 1f, 1f);
+            QuestNameText[index].color = new Color(5f/225f, 5f/255f, 5f/255f, 255f/255f);
+            QuestProgressText[index].color = new Color(5f/225f, 5f/255f, 5f/255f, 255f/255f);
         }
         else
         {
             QuestImage[index].color = new Color(5f/225f, 5f/255f, 5f/255f, 255f/255f);
+            QuestNameText[index].color = new Color(1f, 1f, 1f, 1f);
+            QuestProgressText[index].color = new Color(1f, 1f, 1f, 1f);
         }
     }
 

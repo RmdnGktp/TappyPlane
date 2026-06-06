@@ -37,13 +37,17 @@ public class UIManagerScript : MonoBehaviour
 
     public void StartGame()
     {
+        Invoke("StartingTheGame", 0.1f);   
+    }
+
+    private void StartingTheGame ()
+    {
         startGameUI.SetActive(false);
         tappyPlaneText.SetActive(false);
         gameUI.SetActive(true);
         startGameScripts.SetActive(true);
         planeScript.Play();
         menuUI.SetActive(false);
-        
     }
     
     public void Restart ()
