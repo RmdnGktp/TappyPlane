@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4297367556013952435}
   - component: {fileID: 833073215506958623}
   m_Layer: 10
-  m_Name: Fuel
+  m_Name: EnergyOrb
   m_TagString: Fuel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5291,7 +5291,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9205348573972111566}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
