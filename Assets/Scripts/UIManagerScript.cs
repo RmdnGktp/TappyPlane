@@ -37,7 +37,7 @@ public class UIManagerScript : MonoBehaviour
 
     public void StartGame()
     {
-        Invoke("StartingTheGame", 0.2f);   
+        Invoke("StartingTheGame", 0.1f);   
     }
 
     private void StartingTheGame ()
@@ -159,6 +159,7 @@ public class UIManagerScript : MonoBehaviour
         AdManager.Instance.ShowAd();
         buyMoreButton.interactable = false;
         buyMoreButton.GetComponent<Image>().color = new Color (0.5f, 0.5f, 0.5f, 1f);
+        buyMoreButton.GetComponent<Outline>().enabled = false;
     }
 
     
