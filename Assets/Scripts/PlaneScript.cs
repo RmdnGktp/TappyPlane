@@ -257,25 +257,28 @@ public class PlaneScript : MonoBehaviour
             audioManager.PlayFallingSFX();
             GameOver();
         }
+
+        
         else if (fuel <= 30)
         {
             fuelText.color = new Color (245f/255f, 105f/255f, 0f/255f);
-            var main = flyingParticle.main;
-            main.startColor = new Color (61f/255f, 61f/255f, 61f/255f);
+            //var main = flyingParticle.main;
+            //main.startColor = new Color (61f/255f, 61f/255f, 61f/255f);
             
         }
         else if (fuel <= 60)
         {
             fuelText.color = new Color (253f/255f, 241f/255f, 0f/255f);
-            var main = flyingParticle.main;
-            main.startColor = new Color (138f/255f, 139f/255f, 152f/255f);
+            //var main = flyingParticle.main;
+            //main.startColor = new Color (138f/255f, 139f/255f, 152f/255f);
         }
         else
         {
             fuelText.color = new Color (4f/255f, 226f/255f, 67f/255f);
-            var main = flyingParticle.main;
-            main.startColor = new Color (208f/255f, 211f/255f, 229f/255f);
+            //var main = flyingParticle.main;
+            //main.startColor = new Color (208f/255f, 211f/255f, 229f/255f);
         }
+        
     }
     
 }
