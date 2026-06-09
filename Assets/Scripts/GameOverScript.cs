@@ -8,7 +8,7 @@ public class GameOverScript : MonoBehaviour
 {
 
     [SerializeField] GameObject newText;
-    [SerializeField] Sprite[] Medals;
+    //[SerializeField] Sprite[] Medals;
     [SerializeField] Image Medal;
     [SerializeField] TextMeshProUGUI bestScoreText;
     [SerializeField] TextMeshProUGUI scoreText;
@@ -67,22 +67,22 @@ public class GameOverScript : MonoBehaviour
 
     void addMedals (float value)
     {
-        if (value >= 2500f)
+        if (value >= 1000f)
         {
-            Medal.GetComponent<Image>().sprite = Medals [2];
-            Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
+            //Medal.GetComponent<Image>().sprite = Medals [2];
+            Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 0f/255f, 255f/255f);
             questManager.UpdateQuest(QuestType.ReachDistance, 2500);
         }
-        else if (value >= 1500f)
+        else if (value >= 750f)
         {
-            Medal.GetComponent<Image>().sprite = Medals [1];
-            Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
+            //Medal.GetComponent<Image>().sprite = Medals [1];
+            Medal.GetComponent<Image>().color = new Color (192f/255f, 192f/255f, 192f/255f, 255f/255f);
             questManager.UpdateQuest(QuestType.ReachDistance, 1500);
         }
-        else if (value >= 1000f)
+        else if (value >= 500f)
         {
-            Medal.GetComponent<Image>().sprite = Medals [0];
-            Medal.GetComponent<Image>().color = new Color (255f/255f, 255f/255f, 255f/255f);
+            //Medal.GetComponent<Image>().sprite = Medals [0];
+            Medal.GetComponent<Image>().color = new Color (199f/255f, 155f/255f, 86f/255f, 255f/255f);
             questManager.UpdateQuest(QuestType.ReachDistance, 1000);
         }
     }
@@ -100,8 +100,8 @@ public class GameOverScript : MonoBehaviour
         buttons.GetComponent<UIAnimationScript>().RestartUIPosiotion();
         scoreText.text = 0 + "m";
         bestScoreText.text = 0 + "m";
-        Medal.GetComponent<Image>().sprite = Medals [1];
-        Medal.GetComponent<Image>().color = new Color (0f/255f, 0f/255f, 0f/255f, 255f/255f);
+        //Medal.GetComponent<Image>().sprite = Medals [1];
+        Medal.GetComponent<Image>().color = new Color (1f, 1f, 1f, 10f/255f);
         newText.SetActive(false);
     }
 }
