@@ -4,26 +4,30 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
-    [Header("FUEL BOOST")]
+    [Header("ENERGY BOOST")]
     [SerializeField] Button buyFuelBoost;
     [SerializeField] TextMeshProUGUI buyFuelBoostText;
     [SerializeField] bool isFuelBoostActivated;
+    [SerializeField] GameObject boostGameIcon;
 
     [Header("SHIELD")]
     [SerializeField] Button buyShield;
     [SerializeField] TextMeshProUGUI buyShieldText;
     [SerializeField] bool isShieldActivated;
+    [SerializeField] GameObject shieldGameIcon;
 
-    [Header ("FUEL MAGNET")]
+    [Header ("ENERGY MAGNET")]
     [SerializeField] Button buyFuelMagnet;
     [SerializeField] TextMeshProUGUI buyFuelMagnetText;
     [SerializeField] bool isFuelMagnetActivated;
+    [SerializeField] GameObject magnetGameIcon;
 
-    [Header ("EXTRA LIFE")]
+    [Header ("REBOOT")]
     [SerializeField] Button buyExtraLife;
     [SerializeField] TextMeshProUGUI buyExtraLifeText;
     [SerializeField] bool isExtraLifeActivated = false;
     int extraLife = 1;
+    [SerializeField] GameObject rebootGameIcon;
 
     [Header("GENERAL")]
     [SerializeField] QuestManager questManager;
@@ -45,6 +49,7 @@ public class ShopManager : MonoBehaviour
         if (isExtraLifeActivated)
         {
             UpdateButton(buyExtraLife, buyExtraLifeText);
+            ActivateGameIcon(rebootGameIcon, true);
         }
 
         UpdateReviveButton();
@@ -57,6 +62,7 @@ public class ShopManager : MonoBehaviour
         questManager.UpdateQuest(QuestType.UseFuelBoost, 1);
         planeScript.setMaxFuel(50);
         UpdateButton(buyFuelBoost, buyFuelBoostText);
+        ActivateGameIcon(boostGameIcon, true);
     }
 
     public void BuyShield()
@@ -66,6 +72,7 @@ public class ShopManager : MonoBehaviour
         questManager.UpdateQuest(QuestType.UseShield, 1);
         planeScript.ActivateShield();
         UpdateButton(buyShield, buyShieldText);
+        ActivateGameIcon(shieldGameIcon, true);
     }
     public void BuyFuelMagnet()
     {   
@@ -74,6 +81,7 @@ public class ShopManager : MonoBehaviour
         questManager.UpdateQuest(QuestType.UseFuelMagnet, 1);
         UpdateButton(buyFuelMagnet, buyFuelMagnetText);
         Magnet.SetActive(true);
+        ActivateGameIcon(magnetGameIcon, true);
     }
 
     public void BuyExtraLife()
@@ -85,6 +93,7 @@ public class ShopManager : MonoBehaviour
         questManager.UpdateQuest(QuestType.UseExtraLife, 1);
         UpdateButton(buyExtraLife, buyExtraLifeText);
         SetExtraLife (1);
+        ActivateGameIcon(rebootGameIcon, true);
 
     }
 
@@ -104,6 +113,11 @@ public class ShopManager : MonoBehaviour
         UpdateShopUI();
         button.interactable = false;
         text.text = "READY";
+    }
+
+    void ActivateGameIcon (GameObject icon, bool state)
+    {
+        icon.SetActive(state);
     }
     
 
@@ -168,6 +182,7 @@ public class ShopManager : MonoBehaviour
             //reviveButton.GetComponent<Outline>().enabled = true;
             Invoke (nameof(UpdateReviveButton), 0.5f);
             // UpdateReviveButton();
+            ActivateGameIcon(rebootGameIcon, false);
         }
         else if (extraLife == 1)
         {   
