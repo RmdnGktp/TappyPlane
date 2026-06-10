@@ -85,8 +85,9 @@ public class SpawnManager : MonoBehaviour
 
         float x = Random.Range(-xDifference, xDifference);
 
-        Instantiate(objects[0], new Vector3(transform.position.x + x, topY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
-        Instantiate(objects[0], new Vector3(transform.position.x, bottomY, 0), Quaternion.identity, gameObject.transform);
+        int value = Random.Range(0, 4);
+        Instantiate(objects[value], new Vector3(transform.position.x + x, topY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
+        Instantiate(objects[value], new Vector3(transform.position.x, bottomY, 0), Quaternion.identity, gameObject.transform);
 
 
         // Spawn Fuel or Enemy ----------------------------------------------------------------------------------------------------
@@ -108,15 +109,15 @@ public class SpawnManager : MonoBehaviour
     {
         float x = Mathf.Lerp (fuelMaxXDifference, fuelMinXDifference, difficulty);
 
-        Instantiate(objects[2], new Vector3(transform.position.x + x, y, 0), Quaternion.identity, gameObject.transform);
+        Instantiate(objects[4], new Vector3(transform.position.x + x, y, 0), Quaternion.identity, gameObject.transform);
     }
 
     void SpawnEnemy(float y)
     {
         float x = Mathf.Lerp (fuelMinXDifference, fuelMaxXDifference, difficulty);
 
-        int value = Random.Range(3, 6);
-        Instantiate(objects[value], new Vector3(transform.position.x + x, y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
+        //int value = Random.Range(5, 6);
+        Instantiate(objects[5], new Vector3(transform.position.x + x, y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
     }
 
     public void ReviveDeleteAllChilds()
