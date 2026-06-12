@@ -58,8 +58,8 @@ public class FuelScript : MonoBehaviour
         if (other.gameObject.layer == layerIndex)
         {
             // Destroy(gameObject);
-            transform.position = new Vector3 (transform.position.x - 1, transform.position.y, transform.position.z);
-            Debug.Log ("Fuel destroyed!");
+            //transform.position = new Vector3 (transform.position.x - 1, transform.position.y, transform.position.z);
+            //Debug.Log ("Fuel destroyed!");
         }
     }
 
