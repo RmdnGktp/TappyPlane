@@ -1124,6 +1124,8 @@ MonoBehaviour:
   - {fileID: 6714094358677231137, guid: b059b86aa121b504ba496a356e06e3af, type: 3}
   - {fileID: 1996595615072557400, guid: 2e8df5b27ec70474194368627ae64c72, type: 3}
   - {fileID: 5719344765473883936, guid: cf22aac267c0b304f85d6b6e9a55f358, type: 3}
+  - {fileID: 5719344765473883936, guid: cf22aac267c0b304f85d6b6e9a55f358, type: 3}
+  - {fileID: 5719344765473883936, guid: 49e3b3403fe83f64491ba662132f27a7, type: 3}
   minSpawnDelay: 2
   yDifference: 3
   xDifference: 0
@@ -7308,7 +7310,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1104353259
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
@@ -14488,7 +14490,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000bb48d35f97a9fcfedf505cd8c333b0f3eb17d341
+  m_ApplyToSortingLayers: 00000000bb48d35f97a9fcfedf505cd8c333b0f3eb17d341bd1e5fae
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -15685,7 +15687,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1104353259
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
@@ -17635,7 +17637,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1104353259
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
@@ -18195,7 +18197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1104353259
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}

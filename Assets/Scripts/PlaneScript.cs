@@ -105,14 +105,26 @@ public class PlaneScript : MonoBehaviour
             addFuel(fuelToAdd);
             questManager.UpdateQuest(QuestType.CollectFuel, 1);
             audioManager.PlayCollectFuelSFX();
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
         else if (other.CompareTag ("Enemy"))
         {
             CrashEnemy(fuelToRemove);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
-        
+        else if (other.gameObject.CompareTag ("Rocket") && !isShieldOn)
+        {
+            rb.simulated = false;
+            explosion.Play();
+            playerSprite.SetActive(false);
+            explosionImpulse.GenerateImpulse();
+            audioManager.PlayExplosionSFX();
+            //Destroy(other.gameObject);
+            GameOver();
+            //other.GetComponentInChildren<ParticleSystem>().Play();
+        }
+
+        Destroy(other.gameObject);
     }
 
     void CrashEnemy(float value)
@@ -154,6 +166,15 @@ public class PlaneScript : MonoBehaviour
             explosionImpulse.GenerateImpulse();
             audioManager.PlayExplosionSFX();
         } 
+        else if (collision.gameObject.CompareTag ("Rocket") && !isShieldOn)
+        {   
+            rb.simulated = false;
+            explosion.Play();
+            playerSprite.SetActive(false);
+            explosionImpulse.GenerateImpulse();
+            audioManager.PlayExplosionSFX();
+            Destroy(collision.gameObject);
+        }
         else
         {
             audioManager.PlayImpactSFX();
