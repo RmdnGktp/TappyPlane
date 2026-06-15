@@ -657,6 +657,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c3affbb9440180459e97a438fae6843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RockScript
+  sFragmentPrefab: {fileID: 585958667442715147, guid: 2c7a6d8e6d931e14ab70c16eec9dce39, type: 3}
+  tFragmentPrefab: {fileID: 585958667442715147, guid: 3360f5f9127a32e46a606a1d2708886f, type: 3}
+  isRotated: 0
 --- !u!60 &1323783320130658474
 PolygonCollider2D:
   m_ObjectHideFlags: 0

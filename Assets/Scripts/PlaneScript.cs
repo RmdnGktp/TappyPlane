@@ -182,6 +182,7 @@ public class PlaneScript : MonoBehaviour
 
         if (!isAlive) return;
         GameOver();
+        collision.gameObject.GetComponent<RockScript>().DestroyPipe();
     }
 
     void GameOver ()
