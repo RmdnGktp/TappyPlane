@@ -86,8 +86,9 @@ public class SpawnManager : MonoBehaviour
         float x = Random.Range(-xDifference, xDifference);
 
         int value = Random.Range(0, 4);
-        Instantiate(objects[value], new Vector3(transform.position.x + x, topY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
         Instantiate(objects[value], new Vector3(transform.position.x, bottomY, 0), Quaternion.identity, gameObject.transform);
+        GameObject TopSpike = Instantiate(objects[value], new Vector3(transform.position.x + x, topY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
+        TopSpike.GetComponent<RockScript>().isRotated = true;
 
 
         // Spawn Fuel or Enemy ----------------------------------------------------------------------------------------------------
