@@ -8,14 +8,14 @@ public class RocketScript : MonoBehaviour
     Vector3 startPos;
 
     private bool dodged = false;
-    private Transform plane;
+    private Transform player;
     private QuestManager questManager;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
-        plane = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         questManager = FindFirstObjectByType<QuestManager>();
     }
 
@@ -36,7 +36,7 @@ public class RocketScript : MonoBehaviour
 
     void  UpdateDodgeEnemyQuest()
     {
-        if (!dodged && transform.position.x < plane.position.x)
+        if (!dodged && transform.position.x < player.position.x)
         {
             dodged = true;
             questManager.UpdateQuest(QuestType.AvoidEnemies,1);

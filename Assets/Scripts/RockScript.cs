@@ -10,6 +10,7 @@ public class RockScript : MonoBehaviour
     [SerializeField] GameObject sFragmentPrefab;
     [SerializeField] GameObject tFragmentPrefab;
     private float boundsMaxY = -9f;
+    private float boundsMinY = -1f;
     public bool isRotated = false;
     private GameObject Fragments;
 
@@ -20,13 +21,14 @@ public class RockScript : MonoBehaviour
         
         if (transform.eulerAngles.z == 180f)
         {   
-            Debug.Log ("Pipe Rotated!");
+            //Debug.Log ("Pipe Rotated!");
             //boundsMaxY = 9f;
         }
 
         if (isRotated)
         {
             boundsMaxY = 9f;
+            boundsMinY = 1f;
         }
 
     }
@@ -54,7 +56,7 @@ public class RockScript : MonoBehaviour
     {
         for (int i = 0; i < 25; i++)
         {   
-            Vector2 spawnPos = new Vector2 (transform.position.x + Random.Range (-0.5f, 0.5f), transform.position.y + Random.Range(0f, boundsMaxY));
+            Vector2 spawnPos = new Vector2 (transform.position.x + Random.Range (-0.5f, 0.5f), transform.position.y + Random.Range(boundsMinY, boundsMaxY));
             GameObject fragment = Instantiate(sFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
 
             Rigidbody2D rbf = fragment.GetComponent<Rigidbody2D>();
@@ -64,6 +66,8 @@ public class RockScript : MonoBehaviour
 
             Vector2 randomDirection = new Vector2(1f, Random.Range(-1f,1f));
             rbf.AddForce(randomDirection * Random.Range(0f,4f), ForceMode2D.Impulse);
+
+            
         }
     }
 
