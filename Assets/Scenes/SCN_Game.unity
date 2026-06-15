@@ -1135,6 +1135,7 @@ MonoBehaviour:
   maxGap: 1
   gapDifference: 0
   planeScript: {fileID: 1090941336}
+  Fragments: {fileID: 1470114359}
 --- !u!1 &48672300
 GameObject:
   m_ObjectHideFlags: 0

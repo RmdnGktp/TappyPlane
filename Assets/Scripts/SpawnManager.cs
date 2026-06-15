@@ -17,6 +17,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] PlaneScript planeScript;
 
     float difficulty = 0;
+    [SerializeField] Transform Fragments;
     
 
     public void StartSpawn()
@@ -127,5 +128,11 @@ public class SpawnManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        foreach (Transform child in Fragments)
+        {
+            Destroy(child.gameObject);
+        }
+
     }
 }
