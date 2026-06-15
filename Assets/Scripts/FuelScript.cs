@@ -32,6 +32,7 @@ public class FuelScript : MonoBehaviour
         if (isInMagnetRange)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, magnetSpeed * Time.deltaTime);
+            Debug.Log ("Magnet is moving towards Player!!!!");
         }
         else
         {
@@ -52,14 +53,7 @@ public class FuelScript : MonoBehaviour
         if (other.gameObject.layer == layer)
         {
             isInMagnetRange = true;
-        }
-
-        int layerIndex = LayerMask.NameToLayer("Rock");
-        if (other.gameObject.layer == layerIndex)
-        {
-            // Destroy(gameObject);
-            //transform.position = new Vector3 (transform.position.x - 1, transform.position.y, transform.position.z);
-            //Debug.Log ("Fuel destroyed!");
+            
         }
     }
 
