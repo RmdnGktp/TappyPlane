@@ -65,7 +65,7 @@ public class PlaneScript : MonoBehaviour
        
         // rotation
         float angle = rb.linearVelocity.y * rotationStrength;
-        angle = Mathf.Clamp(angle, -90f, 30f);
+        angle = Mathf.Clamp(angle, -90f, 90f);
         float t = Time.deltaTime * 15f;
         rb.rotation = Mathf.SmoothStep(rb.rotation, angle, t);
 

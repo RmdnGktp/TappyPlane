@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: 1618745497178103315}
   - component: {fileID: 1323783320130658474}
   m_Layer: 8
-  m_Name: Spike03
+  m_Name: DoubleSpike01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
