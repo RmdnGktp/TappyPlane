@@ -1120,17 +1120,16 @@ MonoBehaviour:
   objects:
   - {fileID: 6714094358677231137, guid: 3315cc8e4df53da458e491f278d3d3b2, type: 3}
   - {fileID: 6714094358677231137, guid: 2050bd4517c39874ab1e7332eb1721c5, type: 3}
-  - {fileID: 6714094358677231137, guid: 51d73882900f9194ab9e93a87a372122, type: 3}
   - {fileID: 6714094358677231137, guid: b059b86aa121b504ba496a356e06e3af, type: 3}
+  - {fileID: 6714094358677231137, guid: 51d73882900f9194ab9e93a87a372122, type: 3}
   - {fileID: 1996595615072557400, guid: 2e8df5b27ec70474194368627ae64c72, type: 3}
-  - {fileID: 5719344765473883936, guid: cf22aac267c0b304f85d6b6e9a55f358, type: 3}
   - {fileID: 5719344765473883936, guid: cf22aac267c0b304f85d6b6e9a55f358, type: 3}
   - {fileID: 5719344765473883936, guid: 49e3b3403fe83f64491ba662132f27a7, type: 3}
   minSpawnDelay: 2
   yDifference: 3
   xDifference: 0
-  fuelMaxXDifference: 2
-  fuelMinXDifference: 2
+  fuelMaxXDifference: 1
+  fuelMinXDifference: -1
   minGap: 0.8
   maxGap: 1
   gapDifference: 0
@@ -32922,6 +32921,10 @@ PrefabInstance:
       propertyPath: GameOverBoard
       value: 
       objectReference: {fileID: 811417850}
+    - target: {fileID: 203795554727548561, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
+      propertyPath: rotationStrength
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 203795554727548561, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: backgroundParticle
       value: 

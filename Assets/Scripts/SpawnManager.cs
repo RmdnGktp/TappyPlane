@@ -88,14 +88,16 @@ public class SpawnManager : MonoBehaviour
 
         int value = Random.Range(0, 4);
         Instantiate(objects[value], new Vector3(transform.position.x, bottomY, 0), Quaternion.identity, gameObject.transform);
+        //value = Random.Range(0, 4);
         GameObject TopSpike = Instantiate(objects[value], new Vector3(transform.position.x + x, topY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
         TopSpike.GetComponent<RockScript>().isRotated = true;
 
 
         // Spawn Fuel or Enemy ----------------------------------------------------------------------------------------------------
         float spwanChance = Random.value;
-        float fuelSpawnChange = Mathf.Lerp (0.4f, 0.2f, difficulty);
-        float enemySpawnChange = Mathf.Lerp (0.05f, 0.2f, difficulty);
+        float fuelSpawnChange = Mathf.Lerp (0.4f, 0.3f, difficulty);
+        float enemySpawnChange = Mathf.Lerp (0.3f, 0.3f, difficulty);
+        float rocketSpawnChange = Mathf.Lerp (0.1f, 0.2f, difficulty);
 
         if ( spwanChance < fuelSpawnChange)
         {
@@ -105,21 +107,31 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnEnemy(centerY);
         }
+        else if ( spwanChance < (fuelSpawnChange + enemySpawnChange + rocketSpawnChange))
+        {
+            SpawnRocket(centerY);
+        }
     }
 
     void SpawnFuel(float y)
     {
-        float x = Mathf.Lerp (fuelMaxXDifference, fuelMinXDifference, difficulty);
-
-        Instantiate(objects[4], new Vector3(transform.position.x + x, y, 0), Quaternion.identity, gameObject.transform);
+        //float x = Mathf.Lerp (fuelMinXDifference, fuelMaxXDifference, difficulty);
+        float shift =  Random.Range(-1, 1);
+        Instantiate(objects[4], new Vector3(transform.position.x + minSpawnDelay, y + shift, 0), Quaternion.identity, gameObject.transform);
     }
 
     void SpawnEnemy(float y)
     {
-        float x = Mathf.Lerp (fuelMinXDifference, fuelMaxXDifference, difficulty);
+        //float x = Mathf.Lerp (fuelMinXDifference, fuelMaxXDifference, difficulty);
+        float shift =  Random.Range(-1, 1);
+        Instantiate(objects[5], new Vector3(transform.position.x + minSpawnDelay, y + shift, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
+    }
 
-        int value = Random.Range(5, 8);
-        Instantiate(objects[value], new Vector3(transform.position.x + x, y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
+    void SpawnRocket(float y)
+    {
+        //float x = Mathf.Lerp (fuelMinXDifference, fuelMaxXDifference, difficulty);
+        float shift =  Random.Range(-1, 1);
+        Instantiate(objects[6], new Vector3(transform.position.x + minSpawnDelay, y + shift, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
     }
 
     public void ReviveDeleteAllChilds()
