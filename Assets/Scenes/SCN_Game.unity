@@ -1117,22 +1117,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 179d6451242070f4a94f44fcc93f59d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
-  objects:
+  singleSpikes:
   - {fileID: 6714094358677231137, guid: 3315cc8e4df53da458e491f278d3d3b2, type: 3}
+  doubleSpikes:
   - {fileID: 6714094358677231137, guid: 2050bd4517c39874ab1e7332eb1721c5, type: 3}
   - {fileID: 6714094358677231137, guid: b059b86aa121b504ba496a356e06e3af, type: 3}
   - {fileID: 6714094358677231137, guid: 51d73882900f9194ab9e93a87a372122, type: 3}
+  tripleSpikes:
+  - {fileID: 6714094358677231137, guid: 53fbc146a90ea1f4eb7bdfeab78eee29, type: 3}
+  objects:
   - {fileID: 1996595615072557400, guid: 2e8df5b27ec70474194368627ae64c72, type: 3}
   - {fileID: 5719344765473883936, guid: cf22aac267c0b304f85d6b6e9a55f358, type: 3}
   - {fileID: 5719344765473883936, guid: 49e3b3403fe83f64491ba662132f27a7, type: 3}
-  minSpawnDelay: 2
-  yDifference: 3
-  xDifference: 0
-  fuelMaxXDifference: 1
-  fuelMinXDifference: -1
+  spawnDelay: 0
+  yShifting: 3
+  xShifting: 0
   minGap: 0.8
   maxGap: 1
-  gapDifference: 0
   planeScript: {fileID: 1090941336}
   Fragments: {fileID: 1470114359}
 --- !u!1 &48672300
