@@ -7,35 +7,44 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject[] doubleSpikes;
     [SerializeField] GameObject[] tripleSpikes;
     [SerializeField] GameObject[] objects;
-
-
-    [SerializeField] float spawnDelay; 
+    
     [SerializeField] float yShifting;
     [SerializeField] float xShifting;
     [SerializeField] float minGap;
     [SerializeField] float maxGap;
+    [SerializeField] float gapBetweenPipes = 2.0f;
 
+    private float spikeSize = 0;
+    private float spawnTime; 
     private float currentGap;
     private float xShiftingObjects;
+    private float gameTime;
     
     [SerializeField] PlaneScript planeScript;
 
     private float difficulty = 0;
     [SerializeField] Transform Fragments;
-    
+
+    private void Start()
+    {
+        difficulty = 0f;
+        gameTime = 0f;
+    }
 
     public void StartSpawn()
     {
         StartCoroutine(SpawnLoop());
         //SpawnPattern();
-        SpawnObstacle(0);
+        //SpawnObstacle(0);
     }
 
     void Update()
     {
-        if (!planeScript.isStarted) return;
+        if (!planeScript.isStarted) { return;}
 
-        difficulty = Mathf.Clamp01 (Time.time / 30f); 
+        gameTime += Time.deltaTime;
+        difficulty = Mathf.Clamp01 (gameTime/ 30f); 
+        print ("Time" + gameTime + "difficultiy:" + difficulty);
 
         if (!planeScript.isAlive)
         {
@@ -52,26 +61,8 @@ public class SpawnManager : MonoBehaviour
     {
         while (planeScript.isAlive)
         {   
-
-            int value = Random.Range(0, 3);
-
-            switch (value)
-            {
-                case 0:
-                spawnDelay = 2f;
-                break;
-
-                case 1:
-                spawnDelay = 2.5f;
-                break;
-
-                case 2:
-                spawnDelay = 3f;
-                break;
-            }
-
-            yield return new WaitForSeconds(spawnDelay);
-            SpawnObstacle(value);
+            SpawnObstacle();
+            yield return new WaitForSeconds(spawnTime);
         }
     }
 
@@ -81,26 +72,31 @@ public class SpawnManager : MonoBehaviour
         //SpawnObstacle(); 
     }
 
-    void SpawnObstacle(int value)
-    {
+    void SpawnObstacle()
+    {   
+        // gittikze pipe y ekseninceki kaymasi 1.5f düser
+        yShifting = Mathf.Lerp (yShifting, 1.5f , difficulty);
+        // gittikze pipe arasi mesafe  1f düser
+        gapBetweenPipes = Mathf.Lerp (gapBetweenPipes, 1f , difficulty);
+
+
+        // Without diffuculty, fix yShifting value, fix gapbetweenPipes value 
         float centerY = Random.Range(-yShifting, yShifting);
         currentGap = Mathf.Lerp (minGap, maxGap, difficulty);
 
+        int value = Random.Range(0, 2);
         switch (value)
         {
             case 0:
             SpawnSingleSpikes(centerY, currentGap);
-            xShiftingObjects = 1.5f;
             break;
 
             case 1:
             SpawnDoubleSpikes(centerY, currentGap);
-            xShiftingObjects = 2.0f;
             break;
 
             case 2:
             SpawnTripleSpikes(centerY, currentGap);
-            xShiftingObjects = 2.5f;
             break;
         }
 
@@ -112,12 +108,14 @@ public class SpawnManager : MonoBehaviour
         float topCenterY = centerY + gapSize;
         float bottomCenterY = centerY - gapSize;
         float xShift = Random.Range(-xShifting, xShifting);
+        spikeSize = 1f;
 
         int value = Random.Range (0, singleSpikes.Length);
-        Instantiate(singleSpikes[value], new Vector3(transform.position.x, bottomCenterY, 0), Quaternion.identity, gameObject.transform);
-        GameObject TopSpike = Instantiate(singleSpikes[value], new Vector3(transform.position.x + xShift, topCenterY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
+        Instantiate(singleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), bottomCenterY, 0), Quaternion.identity, gameObject.transform);
+        GameObject TopSpike = Instantiate(singleSpikes[value], new Vector3(transform.position.x + (spikeSize/2) + xShift, topCenterY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
         TopSpike.GetComponent<RockScript>().isRotated = true;
 
+        spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
     }
 
     void SpawnDoubleSpikes(float centerY, float gapSize)
@@ -125,12 +123,15 @@ public class SpawnManager : MonoBehaviour
         float topCenterY = centerY + gapSize;
         float bottomCenterY = centerY - gapSize;
         float xShift = Random.Range(-xShifting, xShifting);
+        spikeSize = 2f;
 
         int value = Random.Range (0, doubleSpikes.Length);
-        Instantiate(doubleSpikes[value], new Vector3(transform.position.x, bottomCenterY, 0), Quaternion.identity, gameObject.transform);
+        Instantiate(doubleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), bottomCenterY, 0), Quaternion.identity, gameObject.transform);
         value = Random.Range (0, doubleSpikes.Length);
-        GameObject TopSpike = Instantiate(doubleSpikes[value], new Vector3(transform.position.x + xShift, topCenterY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
+        GameObject TopSpike = Instantiate(doubleSpikes[value], new Vector3(transform.position.x + (spikeSize/2) + xShift, topCenterY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
         TopSpike.GetComponent<RockScript>().isRotated = true;
+
+        spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
     }
 
      void SpawnTripleSpikes(float centerY, float gapSize)
@@ -138,12 +139,15 @@ public class SpawnManager : MonoBehaviour
         float topCenterY = centerY + gapSize;
         float bottomCenterY = centerY - gapSize;
         float xShift = Random.Range(-xShifting, xShifting);
+        spikeSize = 3f;
 
         int value = Random.Range (0, tripleSpikes.Length);
-        Instantiate(tripleSpikes[value], new Vector3(transform.position.x, bottomCenterY, 0), Quaternion.identity, gameObject.transform);
+        Instantiate(tripleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), bottomCenterY, 0), Quaternion.identity, gameObject.transform);
         value = Random.Range (0, tripleSpikes.Length);
-        GameObject TopSpike = Instantiate(tripleSpikes[value], new Vector3(transform.position.x + xShift, topCenterY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
+        GameObject TopSpike = Instantiate(tripleSpikes[value], new Vector3(transform.position.x + (spikeSize/2) + xShift, topCenterY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
         TopSpike.GetComponent<RockScript>().isRotated = true;
+
+        spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
     }
 
 
@@ -152,42 +156,45 @@ public class SpawnManager : MonoBehaviour
     {
         
         float spwanChance = Random.value;
-        float fuelSpawnChange = Mathf.Lerp (0.4f, 0.3f, difficulty);
-        float enemySpawnChange = Mathf.Lerp (0.3f, 0.3f, difficulty);
+        float fuelSpawnChange = Mathf.Lerp (0.4f, 0.2f, difficulty);
+        float enemySpawnChange = Mathf.Lerp (0.2f, 0.3f, difficulty);
         float rocketSpawnChange = Mathf.Lerp (0.1f, 0.2f, difficulty);
+
+        float yShiftingObjects =  Random.Range(-1, 1);
+        float y = centerY + yShiftingObjects;
+        xShiftingObjects = (gapBetweenPipes / 2 + spikeSize);
+        
 
         if ( spwanChance < fuelSpawnChange)
         {
-            SpawnFuel(centerY);
+            SpawnFuel(y, xShiftingObjects);
         }
         else if (spwanChance < (fuelSpawnChange + enemySpawnChange))
         {
-            SpawnEnemy(centerY);
+            SpawnEnemy(y, xShiftingObjects);
         }
         else if ( spwanChance < (fuelSpawnChange + enemySpawnChange + rocketSpawnChange))
         {
-            SpawnRocket(centerY);
+            SpawnRocket(y, xShiftingObjects);
         }
     }
 
-    void SpawnFuel(float y)
+    void SpawnFuel(float y, float xShiftingObjects)
     {
-        float shift =  Random.Range(-1, 1);
-        Instantiate(objects[0], new Vector3(transform.position.x + xShiftingObjects, y + shift, 0), Quaternion.identity, gameObject.transform);
+        
+        Instantiate(objects[0], new Vector3(transform.position.x + xShiftingObjects, y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
     }
 
-    void SpawnEnemy(float y)
+    void SpawnEnemy(float y, float xShiftingObjects)
     {
 
-        float shift =  Random.Range(-1, 1);
-        Instantiate(objects[1], new Vector3(transform.position.x + xShiftingObjects, y + shift, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
+        Instantiate(objects[1], new Vector3(transform.position.x + xShiftingObjects, y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
     }
 
-    void SpawnRocket(float y)
+    void SpawnRocket(float y, float xShiftingObjects)
     {
 
-        float shift =  Random.Range(-1, 1);
-        Instantiate(objects[2], new Vector3(transform.position.x + xShiftingObjects, y + shift, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
+        Instantiate(objects[2], new Vector3(transform.position.x + xShiftingObjects, y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
     }
 
     // REVIVE ----------------------------------------------------------------------------------------------------
