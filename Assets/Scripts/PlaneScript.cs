@@ -42,8 +42,6 @@ public class PlaneScript : MonoBehaviour
     AudioManager audioManager;
     [SerializeField] GameObject playerSprite;
     [SerializeField] ParticleSystem backgroundParticle;
-    [SerializeField] ParticleSystem EnergyParticle;
-    [SerializeField] ParticleSystem EnemyParticle;
 
     void Start()
     {    
@@ -103,16 +101,14 @@ public class PlaneScript : MonoBehaviour
         if (other.CompareTag ("Fuel") && other.IsTouching(collectCollider))
         {
             addFuel(fuelToAdd);
-            EnergyParticle.Play();
             questManager.UpdateQuest(QuestType.CollectFuel, 1);
             audioManager.PlayCollectFuelSFX();
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<FuelScript>()?.DestroyGameObject();
         }
         else if (other.CompareTag ("Enemy"))
         {
             CrashEnemy(fuelToRemove);
-            EnemyParticle.Play();
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<EnemyScript>()?.DestroyGameObject();
         }
         else if (other.gameObject.CompareTag ("Rocket") && !isShieldOn)
         {

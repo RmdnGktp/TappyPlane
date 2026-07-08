@@ -11,6 +11,8 @@ public class FuelScript : MonoBehaviour
     float magnetSpeed = 1.5f;
     bool isInMagnetRange;
     Vector3 startPos;
+
+    [SerializeField] GameObject _deathVFX;
     
 
     void Start()
@@ -55,6 +57,17 @@ public class FuelScript : MonoBehaviour
             isInMagnetRange = true;
             
         }
+    }
+
+    public void DestroyGameObject()
+    {
+        SpawnDeathVFX();
+        Destroy(gameObject);
+    }
+
+    void SpawnDeathVFX()
+    {
+        Instantiate(_deathVFX, transform.position, transform.rotation);
     }
 
     

@@ -44,7 +44,7 @@ public class SpawnManager : MonoBehaviour
 
         gameTime += Time.deltaTime;
         difficulty = Mathf.Clamp01 (gameTime/ 30f); 
-        print ("Time" + gameTime + "difficultiy:" + difficulty);
+        // print ("Time" + gameTime + "difficultiy:" + difficulty);
 
         if (!planeScript.isAlive)
         {
@@ -75,9 +75,9 @@ public class SpawnManager : MonoBehaviour
     void SpawnObstacle()
     {   
         // gittikze pipe y ekseninceki kaymasi 1.5f düser
-        yShifting = Mathf.Lerp (yShifting, 1.5f , difficulty);
+        // yShifting = Mathf.Lerp (yShifting, 1.5f , difficulty);
         // gittikze pipe arasi mesafe  1f düser
-        gapBetweenPipes = Mathf.Lerp (gapBetweenPipes, 1f , difficulty);
+        gapBetweenPipes = Mathf.Lerp (gapBetweenPipes, 2f , difficulty);
 
 
         // Without diffuculty, fix yShifting value, fix gapbetweenPipes value 

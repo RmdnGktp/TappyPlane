@@ -11,6 +11,8 @@ public class EnemyScript : MonoBehaviour
     private Transform plane;
     private QuestManager questManager;
 
+    [SerializeField] GameObject _deathVFX;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -55,5 +57,16 @@ public class EnemyScript : MonoBehaviour
             // transform.position = new Vector3 (transform.position.x -1, transform.position.y, transform.position.z);
             Debug.Log ("Enemy destroyed!");
         }
+    }
+
+    public void DestroyGameObject()
+    {
+        SpawnDeathVFX();
+        Destroy(gameObject);
+    }
+
+    void SpawnDeathVFX()
+    {
+        Instantiate(_deathVFX, transform.position, transform.rotation);
     }
 }
