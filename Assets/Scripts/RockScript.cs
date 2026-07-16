@@ -89,54 +89,34 @@ public class RockScript : MonoBehaviour
     {   
         if (!isRotated)
         {
-            float spawnStartY = -0.9f - displacement;
-            float spawnStartX = -0.25f;
+            float spawnStartY = -1.2f - displacement;
 
             while (spawnStartY > -9)
             {   
-                // first column of fragments
-                Vector2 spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX + spawnStartX, transform.position.y + spawnStartY);
+                Vector2 spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX, transform.position.y + spawnStartY);
                 GameObject fragment = Instantiate(sFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
 
                 Rigidbody2D rbf = fragment.GetComponent<Rigidbody2D>();
                 Vector2 randomDirection = new Vector2(1f, Random.Range(-1f,1f));
                 rbf.AddForce(randomDirection * Random.Range(0f,4f), ForceMode2D.Impulse);
 
-                // second column of fragments
-                spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX - spawnStartX, transform.position.y + spawnStartY);
-                fragment = Instantiate(sFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
-
-                rbf = fragment.GetComponent<Rigidbody2D>();
-                randomDirection = new Vector2(1f, Random.Range(-1f,1f));
-                rbf.AddForce(randomDirection * Random.Range(0f,4f), ForceMode2D.Impulse);
-
-                spawnStartY -= 0.5f;
+                spawnStartY -= 1f;
             }
         }
         else
         {
-            float spawnStartY = 0.9f + displacement;
-            float spawnStartX = -0.25f;
+            float spawnStartY = 1.2f + displacement;
 
             while (spawnStartY < 9)
             {   
-                // first column of fragments
-                Vector2 spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX + spawnStartX, transform.position.y + spawnStartY);
+                Vector2 spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX, transform.position.y + spawnStartY);
                 GameObject fragment = Instantiate(sFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
 
                 Rigidbody2D rbf = fragment.GetComponent<Rigidbody2D>();
                 Vector2 randomDirection = new Vector2(1f, Random.Range(-1f,1f));
                 rbf.AddForce(randomDirection * Random.Range(0f,4f), ForceMode2D.Impulse);
 
-                // second column of fragments
-                spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX - spawnStartX, transform.position.y + spawnStartY);
-                fragment = Instantiate(sFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
-
-                rbf = fragment.GetComponent<Rigidbody2D>();
-                randomDirection = new Vector2(1f, Random.Range(-1f,1f));
-                rbf.AddForce(randomDirection * Random.Range(0f,4f), ForceMode2D.Impulse);
-
-                spawnStartY += 0.5f;
+                spawnStartY += 1f;
             }
         }
 
