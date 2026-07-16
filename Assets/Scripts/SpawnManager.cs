@@ -77,14 +77,14 @@ public class SpawnManager : MonoBehaviour
         // gittikze pipe y ekseninceki kaymasi 1.5f düser
         // yShifting = Mathf.Lerp (yShifting, 1.5f , difficulty);
         // gittikze pipe arasi mesafe  1f düser
-        gapBetweenPipes = Mathf.Lerp (gapBetweenPipes, 2f , difficulty);
+        gapBetweenPipes = Mathf.Lerp (gapBetweenPipes, 3f , difficulty);
 
 
-        // Without diffuculty, fix yShifting value, fix gapbetweenPipes value 
+        // Without diffuculty, fixed yShifting value, fixed gapbetweenPipes value 
         float centerY = Random.Range(-yShifting, yShifting);
         currentGap = Mathf.Lerp (minGap, maxGap, difficulty);
 
-        int value = Random.Range(0, 2);
+        int value = Random.Range(0, 3);
         switch (value)
         {
             case 0:
@@ -112,7 +112,8 @@ public class SpawnManager : MonoBehaviour
 
         int value = Random.Range (0, singleSpikes.Length);
         Instantiate(singleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), bottomCenterY, 0), Quaternion.identity, gameObject.transform);
-        GameObject TopSpike = Instantiate(singleSpikes[value], new Vector3(transform.position.x + (spikeSize/2) + xShift, topCenterY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
+        GameObject TopSpike = Instantiate(singleSpikes[value], new Vector3(transform.position.x + (spikeSize/2) + xShift, topCenterY, 0), Quaternion.identity, gameObject.transform);
+        TopSpike.transform.localScale = new Vector3 (1,-1,1);
         TopSpike.GetComponent<RockScript>().isRotated = true;
 
         spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
@@ -128,7 +129,8 @@ public class SpawnManager : MonoBehaviour
         int value = Random.Range (0, doubleSpikes.Length);
         Instantiate(doubleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), bottomCenterY, 0), Quaternion.identity, gameObject.transform);
         value = Random.Range (0, doubleSpikes.Length);
-        GameObject TopSpike = Instantiate(doubleSpikes[value], new Vector3(transform.position.x + (spikeSize/2) + xShift, topCenterY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
+        GameObject TopSpike = Instantiate(doubleSpikes[value], new Vector3(transform.position.x + (spikeSize/2) + xShift, topCenterY, 0), Quaternion.identity, gameObject.transform);
+        TopSpike.transform.localScale = new Vector3 (1,-1,1);
         TopSpike.GetComponent<RockScript>().isRotated = true;
 
         spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
@@ -144,7 +146,8 @@ public class SpawnManager : MonoBehaviour
         int value = Random.Range (0, tripleSpikes.Length);
         Instantiate(tripleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), bottomCenterY, 0), Quaternion.identity, gameObject.transform);
         value = Random.Range (0, tripleSpikes.Length);
-        GameObject TopSpike = Instantiate(tripleSpikes[value], new Vector3(transform.position.x + (spikeSize/2) + xShift, topCenterY, 0), Quaternion.Euler(0, 0, 180), gameObject.transform);
+        GameObject TopSpike = Instantiate(tripleSpikes[value], new Vector3(transform.position.x + (spikeSize/2) + xShift, topCenterY, 0), Quaternion.identity, gameObject.transform);
+        TopSpike.transform.localScale = new Vector3 (1,-1,1);
         TopSpike.GetComponent<RockScript>().isRotated = true;
 
         spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;

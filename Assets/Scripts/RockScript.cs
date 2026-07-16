@@ -1,4 +1,5 @@
 
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -9,11 +10,14 @@ public class RockScript : MonoBehaviour
     float deathZone = -5f;
     [SerializeField] GameObject sFragmentPrefab;
     [SerializeField] GameObject tFragmentPrefab;
-    private float boundsMaxY = -9f;
-    private float boundsMinY = -1f;
     public bool isRotated = false;
     private GameObject Fragments;
-
+    [SerializeField] int spikeSize;
+    [SerializeField] float firstColumnDisplacement;
+    [SerializeField] float secondColumnDisplacement;
+    [SerializeField] float thirdColumnDisplacement;
+    private float fragmentSpawnStartX;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,13 +28,6 @@ public class RockScript : MonoBehaviour
             //Debug.Log ("Pipe Rotated!");
             //boundsMaxY = 9f;
         }
-
-        if (isRotated)
-        {
-            boundsMaxY = 9f;
-            boundsMinY = 1f;
-        }
-
     }
 
     void Update()
@@ -46,52 +43,120 @@ public class RockScript : MonoBehaviour
     [ContextMenu ("Destroy Pipe")]
     public void DestroyPipe()
     {
-        
-        SpawnSquareFragment();
-        SpawnTriangleFragment();
+        SpawnFragments();
         Destroy(gameObject);
     }
 
-    void SpawnSquareFragment()
+    void SpawnFragments ()
     {
-        for (int i = 0; i < 25; i++)
-        {   
-            Vector2 spawnPos = new Vector2 (transform.position.x + Random.Range (-0.5f, 0.5f), transform.position.y + Random.Range(boundsMinY, boundsMaxY));
-            GameObject fragment = Instantiate(sFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
+        switch (spikeSize)
+        {
+            case 1:
+            fragmentSpawnStartX = 0;
+            SpawnSquareFragment(firstColumnDisplacement);
+            SpawnTriangleFragment(firstColumnDisplacement);
+            break;
 
-            Rigidbody2D rbf = fragment.GetComponent<Rigidbody2D>();
-            //Vector2 randomDirection = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
-            //rbf.AddForce(randomDirection * Random.Range(2f,6f), ForceMode2D.Impulse);
-            //rbf.AddTorgue(Random.Range(-200f,200f));
+            case 2:
+            fragmentSpawnStartX = -0.5f;
+            SpawnSquareFragment(firstColumnDisplacement);
+            SpawnTriangleFragment(firstColumnDisplacement);
 
-            Vector2 randomDirection = new Vector2(1f, Random.Range(-1f,1f));
-            rbf.AddForce(randomDirection * Random.Range(0f,4f), ForceMode2D.Impulse);
+            fragmentSpawnStartX = 0.5f;
+            SpawnSquareFragment(secondColumnDisplacement);
+            SpawnTriangleFragment(secondColumnDisplacement);
+            break;
 
-            
+            case 3:
+            fragmentSpawnStartX = -1f;
+            SpawnSquareFragment(firstColumnDisplacement);
+            SpawnTriangleFragment(firstColumnDisplacement);
+
+            fragmentSpawnStartX = 0f;
+            SpawnSquareFragment(secondColumnDisplacement);
+            SpawnTriangleFragment(secondColumnDisplacement);
+
+            fragmentSpawnStartX = 1f;
+            SpawnSquareFragment(thirdColumnDisplacement);
+            SpawnTriangleFragment(thirdColumnDisplacement);
+            break;
         }
+
+
     }
 
-    void SpawnTriangleFragment()
+    void SpawnSquareFragment(float displacement)
     {   
-        float xValue = 0.5f;
-        float yValue = 0.458f;
+        if (!isRotated)
+        {
+            float spawnStartY = -0.9f - displacement;
+            float spawnStartX = -0.25f;
 
+            while (spawnStartY > -9)
+            {   
+                // first column of fragments
+                Vector2 spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX + spawnStartX, transform.position.y + spawnStartY);
+                GameObject fragment = Instantiate(sFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
 
-        for (int i = 0; i < 2; i++)
-        {   
-            Vector2 spawnPos = new Vector2 (transform.position.x + xValue, transform.position.y + yValue);
+                Rigidbody2D rbf = fragment.GetComponent<Rigidbody2D>();
+                Vector2 randomDirection = new Vector2(1f, Random.Range(-1f,1f));
+                rbf.AddForce(randomDirection * Random.Range(0f,4f), ForceMode2D.Impulse);
 
-            if (!isRotated)
-            {
-                Instantiate(tFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
+                // second column of fragments
+                spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX - spawnStartX, transform.position.y + spawnStartY);
+                fragment = Instantiate(sFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
+
+                rbf = fragment.GetComponent<Rigidbody2D>();
+                randomDirection = new Vector2(1f, Random.Range(-1f,1f));
+                rbf.AddForce(randomDirection * Random.Range(0f,4f), ForceMode2D.Impulse);
+
+                spawnStartY -= 0.5f;
             }
-            else
-            {
-                Instantiate(tFragmentPrefab, spawnPos, Quaternion.Euler(0, 0, 180), Fragments.transform);
-            }
-            
-            xValue = -0.5f;
         }
+        else
+        {
+            float spawnStartY = 0.9f + displacement;
+            float spawnStartX = -0.25f;
+
+            while (spawnStartY < 9)
+            {   
+                // first column of fragments
+                Vector2 spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX + spawnStartX, transform.position.y + spawnStartY);
+                GameObject fragment = Instantiate(sFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
+
+                Rigidbody2D rbf = fragment.GetComponent<Rigidbody2D>();
+                Vector2 randomDirection = new Vector2(1f, Random.Range(-1f,1f));
+                rbf.AddForce(randomDirection * Random.Range(0f,4f), ForceMode2D.Impulse);
+
+                // second column of fragments
+                spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX - spawnStartX, transform.position.y + spawnStartY);
+                fragment = Instantiate(sFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
+
+                rbf = fragment.GetComponent<Rigidbody2D>();
+                randomDirection = new Vector2(1f, Random.Range(-1f,1f));
+                rbf.AddForce(randomDirection * Random.Range(0f,4f), ForceMode2D.Impulse);
+
+                spawnStartY += 0.5f;
+            }
+        }
+
+    }
+
+    void SpawnTriangleFragment(float displacement)
+    {   
+        if (!isRotated)
+        {   
+            float spawnStartY = -0.463f - displacement;
+            Vector2 spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX, transform.position.y + spawnStartY);
+            Instantiate(tFragmentPrefab, spawnPos, Quaternion.identity, Fragments.transform);
+        }
+        else
+        {   
+            float spawnStartY = 0.463f + displacement;
+            Vector2 spawnPos = new Vector2 (transform.position.x + fragmentSpawnStartX, transform.position.y + spawnStartY);
+            Instantiate(tFragmentPrefab, spawnPos, Quaternion.Euler(0, 0, 180), Fragments.transform);
+        }
+        
     }
 
 
