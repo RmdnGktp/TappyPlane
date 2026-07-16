@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2215323980967834452}
   - component: {fileID: -8360989701917320612}
   - component: {fileID: -7627250504546864838}
+  - component: {fileID: -3542450749937272200}
   m_Layer: 16
   m_Name: S_Fragment
   m_TagString: Untagged
@@ -121,6 +122,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582a4667d167068498e662d28c229ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FragmentScript
+--- !u!210 &-3542450749937272200
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585958667442715147}
+  m_Enabled: 1
+  m_SortingLayerID: -16995945
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &1403388969172618514
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +305,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -16995945
   m_SortingLayer: 2
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.019607844, g: 0.019607844, b: 0.019607844, a: 1}

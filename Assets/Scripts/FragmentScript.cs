@@ -4,7 +4,7 @@ public class FragmentScript : MonoBehaviour
 {
     static public float speed = 2f;
     Rigidbody2D rb;
-    float deathZone = -5f;
+    float deathZone = -15f;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class FragmentScript : MonoBehaviour
     {
         //rb.linearVelocity =  Vector2.left * speed;
 
-        if (gameObject.transform.position.x < deathZone)
+        if (gameObject.transform.position.y < deathZone)
         {
            DestroyFragment();
         }
