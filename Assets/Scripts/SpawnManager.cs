@@ -7,6 +7,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject[] doubleSpikes;
     [SerializeField] GameObject[] tripleSpikes;
     [SerializeField] GameObject[] objects;
+    [SerializeField] GameObject[] objectGroups;
     
     [SerializeField] float yShifting;
     [SerializeField] float xShifting;
@@ -19,6 +20,9 @@ public class SpawnManager : MonoBehaviour
     private float currentGap;
     private float xShiftingObjects;
     private float gameTime;
+    private bool isObjectGroupsSpawned = false;
+    private bool isObjectGroupdReadytoSpawn = false;
+
     
     [SerializeField] PlaneScript planeScript;
 
@@ -74,6 +78,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObstacle()
     {   
+        isObjectGroupsSpawned = false;
         // gittikze pipe y ekseninceki kaymasi 1.5f düser
         // yShifting = Mathf.Lerp (yShifting, 1.5f , difficulty);
         // gittikze pipe arasi mesafe  1f düser
@@ -84,7 +89,13 @@ public class SpawnManager : MonoBehaviour
         float centerY = Random.Range(-yShifting, yShifting);
         currentGap = Mathf.Lerp (minGap, maxGap, difficulty);
 
-        int value = Random.Range(0, 3);
+        int maxValue = 3;
+        if (isObjectGroupdReadytoSpawn)
+        {
+            maxValue = 4;
+        }
+
+        int value = Random.Range(0, maxValue);
         switch (value)
         {
             case 0:
@@ -98,8 +109,14 @@ public class SpawnManager : MonoBehaviour
             case 2:
             SpawnTripleSpikes(centerY, currentGap);
             break;
+
+            case 3:
+            SpawnObjectGroups();
+            isObjectGroupsSpawned = true;
+            break;
         }
 
+        if (isObjectGroupsSpawned) return;
         SpawnObjects(centerY);
     }
 
@@ -157,18 +174,18 @@ public class SpawnManager : MonoBehaviour
     // SPAWN OBJECTS ----------------------------------------------------------------------------------------------------
     void SpawnObjects (float centerY)
     {
-        
+        isObjectGroupdReadytoSpawn = false;
         float spwanChance = Random.value;
-        float fuelSpawnChange = Mathf.Lerp (0.4f, 0.2f, difficulty);
-        float enemySpawnChange = Mathf.Lerp (0.2f, 0.3f, difficulty);
-        float rocketSpawnChange = Mathf.Lerp (0.1f, 0.2f, difficulty);
+        float fuelSpawnChange = Mathf.Lerp (0.4f, 0.3f, difficulty);
+        float enemySpawnChange = Mathf.Lerp (0.3f, 0.4f, difficulty);
+        float rocketSpawnChange = Mathf.Lerp (0.1f, 0.1f, difficulty);
 
         float yShiftingObjects =  Random.Range(-1, 1);
         float y = centerY + yShiftingObjects;
         xShiftingObjects = (gapBetweenPipes / 2 + spikeSize);
         
 
-        if ( spwanChance < fuelSpawnChange)
+        if (spwanChance < fuelSpawnChange)
         {
             SpawnFuel(y, xShiftingObjects);
         }
@@ -179,6 +196,10 @@ public class SpawnManager : MonoBehaviour
         else if ( spwanChance < (fuelSpawnChange + enemySpawnChange + rocketSpawnChange))
         {
             SpawnRocket(y, xShiftingObjects);
+        }
+        else
+        {
+            isObjectGroupdReadytoSpawn = true;
         }
     }
 
@@ -198,6 +219,16 @@ public class SpawnManager : MonoBehaviour
     {
 
         Instantiate(objects[2], new Vector3(transform.position.x + xShiftingObjects, y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
+    }
+
+    void SpawnObjectGroups ()
+    {
+        //float y =  Random.Range(-1, 1);
+        spikeSize = 1f;
+
+        int value = Random.Range(0, objectGroups.Length);
+        Instantiate(objectGroups[value], new Vector3(transform.position.x, 0, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
+        spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
     }
 
     // REVIVE ----------------------------------------------------------------------------------------------------
