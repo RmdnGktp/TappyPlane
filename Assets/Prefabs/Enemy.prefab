@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
   _deathVFX: {fileID: 747220354299228263, guid: e1e40f1f397862642b09334a956174df, type: 3}
+  glidingAmount: 1.2
 --- !u!96 &2925492926503176585
 TrailRenderer:
   serializedVersion: 4

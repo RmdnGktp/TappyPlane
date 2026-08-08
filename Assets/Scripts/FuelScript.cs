@@ -13,6 +13,8 @@ public class FuelScript : MonoBehaviour
     Vector3 startPos;
 
     [SerializeField] GameObject _deathVFX;
+    [SerializeField] float glidingAmount = 0.5f;
+    private float glidingRange;
     
 
     void Start()
@@ -20,6 +22,12 @@ public class FuelScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         startPos = transform.position;
+
+        glidingRange = Random.Range(0.5f, glidingAmount);
+        if (Random.Range(0, 2) == 0)
+        {   
+            glidingRange = -glidingRange;
+        }       
     }
 
     void Update()
@@ -34,11 +42,10 @@ public class FuelScript : MonoBehaviour
         if (isInMagnetRange)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, magnetSpeed * Time.deltaTime);
-            Debug.Log ("Magnet is moving towards Player!!!!");
         }
         else
-        {
-            float newY = startPos.y + Mathf.Sin(Time.time * 2f) * 0.5f;
+        {   
+            float newY = startPos.y + Mathf.Sin(Time.time * 2f) * glidingRange;
             transform.position = new Vector3 (transform.position.x, newY, transform.position.z);
         }
 

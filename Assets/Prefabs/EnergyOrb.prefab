@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FuelScript
   _deathVFX: {fileID: 747220354299228263, guid: 762f126b5fb60d24499afa6645db5618, type: 3}
+  glidingAmount: 1.2
 --- !u!96 &833073215506958623
 TrailRenderer:
   serializedVersion: 4
