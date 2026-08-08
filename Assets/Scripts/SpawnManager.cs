@@ -65,7 +65,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (planeScript.isAlive)
         {   
-            SpawnObstacle();
+            StartCoroutine(SpawnObstacle());
             yield return new WaitForSeconds(spawnTime);
         }
     }
@@ -76,7 +76,7 @@ public class SpawnManager : MonoBehaviour
         //SpawnObstacle(); 
     }
 
-    void SpawnObstacle()
+    IEnumerator SpawnObstacle()
     {   
         isObjectGroupsSpawned = false;
         // gittikze pipe y ekseninceki kaymasi 1.5f düser
@@ -111,13 +111,13 @@ public class SpawnManager : MonoBehaviour
             break;
 
             case 3:
-            SpawnObjectGroups();
+            StartCoroutine(SpawnObjectGroups());
             isObjectGroupsSpawned = true;
             break;
         }
 
-        if (isObjectGroupsSpawned) return;
-        SpawnObjects(centerY);
+        if (isObjectGroupsSpawned) yield break;
+        SpawnSingleObject(centerY);
     }
 
     void SpawnSingleSpikes(float centerY, float gapSize)
@@ -172,7 +172,7 @@ public class SpawnManager : MonoBehaviour
 
 
     // SPAWN OBJECTS ----------------------------------------------------------------------------------------------------
-    void SpawnObjects (float centerY)
+    void SpawnSingleObject (float centerY)
     {
         isObjectGroupdReadytoSpawn = false;
         float spwanChance = Random.value;
@@ -221,14 +221,23 @@ public class SpawnManager : MonoBehaviour
         Instantiate(objects[2], new Vector3(transform.position.x + xShiftingObjects, y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
     }
 
-    void SpawnObjectGroups ()
-    {
-        //float y =  Random.Range(-1, 1);
+    IEnumerator SpawnObjectGroups ()
+    {   
         spikeSize = 1f;
 
-        int value = Random.Range(0, objectGroups.Length);
-        Instantiate(objectGroups[value], new Vector3(transform.position.x, 0, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
+        int x = Random.Range (2,4);
+
+        for (int i = 0; i < x; i++)
+        {
+            float y =  Random.Range(-1.5f, 1.5f);
+            int value = Random.Range(0, objectGroups.Length);
+            Instantiate(objectGroups[value], new Vector3(transform.position.x + (spikeSize/2), y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
+
+            yield return new WaitForSeconds(1f); 
+        }
+
         spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
+
     }
 
     // REVIVE ----------------------------------------------------------------------------------------------------

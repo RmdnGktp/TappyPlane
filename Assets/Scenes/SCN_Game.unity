@@ -1135,9 +1135,8 @@ MonoBehaviour:
   - {fileID: 5719344765473883936, guid: cf22aac267c0b304f85d6b6e9a55f358, type: 3}
   - {fileID: 5719344765473883936, guid: 49e3b3403fe83f64491ba662132f27a7, type: 3}
   objectGroups:
-  - {fileID: 6410649159354822006, guid: 552c9f54e4e00994797f32f605b2fae5, type: 3}
-  - {fileID: 4791122883014118472, guid: ee9ba3f860f80b745810cfe825d68c86, type: 3}
   - {fileID: 3492707156967305157, guid: ee6d903a250dc5a4f875b46a46acc836, type: 3}
+  - {fileID: 4791122883014118472, guid: ee9ba3f860f80b745810cfe825d68c86, type: 3}
   yShifting: 3
   xShifting: 0
   minGap: 0.8
