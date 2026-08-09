@@ -8,6 +8,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject[] tripleSpikes;
     [SerializeField] GameObject[] objects;
     [SerializeField] GameObject[] objectGroups;
+
+    [SerializeField] GameObject[] singlePatterns;
     
     [SerializeField] float yShifting;
     [SerializeField] float xShifting;
@@ -89,10 +91,10 @@ public class SpawnManager : MonoBehaviour
         float centerY = Random.Range(-yShifting, yShifting);
         currentGap = Mathf.Lerp (minGap, maxGap, difficulty);
 
-        int maxValue = 3;
+        int maxValue = Mathf.RoundToInt(Mathf.Lerp(1, 4, difficulty));
         if (isObjectGroupdReadytoSpawn)
         {
-            maxValue = 4;
+            //maxValue = 5;
         }
 
         int value = Random.Range(0, maxValue);
@@ -111,6 +113,10 @@ public class SpawnManager : MonoBehaviour
             break;
 
             case 3:
+            SpawnSinglePattern();
+            break;
+
+            case 4:
             StartCoroutine(SpawnObjectGroups());
             isObjectGroupsSpawned = true;
             break;
@@ -238,6 +244,17 @@ public class SpawnManager : MonoBehaviour
 
         spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
 
+    }
+
+    void SpawnSinglePattern()
+    {
+        spikeSize = 1f;
+        float y = Random.Range(-1.5f, 1.5f);
+
+        int value = Random.Range (0, singlePatterns.Length);
+        Instantiate(singlePatterns[value], new Vector3(transform.position.x + (spikeSize/2), y, 0), Quaternion.identity, gameObject.transform);
+        
+        spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
     }
 
     // REVIVE ----------------------------------------------------------------------------------------------------
