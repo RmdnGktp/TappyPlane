@@ -175,7 +175,8 @@ public class PlaneScript : MonoBehaviour
         else 
         {
             audioManager.PlayImpactSFX();
-            collision.gameObject.GetComponent<RockScript>().DestroyPipe();
+            collision.gameObject.GetComponent<RockScript>()?.DestroyPipe();
+            collision.gameObject.GetComponent<SquareRockScript>()?.DestroyPipe();
         }
 
         if (!isAlive) return;

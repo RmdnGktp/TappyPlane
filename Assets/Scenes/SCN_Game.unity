@@ -1137,6 +1137,8 @@ MonoBehaviour:
   objectGroups:
   - {fileID: 3492707156967305157, guid: ee6d903a250dc5a4f875b46a46acc836, type: 3}
   - {fileID: 4791122883014118472, guid: ee9ba3f860f80b745810cfe825d68c86, type: 3}
+  singlePatterns:
+  - {fileID: 7263500893004441910, guid: 2065fd881eda4f74f99e6df5a1319381, type: 3}
   yShifting: 3
   xShifting: 0
   minGap: 0.8
@@ -32955,6 +32957,10 @@ PrefabInstance:
     - target: {fileID: 1037270834388035499, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037270834388035499, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2269792365230313925, guid: ed4209fefdb111c47bc2d80cee419876, type: 3}
       propertyPath: m_LocalPosition.x
