@@ -1137,8 +1137,7 @@ MonoBehaviour:
   objectGroups:
   - {fileID: 3492707156967305157, guid: ee6d903a250dc5a4f875b46a46acc836, type: 3}
   - {fileID: 4791122883014118472, guid: ee9ba3f860f80b745810cfe825d68c86, type: 3}
-  singlePatterns:
-  - {fileID: 7263500893004441910, guid: 2065fd881eda4f74f99e6df5a1319381, type: 3}
+  singleSquare: {fileID: 6714094358677231137, guid: 0741e08bf4ae2424dadbf64327c888d9, type: 3}
   yShifting: 3
   xShifting: 0
   minGap: 0.8
