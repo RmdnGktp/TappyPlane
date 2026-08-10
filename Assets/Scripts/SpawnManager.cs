@@ -9,13 +9,15 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject[] objects;
     [SerializeField] GameObject[] objectGroups;
 
-    [SerializeField] GameObject[] singlePatterns;
+    //[SerializeField] GameObject[] singlePatterns;
+    [SerializeField] GameObject singleSquare;
     
     [SerializeField] float yShifting;
     [SerializeField] float xShifting;
     [SerializeField] float minGap;
     [SerializeField] float maxGap;
     [SerializeField] float gapBetweenPipes = 2.0f;
+    
 
     private float spikeSize = 0;
     private float spawnTime; 
@@ -91,7 +93,7 @@ public class SpawnManager : MonoBehaviour
         float centerY = Random.Range(-yShifting, yShifting);
         currentGap = Mathf.Lerp (minGap, maxGap, difficulty);
 
-        int maxValue = Mathf.RoundToInt(Mathf.Lerp(1, 4, difficulty));
+        int maxValue = Mathf.RoundToInt(Mathf.Lerp(1, 6, difficulty));
         if (isObjectGroupdReadytoSpawn)
         {
             //maxValue = 5;
@@ -109,14 +111,23 @@ public class SpawnManager : MonoBehaviour
             break;
 
             case 2:
-            SpawnTripleSpikes(centerY, currentGap);
-            break;
-
-            case 3:
             SpawnSinglePattern();
             break;
 
+            case 3:
+            SpawnTripleSpikes(centerY, currentGap);
+            break;
+
             case 4:
+            SpawnDoublePattern();
+            break;
+
+            case 5:
+            SpawnTriplePattern();
+            break;
+
+            //Spawn breathing moments
+            case 40:
             StartCoroutine(SpawnObjectGroups());
             isObjectGroupsSpawned = true;
             break;
@@ -246,16 +257,134 @@ public class SpawnManager : MonoBehaviour
 
     }
 
+    // SPAWN PATTERN ----------------------------------------------------------------------------------------------------
     void SpawnSinglePattern()
     {
         spikeSize = 1f;
-        float y = Random.Range(-1.5f, 1.5f);
+        float y = Random.Range(-2f, 2f);
 
-        int value = Random.Range (0, singlePatterns.Length);
-        Instantiate(singlePatterns[value], new Vector3(transform.position.x + (spikeSize/2), y, 0), Quaternion.identity, gameObject.transform);
-        
+        int value = Random.Range (0, singleSpikes.Length);
+        GameObject BottomSpike = Instantiate(singleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), y - 2, 0), Quaternion.identity, gameObject.transform);
+        GameObject TopSpike = Instantiate(singleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), y + 2, 0), Quaternion.identity, gameObject.transform);
+        TopSpike.transform.localScale = new Vector3 (1,-1,1);
+        TopSpike.GetComponent<RockScript>().isRotated = true;
+        SpawnSingleSquare(1,y);
+
         spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
     }
+
+    void SpawnDoublePattern()
+    {
+        spikeSize = 2f;
+        float y = Random.Range(-2f, 2f);
+
+        int value = Random.Range (0, doubleSpikes.Length);
+        GameObject BottomSpike = Instantiate(doubleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), y - 2, 0), Quaternion.identity, gameObject.transform);
+        value = Random.Range (0, doubleSpikes.Length);
+        GameObject TopSpike = Instantiate(doubleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), y + 2, 0), Quaternion.identity, gameObject.transform);
+        TopSpike.transform.localScale = new Vector3 (1,-1,1);
+        TopSpike.GetComponent<RockScript>().isRotated = true;
+        
+        SpawnSingleSquare(2,y);
+
+        spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
+
+    }
+
+    void SpawnTriplePattern()
+    {
+        spikeSize = 3f;
+        float y = Random.Range(-2f, 2f);
+
+        int value = Random.Range (0, tripleSpikes.Length);
+        GameObject BottomSpike = Instantiate(tripleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), y - 2, 0), Quaternion.identity, gameObject.transform);
+        value = Random.Range (0, doubleSpikes.Length);
+        GameObject TopSpike = Instantiate(tripleSpikes[value], new Vector3(transform.position.x + (spikeSize/2), y + 2, 0), Quaternion.identity, gameObject.transform);
+        TopSpike.transform.localScale = new Vector3 (1,-1,1);
+        TopSpike.GetComponent<RockScript>().isRotated = true;
+
+        SpawnSingleSquare(3,y);
+
+        spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
+
+    }
+
+    void SpawnSingleSquare (int value, float y)
+    {
+        
+        switch (value)
+        {
+            case 1:
+            Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2), y, 0), Quaternion.identity, gameObject.transform);
+            break;
+
+            case 2:
+            int i = Random.Range(0,3);
+            switch (i)
+            {
+                // Spawn all
+                case 0:
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) -0.5f , y, 0), Quaternion.identity, gameObject.transform);
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) +0.5f , y, 0), Quaternion.identity, gameObject.transform);
+                break;
+                // Spawn only left one
+                case 1:
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) -0.5f , y, 0), Quaternion.identity, gameObject.transform);
+                break;
+                // Spawn only right one
+                case 2:
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) +0.5f , y, 0), Quaternion.identity, gameObject.transform);
+                break;
+            }
+            break;
+
+            case 3:
+            i = Random.Range(0,7);
+            switch (i)
+            {
+                // Spawn all
+                case 0:
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2), y, 0), Quaternion.identity, gameObject.transform);
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) -1f , y, 0), Quaternion.identity, gameObject.transform);
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) +1f , y, 0), Quaternion.identity, gameObject.transform);
+                break;
+                // Spawn only middle
+                case 1:
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2), y, 0), Quaternion.identity, gameObject.transform);
+                break;
+                // Spawn only left one
+                case 2:
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) -1f , y, 0), Quaternion.identity, gameObject.transform);
+                break;
+                // Spawn only right one
+                case 3:
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) +1f , y, 0), Quaternion.identity, gameObject.transform);
+                break;
+                // Spawn only left and right 
+                case 4:
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) -1f , y, 0), Quaternion.identity, gameObject.transform);
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) +1f , y, 0), Quaternion.identity, gameObject.transform);
+                break;
+                // Spawn only left and middle 
+                case 5:
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) -1f , y, 0), Quaternion.identity, gameObject.transform);
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2), y, 0), Quaternion.identity, gameObject.transform);
+                break;
+                // Spawn only middle and right 
+                case 6:
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2), y, 0), Quaternion.identity, gameObject.transform);
+                    Instantiate(singleSquare, new Vector3(transform.position.x + (spikeSize/2) +1f , y, 0), Quaternion.identity, gameObject.transform);
+                break;
+
+            }
+            break;
+
+        }
+    }
+
+
+
+
 
     // REVIVE ----------------------------------------------------------------------------------------------------
     public void ReviveDeleteAllChilds()

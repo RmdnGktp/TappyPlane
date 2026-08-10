@@ -10,6 +10,7 @@ public class SquareRockScript : MonoBehaviour
     private GameObject Fragments;
     Vector3 startPos;
     private float glidingRange = 1.5f;
+    [SerializeField] float glidingSpeed = 2f;
 
     
     void Start()
@@ -28,7 +29,7 @@ public class SquareRockScript : MonoBehaviour
     {
         rb.linearVelocity =  Vector2.left * speed;
 
-        float newY = startPos.y + Mathf.Sin(Time.time * 2f) * glidingRange;
+        float newY = startPos.y + Mathf.Sin(Time.time * glidingSpeed) * glidingRange;
         transform.position = new Vector3 (transform.position.x, newY, transform.position.z);
 
         if (gameObject.transform.position.x < deathZone)
