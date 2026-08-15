@@ -33,6 +33,7 @@ public class RockScript : MonoBehaviour
     void Update()
     {
         rb.linearVelocity =  Vector2.left * speed;
+        //transform.Translate(Vector3.left * speed * Time.deltaTime);
 
         if (gameObject.transform.position.x < deathZone)
         {
