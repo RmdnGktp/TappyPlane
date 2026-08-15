@@ -25,6 +25,7 @@ public class SpawnManager : MonoBehaviour
     private float gameTime;
     private bool isObjectGroupsSpawned = false;
     private bool isObjectGroupdReadytoSpawn = false;
+    private int maxSpikeNumbers;
 
     
     [SerializeField] PlaneScript planeScript;
@@ -91,8 +92,9 @@ public class SpawnManager : MonoBehaviour
         // Without diffuculty, fixed yShifting value, fixed gapbetweenPipes value 
         float centerY = Random.Range(-yShifting, yShifting);
         currentGap = Mathf.Lerp (minGap, maxGap, difficulty);
+       
 
-        int maxValue = Mathf.RoundToInt(Mathf.Lerp(1, 3, difficulty));
+        int maxValue = Mathf.RoundToInt(Mathf.Lerp(1, 5, difficulty));
         if (isObjectGroupdReadytoSpawn)
         {
             //maxValue = 5;
@@ -102,32 +104,34 @@ public class SpawnManager : MonoBehaviour
         switch (value)
         {
             case 0:
-            yield return StartCoroutine(SpawnSpikes(centerY, currentGap));
+                maxSpikeNumbers = Mathf.RoundToInt(Mathf.Lerp(1, 3, difficulty));
+                yield return StartCoroutine(SpawnSpikes(centerY, currentGap, maxSpikeNumbers));
             break;
 
             case 1:
-            SpawnSinglePattern();
+                SpawnSinglePattern();
             break;
 
             case 2:
-            SpawnDoublePattern();
+                SpawnDoublePattern();
             break;
 
             case 3:
-            SpawnTriplePattern();
+                int max = Mathf.RoundToInt(Random.Range(4, 10));
+                yield return StartCoroutine(SpawnSpikes(centerY, maxGap, max));
             break;
 
             case 4:
-            
+                SpawnTriplePattern();
             break;
 
             case 5:
-            
+
             break;
 
             //Spawn breathing moments
             case 40:
-            StartCoroutine(SpawnObjectGroups());
+            
             isObjectGroupsSpawned = true;
             break;
         }
@@ -137,22 +141,29 @@ public class SpawnManager : MonoBehaviour
         //yield return null;
     }
 
-    IEnumerator SpawnSpikes (float centerY, float gapSize)
+    IEnumerator SpawnSpikes (float centerY, float gapSize, int max)
     {   
-        float topCenterY = centerY + gapSize;
         float bottomCenterY = centerY - gapSize;
+        float topCenterY = centerY + gapSize;
         float xShift = Random.Range(-xShifting, xShifting);
         spikeSize = 1f;
 
-        int max = Mathf.RoundToInt(Mathf.Lerp(1, 3, difficulty));
         float y =  0;
+        float a =  -0.5f;
         
         for (int i = 0; i < max; i++)
         {
-            float a =  0.5f;
-            if (Random.Range(0, 2) == 0)
+            if (bottomCenterY + y + a < -4.5f)
+            {
+                a = 0.5f;
+            }
+            else if (topCenterY + y + a > 4.5f)
+            {
+                a = -0.5f;
+            }
+            else if (Random.Range(0, 2) == 0)
             {   
-            a = -a;
+                a = -a;
             }       
 
             y = y + a;
@@ -163,16 +174,12 @@ public class SpawnManager : MonoBehaviour
             TopSpike.transform.localScale = new Vector3 (1,-1,1);
             TopSpike.GetComponent<RockScript>().isRotated = true;
 
-            yield return new WaitForSeconds((spikeSize - 0.12f) / RockScript.speed); 
+            yield return new WaitForSeconds((spikeSize - 0.13f) / RockScript.speed); 
         }
 
         spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
         //yield return null;
     }
-
-
-
-
 
     // SPAWN OBJECTS ----------------------------------------------------------------------------------------------------
     void SpawnSingleObject (float centerY)
@@ -223,30 +230,6 @@ public class SpawnManager : MonoBehaviour
 
         Instantiate(objects[2], new Vector3(transform.position.x + xShiftingObjects, y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
     }
-
-    IEnumerator SpawnObjectGroups ()
-    {   
-        spikeSize = 1f;
-
-        //int x = Random.Range (2,4);
-        int x = 1;
-
-        for (int i = 0; i < x; i++)
-        {
-            float y =  Random.Range(-1.5f, 1.5f);
-            int value = Random.Range(0, objectGroups.Length);
-            Instantiate(objectGroups[value], new Vector3(transform.position.x + (spikeSize/2), y, 0), Quaternion.Euler(0, 0, 0), gameObject.transform);
-
-            yield return new WaitForSeconds(1f); 
-        }
-
-        spawnTime = (gapBetweenPipes + spikeSize) / RockScript.speed;
-
-    }
-
-
-
-
 
 
     // SPAWN PATTERN ----------------------------------------------------------------------------------------------------
